@@ -16,6 +16,14 @@ function App() {
 
   const projects = [
     {
+      title: "Blog de Café - Web Estática",
+      description: "El Blog de Café es un sitio web estático creado por Anyelo Bustos, un freelancer experimentado en diseño web. Utilizando HTML5 y CSS, se ha desarrollado un diseño receptivo y atractivo que se adapta a diferentes dispositivos. Incluye secciones de nosotros, cursos y contacto.",
+      technologies: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
+      image: "https://i.postimg.cc/0QpXs7ny/cafe1.png",
+      github: "https://github.com/daisersenpro/blogCafe",
+      demo: "https://magenta-longma-a77e91.netlify.app"
+    },
+    {
       title: "Festival de Música - Landing Page",
       description: "La Página Festival de Música fue creada por Anyelo Bustos, un freelancer experimentado. Utilicé SASS, Gulp, Node.js y JavaScript para lograr un diseño atractivo y eficiente. Es una web estática enfocada en estilos modernos.",
       technologies: ["SASS", "Gulp", "Node.js", "JavaScript"],
