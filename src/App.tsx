@@ -96,27 +96,25 @@ function App() {
     setSubmitStatus('idle');
 
     try {
-      console.log('Iniciando envío de email...');
-      
-      // Configuración de EmailJS
-      const templateParams = {
-        name: formData.name,
-        email: formData.email,
-        title: 'Nuevo mensaje de contacto',
-        message: formData.message
-      };
+      // Crear mensaje para WhatsApp
+      const whatsappMessage = `Hola Anyelo! 
 
-      console.log('Parámetros del template:', templateParams);
+Tienes un nuevo mensaje de contacto desde tu portafolio:
 
-      // Enviar email usando EmailJS
-      const result = await emailjs.send(
-        'service_a7aob6o',
-        'template_ccbrvte',
-        templateParams,
-        'BEYaZz0Xdj3ql8OHW'
-      );
+👤 *Nombre:* ${formData.name}
+📧 *Email:* ${formData.email}
+💬 *Mensaje:* ${formData.message}
 
-      console.log('Email enviado exitosamente:', result);
+---
+Enviado desde tu portafolio web`;
+
+      // Codificar el mensaje para la URL de WhatsApp
+      const encodedMessage = encodeURIComponent(whatsappMessage);
+      const whatsappUrl = `https://wa.me/56949728928?text=${encodedMessage}`;
+
+      // Abrir WhatsApp Web
+      window.open(whatsappUrl, '_blank');
+
       setSubmitStatus('success');
       setFormData({ name: '', email: '', message: '' });
       
@@ -126,7 +124,7 @@ function App() {
       }, 3000);
 
     } catch (error) {
-      console.error('Error detallado al enviar email:', error);
+      console.error('Error al procesar formulario:', error);
       setSubmitStatus('error');
       
       // Resetear el estado después de 3 segundos
@@ -718,7 +716,7 @@ function App() {
                 {/* Estado del envío */}
                 {submitStatus === 'success' && (
                   <div className="p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg">
-                    ¡Mensaje enviado exitosamente! Te responderé pronto.
+                    ¡Mensaje procesado! Se abrirá WhatsApp con tu mensaje. Solo presiona enviar.
                   </div>
                 )}
                 
@@ -737,7 +735,7 @@ function App() {
                       : 'bg-blue-600 text-white hover:bg-blue-700'
                   }`}
                 >
-                  {isSubmitting ? 'Enviando...' : 'Enviar Mensaje'}
+                  {isSubmitting ? 'Procesando...' : 'Enviar por WhatsApp'}
                 </button>
               </form>
             </div>
