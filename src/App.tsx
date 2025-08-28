@@ -14,6 +14,13 @@ function App() {
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
+  // ========================================
+  // ESTADOS PARA CARRUSEL DE CERTIFICACIONES
+  // ========================================
+  const [currentCertIndex, setCurrentCertIndex] = useState(0);
+  const [showCertModal, setShowCertModal] = useState(false);
+  const [selectedCert, setSelectedCert] = useState<any>(null);
+
   const projects = [
     // ========================================
     // 🥇 PROYECTOS PRIORITARIOS (PRIMEROS 5)
@@ -106,6 +113,199 @@ function App() {
   ];
 
   // ========================================
+  // DATOS DE CERTIFICACIONES
+  // ========================================
+  const certifications = [
+    // ========================================
+    // 🚀 BOOTCAMPS & DIPLOMADOS (MÁS IMPORTANTES)
+    // ========================================
+    {
+      id: 1,
+      title: "Bootcamp Full Stack Java",
+      issuer: "Bootcamp",
+      date: "2024",
+      hours: 225,
+      description: "Técnicas de desarrollo de aplicaciones Full Stack en Java",
+      image: "https://i.postimg.cc/wTHYQLvT/18-T-cnicas-De-Desarrollo-De-Aplicaciones-Full-Stack-En-Java.jpg",
+      category: "bootcamp"
+    },
+    {
+      id: 2,
+      title: "Diplomado en Programación de Software",
+      issuer: "Diplomado",
+      date: "2024",
+      hours: 360,
+      description: "Programación avanzada de software empresarial",
+      image: "https://i.postimg.cc/fyVDnhGW/13-DIPLOMADO-EN-PROGRAMACI-N-DE-SOFTWARE.jpg",
+      category: "diplomado"
+    },
+    {
+      id: 3,
+      title: "Diplomado en Programación y Desarrollo Web",
+      issuer: "Diplomado",
+      date: "2024",
+      hours: 216,
+      description: "Desarrollo de aplicaciones empresariales web y móvil",
+      image: "https://i.postimg.cc/CKnG1Zbb/10-DIPLOMADO-EN-PROGRAMACI-N-Y-DESARROLLO-DE-APLICACIONES-EMPRESARIALES-WEB-Y-MOVIL.jpg",
+      category: "diplomado"
+    },
+    {
+      id: 4,
+      title: "Diplomado en Análisis y Programación de BD",
+      issuer: "Diplomado",
+      date: "2024",
+      hours: 144,
+      description: "SQL Server, MySQL, Oracle, PL/SQL - Análisis completo de bases de datos",
+      image: "https://i.postimg.cc/C1Lw78Jq/12-DIPLOMADO-EN-AN-LISIS-Y-PROGRAMACI-N-DE-BASE-DE-DATOS.jpg",
+      category: "diplomado"
+    },
+    {
+      id: 5,
+      title: "Diplomado en Soporte Hardware y Redes",
+      issuer: "Diplomado",
+      date: "2024",
+      hours: 162,
+      description: "Soporte técnico en hardware y redes de datos corporativas",
+      image: "https://i.postimg.cc/7P3N0TdV/8-DIPLOMADO-EN-SOPORTE-EN-HARDWARE-Y-REDES-DE-DATOS.jpg",
+      category: "diplomado"
+    },
+    
+    // ========================================
+    // 💻 DESARROLLO WEB
+    // ========================================
+    {
+      id: 6,
+      title: "Desarrollo Web Full Stack para Restaurantes",
+      issuer: "Udemy - Prof. Oscar Uh",
+      date: "2024",
+      hours: 9,
+      description: "PHP puro, MySQL, Bootstrap y jQuery - Sistema completo para restaurantes",
+      image: "https://i.postimg.cc/9Mc6Vj75/3-PHP-Sitio-web.jpg",
+      category: "web"
+    },
+    {
+      id: 7,
+      title: "Desarrollo Web Front-End",
+      issuer: "Universidad Desarrollo Web",
+      date: "2024",
+      hours: 30.5,
+      description: "HTML, CSS, JavaScript avanzado - DOM, Flexbox, aplicaciones prácticas",
+      image: "https://i.postimg.cc/gjJ1Xqsg/4-Frontend-Web.jpg",
+      category: "web"
+    },
+    {
+      id: 8,
+      title: "jQuery desde Cero (Aprende Ajax)",
+      issuer: "Udemy",
+      date: "2024",
+      hours: 6.5,
+      description: "jQuery, AJAX, plugins y integración con PHP",
+      image: "https://i.postimg.cc/9FPNmkcc/5-JQuery-Ajax.jpg",
+      category: "web"
+    },
+    
+    // ========================================
+    // 🗄️ BASES DE DATOS
+    // ========================================
+    {
+      id: 9,
+      title: "Máster de SQL Server de Cero a Profesional",
+      issuer: "Udemy",
+      date: "2024",
+      hours: 16,
+      description: "T-SQL, funciones, procedimientos almacenados, diseño de BD, seguridad",
+      image: "https://i.postimg.cc/QxMj1cVG/1-Master-SQL-Server.jpg",
+      category: "database"
+    },
+    
+    // ========================================
+    // 🛠️ HERRAMIENTAS Y TECNOLOGÍAS
+    // ========================================
+    {
+      id: 10,
+      title: "Git y GitHub",
+      issuer: "Udemy",
+      date: "2024",
+      hours: 12,
+      description: "Control de versiones, repositorios, GitHub Pages, Wikis, Proyectos",
+      image: "https://i.postimg.cc/QtbrWM3d/2-Git-Git-Hub.jpg",
+      category: "tools"
+    },
+    {
+      id: 11,
+      title: "Linux Unhatched",
+      issuer: "Linux Foundation",
+      date: "2024",
+      hours: 20,
+      description: "Fundamentos de Linux y administración de sistemas",
+      image: "https://i.postimg.cc/8PhP1TFs/15-linux-unhatched.png",
+      category: "tools"
+    },
+    {
+      id: 12,
+      title: "Python Essentials",
+      issuer: "Python Institute",
+      date: "2024",
+      hours: 25,
+      description: "Fundamentos de Python y programación básica",
+      image: "https://i.postimg.cc/wMDHTkjn/16-python-essentials.png",
+      category: "tools"
+    },
+    
+    // ========================================
+    // 🖥️ DESARROLLO DE ESCRITORIO
+    // ========================================
+    {
+      id: 13,
+      title: "Sistema de Asistencias en C# y SQL Server",
+      issuer: "Udemy",
+      date: "2024",
+      hours: 12.5,
+      description: "Aplicación de escritorio en C# con base de datos SQL Server",
+      image: "https://i.postimg.cc/d0g9mRJW/7-C-App-Escritorio.jpg",
+      category: "desktop"
+    },
+    
+    // ========================================
+    // 💬 HABILIDADES BLANDAS
+    // ========================================
+    {
+      id: 14,
+      title: "Soporte Técnico en Entornos Corporativos",
+      issuer: "Udemy",
+      date: "2024",
+      hours: 10.5,
+      description: "Gestión de tecnología en PYMES, redes y soporte técnico",
+      image: "https://i.postimg.cc/ZKLVtyLR/6-Soporte-Tecnico.jpg",
+      category: "soft-skills"
+    },
+    {
+      id: 15,
+      title: "Desarrollo de Habilidades de Comunicación Efectiva",
+      issuer: "Udemy",
+      date: "2024",
+      hours: 8,
+      description: "Comunicación efectiva en entornos profesionales",
+      image: "https://i.postimg.cc/DydF95DX/17-Desarrollo-de-Habilidades-de-Comunicaci-n-Efectiva.jpg",
+      category: "soft-skills"
+    },
+    
+    // ========================================
+    // 📚 PROGRAMACIÓN Y ANÁLISIS
+    // ========================================
+    {
+      id: 16,
+      title: "Diplomado en Programación y Análisis de Software",
+      issuer: "Diplomado",
+      date: "2024",
+      hours: 216,
+      description: "Análisis y programación avanzada de software",
+      image: "https://i.postimg.cc/sXNCJNvk/14-DIPLOMADO-EN-PROGRAMACI-N-Y-AN-LISIS-DE-SOFTWARE.jpg",
+      category: "programming"
+    }
+  ];
+
+  // ========================================
   // EFECTOS (Código que se ejecuta automáticamente)
   // ========================================
   useEffect(() => {
@@ -124,6 +324,21 @@ function App() {
     // Limpiamos el escuchador cuando el componente se desmonta
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // ========================================
+  // EFECTO PARA ROTACIÓN AUTOMÁTICA DEL CARRUSEL
+  // ========================================
+  useEffect(() => {
+    // Timer para rotación automática cada 4 segundos
+    const interval = setInterval(() => {
+      setCurrentCertIndex((prev) => 
+        prev === certifications.length - 1 ? 0 : prev + 1
+      );
+    }, 4000);
+
+    // Limpiamos el timer cuando el componente se desmonta
+    return () => clearInterval(interval);
+  }, [certifications.length]);
 
   // ========================================
   // FUNCIONES DE NAVEGACIÓN
@@ -202,6 +417,41 @@ Enviado desde tu portafolio web`;
   };
 
   // ========================================
+  // FUNCIONES PARA CARRUSEL DE CERTIFICACIONES
+  // ========================================
+
+  // Función para ir a la siguiente certificación
+  const nextCert = () => {
+    setCurrentCertIndex((prev) => 
+      prev === certifications.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  // Función para ir a la certificación anterior
+  const prevCert = () => {
+    setCurrentCertIndex((prev) => 
+      prev === 0 ? certifications.length - 1 : prev - 1
+    );
+  };
+
+  // Función para ir a una certificación específica
+  const goToCert = (index: number) => {
+    setCurrentCertIndex(index);
+  };
+
+  // Función para abrir el modal de certificación
+  const openCertModal = (cert: any) => {
+    setSelectedCert(cert);
+    setShowCertModal(true);
+  };
+
+  // Función para cerrar el modal
+  const closeCertModal = () => {
+    setShowCertModal(false);
+    setSelectedCert(null);
+  };
+
+  // ========================================
   // INTERFAZ VISUAL (JSX) - LO QUE VE EL USUARIO
   // ========================================
   return (
@@ -262,6 +512,14 @@ Enviado desde tu portafolio web`;
                 Proyectos
               </button>
               <button
+                onClick={() => scrollToSection('certificaciones')}
+                className={`transition-colors font-medium ${
+                  scrollY > 50 ? 'text-blue-600 hover:text-blue-800' : 'text-white hover:text-blue-200'
+                }`}
+              >
+                Certificaciones
+              </button>
+              <button
                 onClick={() => scrollToSection('contacto')}
                 className={`transition-colors font-medium ${
                   scrollY > 50 ? 'text-blue-600 hover:text-blue-800' : 'text-white hover:text-blue-200'
@@ -315,6 +573,12 @@ Enviado desde tu portafolio web`;
                   className="text-gray-900 hover:text-blue-600 transition-colors font-medium text-left"
                 >
                   Proyectos
+                </button>
+                <button
+                  onClick={() => { scrollToSection('certificaciones'); setShowMobileMenu(false); }}
+                  className="text-gray-900 hover:text-blue-600 transition-colors font-medium text-left"
+                >
+                  Certificaciones
                 </button>
                 <button
                   onClick={() => { scrollToSection('contacto'); setShowMobileMenu(false); }}
@@ -374,10 +638,7 @@ Enviado desde tu portafolio web`;
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Sobre Mí</h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-              Analista Programador titulado con experiencia en desarrollo de aplicaciones de escritorio (VB.NET, C#) y aplicaciones web modernas (SPA con Angular). 
-              Conocimiento en SQL Server, Git y entornos de desarrollo con PHP y MySQL/MariaDB (XAMPP, Workbench). 
-              También he trabajado con Laravel, Java (Spring Boot), Node.js y pruebas de integración en Tomcat. 
-              Me mantengo en constante aprendizaje y crecimiento profesional.
+              Analista Programador con experiencia en desarrollo de aplicaciones de escritorio (VB.NET, C#, .NET Core), aplicaciones web modernas con React y Angular (SPA) y creación de landing pages. Conocimiento en SQL Server, Git y entornos con PHP y MySQL/MariaDB (XAMPP, Workbench). Experiencia en Laravel, Java (Spring Boot), Node.js y pruebas de integración en Tomcat. Manejo de consumo y creación de APIs RESTful. Me mantengo en constante aprendizaje y crecimiento profesional.
             </p>
           </div>
           
@@ -673,6 +934,163 @@ Enviado desde tu portafolio web`;
         </div>
       </section>
 
+      {/* ======================================== */}
+      {/* SECCIÓN DE CERTIFICACIONES */}
+      {/* ======================================== */}
+      <section id="certificaciones" className="py-20 bg-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">🏆 Mis Certificaciones</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Más de 1,500 horas de formación profesional en desarrollo web, bases de datos y tecnologías modernas
+            </p>
+          </div>
+
+          {/* ======================================== */}
+          {/* CARRUSEL DE CERTIFICACIONES */}
+          {/* ======================================== */}
+          <div className="relative">
+            {/* Botones de navegación */}
+            <button
+              onClick={prevCert}
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-gray-800 hover:text-blue-600 p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+
+            <button
+              onClick={nextCert}
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-gray-800 hover:text-blue-600 p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+
+            {/* Contenedor del carrusel */}
+            <div className="overflow-hidden">
+              <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentCertIndex * 100}%)` }}>
+                {certifications.map((cert, index) => (
+                  <div key={cert.id} className="w-full flex-shrink-0 px-4">
+                    <div className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer" onClick={() => openCertModal(cert)}>
+                      {/* Imagen de la certificación */}
+                      <div className="relative h-64 bg-gradient-to-br from-blue-50 to-indigo-100">
+                        <img 
+                          src={cert.image} 
+                          alt={cert.title}
+                          className="w-full h-full object-cover"
+                        />
+                        {/* Overlay con información */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent">
+                          <div className="absolute bottom-4 left-4 right-4 text-white">
+                            <div className="flex items-center justify-between mb-2">
+                              <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                                {cert.hours}h
+                              </span>
+                              <span className="bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm">
+                                {cert.date}
+                              </span>
+                            </div>
+                            <h3 className="text-xl font-bold mb-2 line-clamp-2">{cert.title}</h3>
+                            <p className="text-sm text-blue-200">{cert.issuer}</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Contenido de la tarjeta */}
+                      <div className="p-6">
+                        <div className="flex items-center justify-between mb-3">
+                          <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${
+                            cert.category === 'bootcamp' ? 'bg-purple-100 text-purple-800' :
+                            cert.category === 'diplomado' ? 'bg-green-100 text-green-800' :
+                            cert.category === 'web' ? 'bg-blue-100 text-blue-800' :
+                            cert.category === 'database' ? 'bg-orange-100 text-orange-800' :
+                            cert.category === 'tools' ? 'bg-indigo-100 text-indigo-800' :
+                            cert.category === 'desktop' ? 'bg-red-100 text-red-800' :
+                            cert.category === 'soft-skills' ? 'bg-pink-100 text-pink-800' :
+                            'bg-gray-100 text-gray-800'
+                          }`}>
+                            {cert.category === 'bootcamp' ? '🚀 Bootcamp' :
+                             cert.category === 'diplomado' ? '🎓 Diplomado' :
+                             cert.category === 'web' ? '💻 Desarrollo Web' :
+                             cert.category === 'database' ? '🗄️ Base de Datos' :
+                             cert.category === 'tools' ? '🛠️ Herramientas' :
+                             cert.category === 'desktop' ? '🖥️ Escritorio' :
+                             cert.category === 'soft-skills' ? '💬 Habilidades Blandas' :
+                             '📚 Programación'}
+                          </span>
+                        </div>
+                        <p className="text-gray-600 text-sm line-clamp-3">{cert.description}</p>
+                        <div className="mt-4 flex items-center justify-between">
+                          <span className="text-xs text-gray-500">Haz clic para ver más detalles</span>
+                          <div className="flex space-x-1">
+                            {certifications.map((_, dotIndex) => (
+                              <button
+                                key={dotIndex}
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  goToCert(dotIndex);
+                                }}
+                                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                                  dotIndex === currentCertIndex ? 'bg-blue-600 w-4' : 'bg-gray-300'
+                                }`}
+                              />
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Indicadores de posición */}
+            <div className="flex justify-center mt-8 space-x-2">
+              {certifications.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToCert(index)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    index === currentCertIndex ? 'bg-blue-600 w-8' : 'bg-gray-300 hover:bg-gray-400'
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* ======================================== */}
+          {/* RESUMEN ESTADÍSTICAS */}
+          {/* ======================================== */}
+          <div className="mt-16 grid md:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="text-4xl font-bold text-blue-600 mb-2">{certifications.length}</div>
+              <div className="text-gray-600">Certificaciones</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-green-600 mb-2">
+                {certifications.reduce((total, cert) => total + cert.hours, 0).toLocaleString()}
+              </div>
+              <div className="text-gray-600">Horas Totales</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-purple-600 mb-2">
+                {certifications.filter(cert => cert.category === 'bootcamp' || cert.category === 'diplomado').length}
+              </div>
+              <div className="text-gray-600">Diplomados</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-orange-600 mb-2">
+                {certifications.filter(cert => cert.category === 'web' || cert.category === 'database').length}
+              </div>
+              <div className="text-gray-600">Tecnologías</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
       <section id="contacto" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -836,6 +1254,7 @@ Enviado desde tu portafolio web`;
                   { name: 'Experiencia', id: 'experiencia' },
                   { name: 'Tecnologías', id: 'tecnologias' },
                   { name: 'Proyectos', id: 'proyectos' },
+                  { name: 'Certificaciones', id: 'certificaciones' },
                   { name: 'Contacto', id: 'contacto' }
                 ].map((item) => (
                   <button
@@ -895,6 +1314,110 @@ Enviado desde tu portafolio web`;
           </div>
         </div>
       </footer>
+
+      {/* ======================================== */}
+      {/* MODAL DE CERTIFICACIÓN */}
+      {/* ======================================== */}
+      {showCertModal && selectedCert && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            {/* Header del modal */}
+            <div className="relative">
+              <img 
+                src={selectedCert.image} 
+                alt={selectedCert.title}
+                className="w-full h-64 object-cover rounded-t-2xl"
+              />
+              <button
+                onClick={closeCertModal}
+                className="absolute top-4 right-4 bg-white/90 hover:bg-white text-gray-800 hover:text-red-600 p-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+              
+              {/* Overlay con información */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-t-2xl">
+                <div className="absolute bottom-4 left-4 right-4 text-white">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                      {selectedCert.hours}h
+                    </span>
+                    <span className="bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm">
+                      {selectedCert.date}
+                    </span>
+                  </div>
+                  <h3 className="text-2xl font-bold mb-2">{selectedCert.title}</h3>
+                  <p className="text-lg text-blue-200">{selectedCert.issuer}</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Contenido del modal */}
+            <div className="p-6">
+              {/* Categoría */}
+              <div className="mb-4">
+                <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${
+                  selectedCert.category === 'bootcamp' ? 'bg-purple-100 text-purple-800' :
+                  selectedCert.category === 'diplomado' ? 'bg-green-100 text-green-800' :
+                  selectedCert.category === 'web' ? 'bg-blue-100 text-blue-800' :
+                  selectedCert.category === 'database' ? 'bg-orange-100 text-orange-800' :
+                  selectedCert.category === 'tools' ? 'bg-indigo-100 text-indigo-800' :
+                  selectedCert.category === 'desktop' ? 'bg-red-100 text-red-800' :
+                  selectedCert.category === 'soft-skills' ? 'bg-pink-100 text-pink-800' :
+                  'bg-gray-100 text-gray-800'
+                }`}>
+                  {selectedCert.category === 'bootcamp' ? '🚀 Bootcamp' :
+                   selectedCert.category === 'diplomado' ? '🎓 Diplomado' :
+                   selectedCert.category === 'web' ? '💻 Desarrollo Web' :
+                   selectedCert.category === 'database' ? '🗄️ Base de Datos' :
+                   selectedCert.category === 'tools' ? '🛠️ Herramientas' :
+                   selectedCert.category === 'desktop' ? '🖥️ Escritorio' :
+                   selectedCert.category === 'soft-skills' ? '💬 Habilidades Blandas' :
+                   '📚 Programación'}
+                </span>
+              </div>
+
+              {/* Descripción */}
+              <div className="mb-6">
+                <h4 className="text-lg font-semibold text-gray-900 mb-2">Descripción</h4>
+                <p className="text-gray-600 leading-relaxed">{selectedCert.description}</p>
+              </div>
+
+              {/* Detalles */}
+              <div className="grid grid-cols-2 gap-4 mb-6">
+                <div>
+                  <h5 className="text-sm font-medium text-gray-500 mb-1">Institución</h5>
+                  <p className="text-gray-900">{selectedCert.issuer}</p>
+                </div>
+                <div>
+                  <h5 className="text-sm font-medium text-gray-500 mb-1">Duración</h5>
+                  <p className="text-gray-900">{selectedCert.hours} horas</p>
+                </div>
+                <div>
+                  <h5 className="text-sm font-medium text-gray-500 mb-1">Año</h5>
+                  <p className="text-gray-900">{selectedCert.date}</p>
+                </div>
+                <div>
+                  <h5 className="text-sm font-medium text-gray-500 mb-1">ID</h5>
+                  <p className="text-gray-900">#{selectedCert.id}</p>
+                </div>
+              </div>
+
+              {/* Botón de cerrar */}
+              <div className="flex justify-end">
+                <button
+                  onClick={closeCertModal}
+                  className="bg-gray-100 hover:bg-gray-200 text-gray-800 px-6 py-2 rounded-lg transition-colors duration-300"
+                >
+                  Cerrar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Scroll to top button */}
       {showScrollTop && (
