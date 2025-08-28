@@ -329,13 +329,13 @@ function App() {
   // EFECTO PARA ROTACIÓN AUTOMÁTICA DEL CARRUSEL
   // ========================================
   useEffect(() => {
-    // Timer para rotación automática cada 5 segundos
+    // Timer para rotación automática cada 7 segundos
     const interval = setInterval(() => {
-      const maxIndex = Math.ceil(certifications.length / 6) - 1;
+      const maxIndex = Math.ceil(certifications.length / 4) - 1;
       setCurrentCertIndex((prev) => 
         prev >= maxIndex ? 0 : prev + 1
       );
-    }, 5000);
+    }, 7000);
 
     // Limpiamos el timer cuando el componente se desmonta
     return () => clearInterval(interval);
@@ -423,7 +423,7 @@ Enviado desde tu portafolio web`;
 
   // Función para ir a la siguiente página de certificaciones
   const nextCert = () => {
-    const maxIndex = Math.ceil(certifications.length / 6) - 1;
+    const maxIndex = Math.ceil(certifications.length / 4) - 1;
     setCurrentCertIndex((prev) => 
       prev >= maxIndex ? 0 : prev + 1
     );
@@ -431,7 +431,7 @@ Enviado desde tu portafolio web`;
 
   // Función para ir a la página anterior de certificaciones
   const prevCert = () => {
-    const maxIndex = Math.ceil(certifications.length / 6) - 1;
+    const maxIndex = Math.ceil(certifications.length / 4) - 1;
     setCurrentCertIndex((prev) => 
       prev <= 0 ? maxIndex : prev - 1
     );
@@ -974,15 +974,15 @@ Enviado desde tu portafolio web`;
 
             {/* Contenedor del carrusel */}
             <div className="overflow-hidden">
-              <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentCertIndex * 100}%)` }}>
-                {/* Generar páginas de 6 certificaciones cada una */}
-                {Array.from({ length: Math.ceil(certifications.length / 6) }, (_, pageIndex) => (
+              <div className="flex transition-transform duration-700 ease-in-out" style={{ transform: `translateX(-${currentCertIndex * 100}%)` }}>
+                {/* Generar páginas de 4 certificaciones cada una */}
+                {Array.from({ length: Math.ceil(certifications.length / 4) }, (_, pageIndex) => (
                   <div key={pageIndex} className="w-full flex-shrink-0 px-4">
-                    <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
-                      {certifications.slice(pageIndex * 6, (pageIndex + 1) * 6).map((cert) => (
+                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                      {certifications.slice(pageIndex * 4, (pageIndex + 1) * 4).map((cert) => (
                         <div key={cert.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer group" onClick={() => openCertModal(cert)}>
                           {/* Imagen de la certificación */}
-                          <div className="relative h-32 bg-gradient-to-br from-blue-50 to-indigo-100">
+                          <div className="relative h-40 bg-gradient-to-br from-blue-50 to-indigo-100">
                             <img 
                               src={cert.image} 
                               alt={cert.title}
@@ -1006,7 +1006,7 @@ Enviado desde tu portafolio web`;
                           </div>
 
                           {/* Contenido de la tarjeta */}
-                          <div className="p-3">
+                          <div className="p-4">
                             {/* Categoría */}
                             <div className="mb-2">
                               <span className={`inline-flex items-center px-1 py-0.5 rounded-full text-xs font-medium ${
@@ -1031,12 +1031,12 @@ Enviado desde tu portafolio web`;
                             </div>
 
                             {/* Título */}
-                            <h3 className="text-xs font-semibold mb-1 text-gray-900 line-clamp-2 group-hover:text-blue-600 transition-colors">
+                            <h3 className="text-sm font-semibold mb-2 text-gray-900 line-clamp-2 group-hover:text-blue-600 transition-colors">
                               {cert.title}
                             </h3>
 
                             {/* Descripción */}
-                            <p className="text-xs text-gray-600 line-clamp-2 mb-2">{cert.description}</p>
+                            <p className="text-xs text-gray-600 line-clamp-3 mb-3">{cert.description}</p>
 
                             {/* Información adicional */}
                             <div className="flex items-center justify-between text-xs text-gray-500">
@@ -1054,7 +1054,7 @@ Enviado desde tu portafolio web`;
 
             {/* Indicadores de posición */}
             <div className="flex justify-center mt-8 space-x-2">
-              {Array.from({ length: Math.ceil(certifications.length / 6) }, (_, index) => (
+              {Array.from({ length: Math.ceil(certifications.length / 4) }, (_, index) => (
                 <button
                   key={index}
                   onClick={() => goToCert(index)}
