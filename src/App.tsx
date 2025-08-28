@@ -65,31 +65,48 @@ function App() {
     }
   ];
 
+  // ========================================
+  // EFECTOS (Código que se ejecuta automáticamente)
+  // ========================================
   useEffect(() => {
+    // Función que se ejecuta cada vez que el usuario hace scroll
     const handleScroll = () => {
-      setScrollY(window.scrollY);
-      setShowScrollTop(window.scrollY > 400);
+      setScrollY(window.scrollY); // Guarda la posición del scroll
+      setShowScrollTop(window.scrollY > 400); // Muestra botón "arriba" después de 400px
     };
 
+    // Agregamos el "escuchador" de scroll a la ventana
     window.addEventListener('scroll', handleScroll);
     
-    // Inicializar EmailJS
+    // Inicializar EmailJS (para el formulario de contacto)
     emailjs.init('BEYaZz0Xdj3ql8OHW');
     
+    // Limpiamos el escuchador cuando el componente se desmonta
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // ========================================
+  // FUNCIONES DE NAVEGACIÓN
+  // ========================================
+  
+  // Función para ir a una sección específica de la página
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: 'smooth' }); // Scroll suave
     }
   };
 
+  // Función para volver al inicio de la página
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  // ========================================
+  // FUNCIONES DEL FORMULARIO
+  // ========================================
+  
+  // Función que se ejecuta cada vez que el usuario escribe en el formulario
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -144,19 +161,25 @@ Enviado desde tu portafolio web`;
     }
   };
 
+  // ========================================
+  // INTERFAZ VISUAL (JSX) - LO QUE VE EL USUARIO
+  // ========================================
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Navigation */}
+      {/* ======================================== */}
+      {/* NAVEGACIÓN PRINCIPAL */}
+      {/* ======================================== */}
       <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         scrollY > 50 ? 'bg-white/95 backdrop-blur-sm shadow-lg' : 'bg-transparent'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
+            {/* Logo/Nombre */}
             <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
               Anyelo Bustos
             </div>
             
-            {/* Navigation Menu */}
+            {/* Menú de Navegación - Solo visible en pantallas medianas y grandes */}
             <div className="hidden md:flex space-x-8">
               <button
                 onClick={() => scrollToSection('inicio')}
