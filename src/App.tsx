@@ -37,7 +37,8 @@ function App() {
       technologies: ["React JS", "Spring Boot", "Bootstrap", "Axios", "JPA", "Hibernate", "MySQL", "Postman"],
       image: "https://i.postimg.cc/HkxBsQr1/Ssitema-RRHH-1.png",
       github: "https://github.com/daisersenpro/proyectofullstackreact-springboot",
-      demo: ""
+      demo: "",
+      category: 'fullstack'
     },
     {
       title: "Web para Restaurantes",
@@ -45,7 +46,8 @@ function App() {
       technologies: ["Bootstrap", "PHP", "MySQL", "JavaScript", "jQuery"],
       image: "https://i.postimg.cc/kgTTL1jT/web-restaurant-front-1.png",
       github: "https://github.com/daisersenpro/WebRestaurante",
-      demo: ""
+      demo: "",
+      category: 'backend'
     },
     {
       title: "SenTagram - Clon de Instagram con Laravel 11",
@@ -53,7 +55,8 @@ function App() {
       technologies: ["Laravel 11", "Tailwind CSS", "Livewire"],
       image: "https://i.postimg.cc/8Czs6zzz/1728562485107.jpg",
       github: "https://github.com/daisersenpro/Sentagram",
-      demo: "https://tigluzi.nyc.dom.my.id/login"
+      demo: "https://tigluzi.nyc.dom.my.id/login",
+      category: 'backend'
     },
     {
       title: "Tarjeta de Crédito - Angular + .NET Core",
@@ -61,7 +64,8 @@ function App() {
       technologies: ["Angular", ".NET Core", "Entity Framework Core", "SQL Server"],
       image: "https://i.postimg.cc/tCZvKnDd/Angular-Tarjeta-Credito1.png",
       github: "https://github.com/daisersenpro/TarjetaCreditoAngNetcore",
-      demo: ""
+      demo: "",
+      category: 'fullstack'
     }
   ];
 
