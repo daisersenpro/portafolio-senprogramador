@@ -211,7 +211,7 @@ function App() {
       id: 9,
       title: "Máster de SQL Server de Cero a Profesional",
       issuer: "Udemy",
-      date: "2024",
+      date: "2025",
       hours: 16,
       description: "T-SQL, funciones, procedimientos almacenados, diseño de BD, seguridad",
       image: "https://i.postimg.cc/QxMj1cVG/1-Master-SQL-Server.jpg",
@@ -225,7 +225,7 @@ function App() {
       id: 10,
       title: "Git y GitHub",
       issuer: "Udemy",
-      date: "2024",
+      date: "2025",
       hours: 12,
       description: "Control de versiones, repositorios, GitHub Pages, Wikis, Proyectos",
       image: "https://i.postimg.cc/QtbrWM3d/2-Git-Git-Hub.jpg",
@@ -235,7 +235,7 @@ function App() {
       id: 11,
       title: "Linux Unhatched",
       issuer: "Linux Foundation",
-      date: "2024",
+      date: "2025",
       hours: 20,
       description: "Fundamentos de Linux y administración de sistemas",
       image: "https://i.postimg.cc/8PhP1TFs/15-linux-unhatched.png",
@@ -1324,8 +1324,8 @@ Enviado desde tu portafolio web`;
       {/* MODAL DE CERTIFICACIÓN */}
       {/* ======================================== */}
       {showCertModal && selectedCert && (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4" onClick={closeCertModal}>
+          <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
             {/* Header del modal */}
             <div className="relative">
               <img 
@@ -1335,7 +1335,7 @@ Enviado desde tu portafolio web`;
               />
               <button
                 onClick={closeCertModal}
-                className="absolute top-4 right-4 bg-white/90 hover:bg-white text-gray-800 hover:text-red-600 p-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+                className="absolute top-4 right-4 bg-white/90 hover:bg-white text-gray-800 hover:text-red-600 p-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-10"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
