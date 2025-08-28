@@ -329,12 +329,13 @@ function App() {
   // EFECTO PARA ROTACIÓN AUTOMÁTICA DEL CARRUSEL
   // ========================================
   useEffect(() => {
-    // Timer para rotación automática cada 4 segundos
+    // Timer para rotación automática cada 5 segundos
     const interval = setInterval(() => {
+      const maxIndex = Math.ceil(certifications.length / 6) - 1;
       setCurrentCertIndex((prev) => 
-        prev === certifications.length - 1 ? 0 : prev + 1
+        prev >= maxIndex ? 0 : prev + 1
       );
-    }, 4000);
+    }, 5000);
 
     // Limpiamos el timer cuando el componente se desmonta
     return () => clearInterval(interval);
@@ -420,21 +421,23 @@ Enviado desde tu portafolio web`;
   // FUNCIONES PARA CARRUSEL DE CERTIFICACIONES
   // ========================================
 
-  // Función para ir a la siguiente certificación
+  // Función para ir a la siguiente página de certificaciones
   const nextCert = () => {
+    const maxIndex = Math.ceil(certifications.length / 6) - 1;
     setCurrentCertIndex((prev) => 
-      prev === certifications.length - 1 ? 0 : prev + 1
+      prev >= maxIndex ? 0 : prev + 1
     );
   };
 
-  // Función para ir a la certificación anterior
+  // Función para ir a la página anterior de certificaciones
   const prevCert = () => {
+    const maxIndex = Math.ceil(certifications.length / 6) - 1;
     setCurrentCertIndex((prev) => 
-      prev === 0 ? certifications.length - 1 : prev - 1
+      prev <= 0 ? maxIndex : prev - 1
     );
   };
 
-  // Función para ir a una certificación específica
+  // Función para ir a una página específica
   const goToCert = (index: number) => {
     setCurrentCertIndex(index);
   };
@@ -972,75 +975,77 @@ Enviado desde tu portafolio web`;
             {/* Contenedor del carrusel */}
             <div className="overflow-hidden">
               <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentCertIndex * 100}%)` }}>
-                {certifications.map((cert, index) => (
-                  <div key={cert.id} className="w-full flex-shrink-0 px-4">
-                    <div className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer" onClick={() => openCertModal(cert)}>
-                      {/* Imagen de la certificación */}
-                      <div className="relative h-64 bg-gradient-to-br from-blue-50 to-indigo-100">
-                        <img 
-                          src={cert.image} 
-                          alt={cert.title}
-                          className="w-full h-full object-cover"
-                        />
-                        {/* Overlay con información */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent">
-                          <div className="absolute bottom-4 left-4 right-4 text-white">
-                            <div className="flex items-center justify-between mb-2">
-                              <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
-                                {cert.hours}h
-                              </span>
-                              <span className="bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm">
-                                {cert.date}
+                {/* Generar páginas de 6 certificaciones cada una */}
+                {Array.from({ length: Math.ceil(certifications.length / 6) }, (_, pageIndex) => (
+                  <div key={pageIndex} className="w-full flex-shrink-0 px-4">
+                    <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
+                      {certifications.slice(pageIndex * 6, (pageIndex + 1) * 6).map((cert) => (
+                        <div key={cert.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer group" onClick={() => openCertModal(cert)}>
+                          {/* Imagen de la certificación */}
+                          <div className="relative h-32 bg-gradient-to-br from-blue-50 to-indigo-100">
+                            <img 
+                              src={cert.image} 
+                              alt={cert.title}
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                            />
+                            {/* Overlay con información */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                              <div className="absolute bottom-2 left-2 right-2 text-white">
+                                <div className="flex items-center justify-between mb-1">
+                                  <span className="bg-blue-600 text-white px-1 py-0.5 rounded-full text-xs font-medium">
+                                    {cert.hours}h
+                                  </span>
+                                  <span className="bg-white/20 backdrop-blur-sm text-white px-1 py-0.5 rounded-full text-xs">
+                                    {cert.date}
+                                  </span>
+                                </div>
+                                <h3 className="text-xs font-bold mb-1 line-clamp-2">{cert.title}</h3>
+                                <p className="text-xs text-blue-200">{cert.issuer}</p>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Contenido de la tarjeta */}
+                          <div className="p-3">
+                            {/* Categoría */}
+                            <div className="mb-2">
+                              <span className={`inline-flex items-center px-1 py-0.5 rounded-full text-xs font-medium ${
+                                cert.category === 'bootcamp' ? 'bg-purple-100 text-purple-800' :
+                                cert.category === 'diplomado' ? 'bg-green-100 text-green-800' :
+                                cert.category === 'web' ? 'bg-blue-100 text-blue-800' :
+                                cert.category === 'database' ? 'bg-orange-100 text-orange-800' :
+                                cert.category === 'tools' ? 'bg-indigo-100 text-indigo-800' :
+                                cert.category === 'desktop' ? 'bg-red-100 text-red-800' :
+                                cert.category === 'soft-skills' ? 'bg-pink-100 text-pink-800' :
+                                'bg-gray-100 text-gray-800'
+                              }`}>
+                                {cert.category === 'bootcamp' ? '🚀' :
+                                 cert.category === 'diplomado' ? '🎓' :
+                                 cert.category === 'web' ? '💻' :
+                                 cert.category === 'database' ? '🗄️' :
+                                 cert.category === 'tools' ? '🛠️' :
+                                 cert.category === 'desktop' ? '🖥️' :
+                                 cert.category === 'soft-skills' ? '💬' :
+                                 '📚'}
                               </span>
                             </div>
-                            <h3 className="text-xl font-bold mb-2 line-clamp-2">{cert.title}</h3>
-                            <p className="text-sm text-blue-200">{cert.issuer}</p>
-                          </div>
-                        </div>
-                      </div>
 
-                      {/* Contenido de la tarjeta */}
-                      <div className="p-6">
-                        <div className="flex items-center justify-between mb-3">
-                          <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${
-                            cert.category === 'bootcamp' ? 'bg-purple-100 text-purple-800' :
-                            cert.category === 'diplomado' ? 'bg-green-100 text-green-800' :
-                            cert.category === 'web' ? 'bg-blue-100 text-blue-800' :
-                            cert.category === 'database' ? 'bg-orange-100 text-orange-800' :
-                            cert.category === 'tools' ? 'bg-indigo-100 text-indigo-800' :
-                            cert.category === 'desktop' ? 'bg-red-100 text-red-800' :
-                            cert.category === 'soft-skills' ? 'bg-pink-100 text-pink-800' :
-                            'bg-gray-100 text-gray-800'
-                          }`}>
-                            {cert.category === 'bootcamp' ? '🚀 Bootcamp' :
-                             cert.category === 'diplomado' ? '🎓 Diplomado' :
-                             cert.category === 'web' ? '💻 Desarrollo Web' :
-                             cert.category === 'database' ? '🗄️ Base de Datos' :
-                             cert.category === 'tools' ? '🛠️ Herramientas' :
-                             cert.category === 'desktop' ? '🖥️ Escritorio' :
-                             cert.category === 'soft-skills' ? '💬 Habilidades Blandas' :
-                             '📚 Programación'}
-                          </span>
-                        </div>
-                        <p className="text-gray-600 text-sm line-clamp-3">{cert.description}</p>
-                        <div className="mt-4 flex items-center justify-between">
-                          <span className="text-xs text-gray-500">Haz clic para ver más detalles</span>
-                          <div className="flex space-x-1">
-                            {certifications.map((_, dotIndex) => (
-                              <button
-                                key={dotIndex}
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  goToCert(dotIndex);
-                                }}
-                                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                                  dotIndex === currentCertIndex ? 'bg-blue-600 w-4' : 'bg-gray-300'
-                                }`}
-                              />
-                            ))}
+                            {/* Título */}
+                            <h3 className="text-xs font-semibold mb-1 text-gray-900 line-clamp-2 group-hover:text-blue-600 transition-colors">
+                              {cert.title}
+                            </h3>
+
+                            {/* Descripción */}
+                            <p className="text-xs text-gray-600 line-clamp-2 mb-2">{cert.description}</p>
+
+                            {/* Información adicional */}
+                            <div className="flex items-center justify-between text-xs text-gray-500">
+                              <span className="truncate">{cert.issuer}</span>
+                              <span className="text-blue-600 font-medium">+</span>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      ))}
                     </div>
                   </div>
                 ))}
@@ -1049,7 +1054,7 @@ Enviado desde tu portafolio web`;
 
             {/* Indicadores de posición */}
             <div className="flex justify-center mt-8 space-x-2">
-              {certifications.map((_, index) => (
+              {Array.from({ length: Math.ceil(certifications.length / 6) }, (_, index) => (
                 <button
                   key={index}
                   onClick={() => goToCert(index)}
