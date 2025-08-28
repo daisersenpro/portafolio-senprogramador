@@ -15,22 +15,9 @@ function App() {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   const projects = [
-    {
-      title: "Blog de Café - Web Estática",
-      description: "El Blog de Café es un sitio web estático creado por Anyelo Bustos, un freelancer experimentado en diseño web. Utilizando HTML5 y CSS, se ha desarrollado un diseño receptivo y atractivo que se adapta a diferentes dispositivos. Incluye secciones de nosotros, cursos y contacto.",
-      technologies: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
-      image: "https://i.postimg.cc/0QpXs7ny/cafe1.png",
-      github: "https://github.com/daisersenpro/blogCafe",
-      demo: "https://magenta-longma-a77e91.netlify.app"
-    },
-    {
-      title: "Festival de Música - Landing Page",
-      description: "La Página Festival de Música fue creada por Anyelo Bustos, un freelancer experimentado. Utilicé SASS, Gulp, Node.js y JavaScript para lograr un diseño atractivo y eficiente. Es una web estática enfocada en estilos modernos.",
-      technologies: ["SASS", "Gulp", "Node.js", "JavaScript"],
-      image: "https://i.postimg.cc/xdQfvVCx/festival1.png",
-      github: "https://github.com/daisersenpro/Web-FestivalMusica",
-      demo: "https://dynamic-profiterole-e32f66.netlify.app"
-    },
+    // ========================================
+    // 🥇 PROYECTOS PRIORITARIOS (PRIMEROS 5)
+    // ========================================
     {
       title: "App web Full Stack RH - React & Spring Boot",
       description: "Desarrollé un sistema de Recursos Humanos, integrando componentes React, estilos Bootstrap, peticiones HTTP con AXIOS. En el backend, configuré controladores REST, probé con Postman, y usé JPA y Hibernate para la base de datos MySQL.",
@@ -39,15 +26,6 @@ function App() {
       github: "https://github.com/daisersenpro/proyectofullstackreact-springboot",
       demo: "",
       category: 'fullstack'
-    },
-    {
-      title: "Web para Restaurantes",
-      description: "Web administrable y responsiva. Permite gestionar banners, menús, colaboradores, usuarios y testimonios. Los administradores acceden mediante un login seguro. Desarrollada con Bootstrap, PHP, MySQL, JavaScript y jQuery.",
-      technologies: ["Bootstrap", "PHP", "MySQL", "JavaScript", "jQuery"],
-      image: "https://i.postimg.cc/kgTTL1jT/web-restaurant-front-1.png",
-      github: "https://github.com/daisersenpro/WebRestaurante",
-      demo: "",
-      category: 'backend'
     },
     {
       title: "SenTagram - Clon de Instagram con Laravel 11",
@@ -66,6 +44,64 @@ function App() {
       github: "https://github.com/daisersenpro/TarjetaCreditoAngNetcore",
       demo: "",
       category: 'fullstack'
+    },
+    {
+      title: "Bienes Raíces CRUD - PHP + MySQL + Node.js",
+      description: "Sistema completo de gestión de propiedades inmobiliarias desarrollado con PHP puro y MySQL en el backend. El frontend utiliza Node.js, Gulp y Sass para automatización y estilos modernos. Incluye CRUD completo de propiedades, autenticación de usuarios y panel administrativo.",
+      technologies: ["PHP", "MySQL", "Node.js", "Gulp", "Sass", "JavaScript", "CRUD", "Authentication"],
+      image: "https://i.postimg.cc/wMYdr84C/Bienes-Raices-Adomistrador-Crude.png",
+      github: "",
+      demo: "",
+      category: 'fullstack'
+    },
+    {
+      title: "Web para Restaurantes",
+      description: "Web administrable y responsiva. Permite gestionar banners, menús, colaboradores, usuarios y testimonios. Los administradores acceden mediante un login seguro. Desarrollada con Bootstrap, PHP, MySQL, JavaScript y jQuery.",
+      technologies: ["Bootstrap", "PHP", "MySQL", "JavaScript", "jQuery"],
+      image: "https://i.postimg.cc/kgTTL1jT/web-restaurant-front-1.png",
+      github: "https://github.com/daisersenpro/WebRestaurante",
+      demo: "",
+      category: 'backend'
+    },
+    
+    // ========================================
+    // 🎨 PROYECTOS FRONTEND/LANDING PAGES
+    // ========================================
+    {
+      title: "Blog de Café - Web Estática",
+      description: "El Blog de Café es un sitio web estático creado por Anyelo Bustos, un freelancer experimentado en diseño web. Utilizando HTML5 y CSS, se ha desarrollado un diseño receptivo y atractivo que se adapta a diferentes dispositivos. Incluye secciones de nosotros, cursos y contacto.",
+      technologies: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
+      image: "https://i.postimg.cc/0QpXs7ny/cafe1.png",
+      github: "https://github.com/daisersenpro/blogCafe",
+      demo: "https://magenta-longma-a77e91.netlify.app",
+      category: 'frontend'
+    },
+    {
+      title: "App de Presupuesto - Gestión Financiera",
+      description: "Aplicación web para contabilidad de ingresos y egresos de presupuesto. Desarrollada con HTML, CSS y JavaScript vanilla, demuestra habilidades en desarrollo frontend puro, manejo de estado local y diseño responsivo.",
+      technologies: ["HTML5", "CSS3", "JavaScript", "LocalStorage", "Responsive Design"],
+      image: "https://i.postimg.cc/Cx7CK9Dr/App-Presupuesto-1.png",
+      github: "https://github.com/daisersenpro/AppPresupuesto",
+      demo: "",
+      category: 'frontend'
+    },
+    {
+      title: "Festival de Música - Landing Page",
+      description: "La Página Festival de Música fue creada por Anyelo Bustos, un freelancer experimentado. Utilicé SASS, Gulp, Node.js y JavaScript para lograr un diseño atractivo y eficiente. Es una web estática enfocada en estilos modernos.",
+      technologies: ["SASS", "Gulp", "Node.js", "JavaScript"],
+      image: "https://i.postimg.cc/xdQfvVCx/festival1.png",
+      github: "https://github.com/daisersenpro/Web-FestivalMusica",
+      demo: "https://dynamic-profiterole-e32f66.netlify.app",
+      category: 'frontend'
+    },
+    {
+      title: "FrontEndStore - Tienda de Camisetas Tecnológicas",
+      description: "FrontEndStore es un sitio web estático para una tienda de camisetas con temática tecnológica. Desarrollado con HTML5 y CSS, presenta un diseño receptivo y atractivo que se adapta a diferentes dispositivos. Incluye páginas de productos, nosotros y un catálogo completo de camisetas con logos de tecnologías web.",
+      technologies: ["HTML5", "CSS3", "Responsive Design", "Static Website", "E-commerce Design"],
+      image: "https://i.postimg.cc/sgrK6JB3/Front-Store-4.png",
+      github: "https://github.com/daisersenpro/FrontStoreSenPro",
+      demo: "https://frontstoresenpro.netlify.app/",
+      category: 'frontend'
     }
   ];
 
