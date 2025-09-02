@@ -641,7 +641,8 @@ Enviado desde tu portafolio web`;
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Sobre Mí</h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-              Analista Programador con experiencia en desarrollo de aplicaciones de escritorio (VB.NET, C#, .NET Core), aplicaciones web modernas con React y Angular (SPA) y creación de landing pages. Conocimiento en SQL Server, Git y entornos con PHP y MySQL/MariaDB (XAMPP, Workbench). Experiencia en Laravel, Java (Spring Boot), Node.js y pruebas de integración en Tomcat. Manejo de consumo y creación de APIs RESTful. Me mantengo en constante aprendizaje y crecimiento profesional.
+              Analista Programador con experiencia en desarrollo de aplicaciones de escritorio (VB.NET, C#, .NET Core), aplicaciones web modernas con React y Angular (SPA) y creación de landing pages. Conocimiento en SQL Server, PostgreSQL, Git y entornos con PHP y MySQL/MariaDB (XAMPP, Workbench).<br/>
+              Experiencia en Laravel, Java (Spring Boot), Node.js y pruebas de integración en Tomcat. Manejo de consumo y creación de APIs RESTful. Conocimientos en pruebas de automatización con Maven, CI/CD y entornos de despliegue. Me mantengo en constante aprendizaje y crecimiento profesional.
             </p>
           </div>
           
@@ -660,7 +661,7 @@ Enviado desde tu portafolio web`;
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                  <span className="text-gray-700">Backend con Java, PHP, C#, Python y frameworks como Spring Boot, .NET Framework y Laravel</span>
+                  <span className="text-gray-700">Backend con Java, PHP, C#, Python y frameworks como Spring Boot, .NET Framework, .NET Core y Laravel</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
@@ -712,7 +713,7 @@ Enviado desde tu portafolio web`;
             <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900">Asistente de Desarrollo Informático</h3>
+                  <h3 className="text-xl font-bold text-gray-900">Programador Full Stack</h3>
                   <p className="text-lg text-blue-600 font-semibold">San Jorge Packaging</p>
                 </div>
                 <div className="text-sm text-gray-500 mt-2 md:mt-0">
@@ -753,19 +754,9 @@ Enviado desde tu portafolio web`;
               <ul className="text-gray-600 space-y-2">
                 <li className="flex items-start gap-2">
                   <span className="text-blue-600 mt-1">•</span>
-                  <span>Desarrollo de sitios web para diversos clientes, incluyendo landing pages con HTML, CSS, Bootstrap y Tailwind CSS.</span>
+                  <span>Desarrollo de sitios web personalizados para clientes: Alcanza tu Estrella (ONG), Urbanos Delux (eventos artísticos), Gourmet Restaurant (restaurantes), pymes y emprendedores. Creación de landing pages con HTML, CSS, Bootstrap y Tailwind CSS. Backend en PHP puro y Laravel. Gestión de bases de datos MySQL/MariaDB y uso de entornos locales con XAMPP.</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-600 mt-1">•</span>
-                  <span>Implementación de backend en PHP puro y con Laravel como framework.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-blue-600 mt-1">•</span>
-                  <span>Gestión de bases de datos MySQL y MariaDB.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-blue-600 mt-1">•</span>
-                  <span>Uso de entornos locales de desarrollo con XAMPP.</span>
                 </li>
               </ul>
             </div>
@@ -774,7 +765,7 @@ Enviado desde tu portafolio web`;
             <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900">Programador Junior</h3>
+                  <h3 className="text-xl font-bold text-gray-900">Programador de Aplicaciones</h3>
                   <p className="text-lg text-blue-600 font-semibold">ITPS Gestión</p>
                 </div>
                 <div className="text-sm text-gray-500 mt-2 md:mt-0">
@@ -860,6 +851,7 @@ Enviado desde tu portafolio web`;
                 <span className="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm mr-2 mb-2 group-hover:bg-green-200 transition-colors">Laravel</span>
                 <span className="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm mr-2 mb-2 group-hover:bg-green-200 transition-colors">C#</span>
                 <span className="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm mr-2 mb-2 group-hover:bg-green-200 transition-colors">.NET Framework</span>
+              <span className="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm mr-2 mb-2 group-hover:bg-green-200 transition-colors">.NET Core</span>
                 <span className="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm mr-2 mb-2 group-hover:bg-green-200 transition-colors">VB.NET</span>
                 <span className="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm mr-2 mb-2 group-hover:bg-green-200 transition-colors">Python</span>
                 <span className="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm mr-2 mb-2 group-hover:bg-green-200 transition-colors">Node.js</span>
