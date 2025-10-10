@@ -1,10 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { Code, ChevronRight, Github, Linkedin, MessageSquare, ArrowUp } from 'lucide-react';
+import { Code, ChevronRight, Github, Linkedin, MessageSquare, ArrowUp, Moon, Sun } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 
 function App() {
   const [scrollY, setScrollY] = useState(0);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [darkMode, setDarkMode] = useState(() => {
+    // Cargar preferencia desde localStorage o detectar preferencia del sistema
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      return savedTheme === 'dark';
+    }
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  });
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -25,6 +33,15 @@ function App() {
     // ========================================
     // 🥇 PROYECTOS PRIORITARIOS (PRIMEROS 5)
     // ========================================
+    {
+      title: "SenPro MultiDesk - Sistema de Gestión de Tickets",
+      description: "Sistema completo de gestión de tickets desarrollado con .NET Core y Angular. Incluye backend robusto en C# con SQL Server, frontend moderno SPA con Angular y estilos Bootstrap. Permite crear, asignar, seguir y resolver tickets de soporte técnico de manera eficiente.",
+      technologies: [".NET Core", "C#", "SQL Server", "Angular", "Bootstrap", "SPA"],
+      image: "https://i.postimg.cc/6pSc7z6Q/Sistema-Sen-Pro-Multi-Desk.jpg",
+      github: "https://github.com/daisersenpro/GestionTicketFront/tree/master",
+      demo: "",
+      category: 'fullstack'
+    },
     {
       title: "App web Full Stack RH - React & Spring Boot",
       description: "Desarrollé un sistema de Recursos Humanos, integrando componentes React, estilos Bootstrap, peticiones HTTP con AXIOS. En el backend, configuré controladores REST, probé con Postman, y usé JPA y Hibernate para la base de datos MySQL.",
@@ -326,6 +343,20 @@ function App() {
   }, []);
 
   // ========================================
+  // EFECTO PARA MANEJAR EL TEMA Y LOCALSTORAGE
+  // ========================================
+  useEffect(() => {
+    const theme = darkMode ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }, [darkMode]);
+
+  // Función para alternar el tema
+  const toggleTheme = () => {
+    setDarkMode(!darkMode);
+  };
+
+  // ========================================
   // EFECTO PARA ROTACIÓN AUTOMÁTICA DEL CARRUSEL
   // ========================================
   useEffect(() => {
@@ -458,17 +489,17 @@ Enviado desde tu portafolio web`;
   // INTERFAZ VISUAL (JSX) - LO QUE VE EL USUARIO
   // ========================================
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-theme-secondary">
       {/* ======================================== */}
       {/* NAVEGACIÓN PRINCIPAL */}
       {/* ======================================== */}
-      <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrollY > 50 ? 'bg-white/95 backdrop-blur-sm shadow-lg' : 'bg-transparent'
+      <nav className={`fixed top-0 w-full z-50 ${
+        scrollY > 50 ? 'bg-theme-primary/95 backdrop-blur-sm shadow-theme' : 'bg-transparent'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             {/* Logo/Nombre */}
-            <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
+            <div className="text-2xl font-bold text-theme-primary">
               Anyelo Bustos
             </div>
             
@@ -476,61 +507,74 @@ Enviado desde tu portafolio web`;
             <div className="hidden md:flex space-x-8">
               <button
                 onClick={() => scrollToSection('inicio')}
-                className={`transition-colors font-medium ${
-                  scrollY > 50 ? 'text-blue-600 hover:text-blue-800' : 'text-white hover:text-blue-200'
+                className={`font-medium transition-colors ${
+                  scrollY > 50 ? 'text-theme-secondary hover:text-theme-primary' : 'text-white hover:text-gray-200'
                 }`}
               >
                 Inicio
               </button>
               <button
                 onClick={() => scrollToSection('sobre-mi')}
-                className={`transition-colors font-medium ${
-                  scrollY > 50 ? 'text-blue-600 hover:text-blue-800' : 'text-white hover:text-blue-200'
+                className={`font-medium transition-colors ${
+                  scrollY > 50 ? 'text-theme-secondary hover:text-theme-primary' : 'text-white hover:text-gray-200'
                 }`}
               >
                 Sobre Mí
               </button>
               <button
                 onClick={() => scrollToSection('experiencia')}
-                className={`transition-colors font-medium ${
-                  scrollY > 50 ? 'text-blue-600 hover:text-blue-800' : 'text-white hover:text-blue-200'
+                className={`font-medium transition-colors ${
+                  scrollY > 50 ? 'text-theme-secondary hover:text-theme-primary' : 'text-white hover:text-gray-200'
                 }`}
               >
                 Experiencia
               </button>
               <button
                 onClick={() => scrollToSection('tecnologias')}
-                className={`transition-colors font-medium ${
-                  scrollY > 50 ? 'text-blue-600 hover:text-blue-800' : 'text-white hover:text-blue-200'
+                className={`font-medium transition-colors ${
+                  scrollY > 50 ? 'text-theme-secondary hover:text-theme-primary' : 'text-white hover:text-gray-200'
                 }`}
               >
                 Tecnologías
               </button>
               <button
                 onClick={() => scrollToSection('proyectos')}
-                className={`transition-colors font-medium ${
-                  scrollY > 50 ? 'text-blue-600 hover:text-blue-800' : 'text-white hover:text-blue-200'
+                className={`font-medium transition-colors ${
+                  scrollY > 50 ? 'text-theme-secondary hover:text-theme-primary' : 'text-white hover:text-gray-200'
                 }`}
               >
                 Proyectos
               </button>
               <button
                 onClick={() => scrollToSection('certificaciones')}
-                className={`transition-colors font-medium ${
-                  scrollY > 50 ? 'text-blue-600 hover:text-blue-800' : 'text-white hover:text-blue-200'
+                className={`font-medium transition-colors ${
+                  scrollY > 50 ? 'text-theme-secondary hover:text-theme-primary' : 'text-white hover:text-gray-200'
                 }`}
               >
                 Certificaciones
               </button>
               <button
                 onClick={() => scrollToSection('contacto')}
-                className={`transition-colors font-medium ${
-                  scrollY > 50 ? 'text-blue-600 hover:text-blue-800' : 'text-white hover:text-blue-200'
+                className={`font-medium transition-colors ${
+                  scrollY > 50 ? 'text-theme-secondary hover:text-theme-primary' : 'text-white hover:text-gray-200'
                 }`}
               >
                 Contacto
               </button>
             </div>
+            
+            {/* Botón de Modo Oscuro */}
+            <button
+              onClick={toggleTheme}
+              className={`p-2 rounded-full transition-all duration-300 ${
+                scrollY > 50 
+                  ? 'text-theme-secondary hover:text-theme-primary hover:bg-theme-tertiary' 
+                  : 'text-white hover:text-gray-200 hover:bg-white/10'
+              }`}
+              aria-label="Alternar modo oscuro"
+            >
+              {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
             
             {/* Mobile Menu Button */}
             <button
@@ -545,47 +589,47 @@ Enviado desde tu portafolio web`;
           
           {/* Mobile Menu */}
           {showMobileMenu && (
-            <div className="md:hidden bg-white/95 backdrop-blur-sm rounded-lg mt-2 p-4">
+            <div className="md:hidden bg-theme-card/95 backdrop-blur-sm rounded-lg mt-2 p-4 shadow-theme">
               <div className="flex flex-col space-y-3">
                 <button
                   onClick={() => { scrollToSection('inicio'); setShowMobileMenu(false); }}
-                  className="text-gray-900 hover:text-blue-600 transition-colors font-medium text-left"
+                  className="text-theme-primary hover:text-theme-accent transition-colors font-medium text-left"
                 >
                   Inicio
                 </button>
                 <button
                   onClick={() => { scrollToSection('sobre-mi'); setShowMobileMenu(false); }}
-                  className="text-gray-900 hover:text-blue-600 transition-colors font-medium text-left"
+                  className="text-theme-primary hover:text-theme-accent transition-colors font-medium text-left"
                 >
                   Sobre Mí
                 </button>
                 <button
                   onClick={() => { scrollToSection('experiencia'); setShowMobileMenu(false); }}
-                  className="text-gray-900 hover:text-blue-600 transition-colors font-medium text-left"
+                  className="text-theme-primary hover:text-theme-accent transition-colors font-medium text-left"
                 >
                   Experiencia
                 </button>
                 <button
                   onClick={() => { scrollToSection('tecnologias'); setShowMobileMenu(false); }}
-                  className="text-gray-900 hover:text-blue-600 transition-colors font-medium text-left"
+                  className="text-theme-primary hover:text-theme-accent transition-colors font-medium text-left"
                 >
                   Tecnologías
                 </button>
                 <button
                   onClick={() => { scrollToSection('proyectos'); setShowMobileMenu(false); }}
-                  className="text-gray-900 hover:text-blue-600 transition-colors font-medium text-left"
+                  className="text-theme-primary hover:text-theme-accent transition-colors font-medium text-left"
                 >
                   Proyectos
                 </button>
                 <button
                   onClick={() => { scrollToSection('certificaciones'); setShowMobileMenu(false); }}
-                  className="text-gray-900 hover:text-blue-600 transition-colors font-medium text-left"
+                  className="text-theme-primary hover:text-theme-accent transition-colors font-medium text-left"
                 >
                   Certificaciones
                 </button>
                 <button
                   onClick={() => { scrollToSection('contacto'); setShowMobileMenu(false); }}
-                  className="text-gray-900 hover:text-blue-600 transition-colors font-medium text-left"
+                  className="text-theme-primary hover:text-theme-accent transition-colors font-medium text-left"
                 >
                   Contacto
                 </button>
@@ -597,7 +641,7 @@ Enviado desde tu portafolio web`;
 
       {/* Hero Section */}
       <section id="inicio" className="min-h-screen flex items-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-700 via-blue-500 to-blue-300"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-600"></div>
         <div className="absolute inset-0 bg-black/20"></div>
         {/* Animated background elements */}
         <div className="absolute inset-0">
@@ -626,7 +670,7 @@ Enviado desde tu portafolio web`;
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={() => scrollToSection('proyectos')}
-              className="px-8 py-3 bg-white text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition-colors flex items-center justify-center gap-2"
+              className="btn-linkedin-primary flex items-center justify-center gap-2"
             >
               Ver Proyectos
               <ChevronRight size={20} />
@@ -636,11 +680,11 @@ Enviado desde tu portafolio web`;
       </section>
 
       {/* About Section */}
-      <section id="sobre-mi" className="py-20 bg-white">
+      <section id="sobre-mi" className="py-20 bg-theme-primary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Sobre Mí</h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+            <h2 className="text-4xl font-bold mb-4 text-theme-primary">Sobre Mí</h2>
+            <p className="text-xl max-w-4xl mx-auto text-theme-secondary">
               Analista Programador con experiencia en desarrollo de aplicaciones de escritorio (VB.NET, C#, .NET Core), aplicaciones web modernas con React y Angular (SPA) y creación de landing pages. Conocimiento en SQL Server, PostgreSQL, Git y entornos con PHP y MySQL/MariaDB (XAMPP, Workbench).<br/>
               Experiencia en Laravel, Java (Spring Boot), Node.js y pruebas de integración en Tomcat. Manejo de consumo y creación de APIs RESTful. Conocimientos en pruebas de automatización con Maven, CI/CD y entornos de despliegue. Me mantengo en constante aprendizaje y crecimiento profesional.
             </p>
@@ -648,49 +692,49 @@ Enviado desde tu portafolio web`;
           
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h3 className="text-2xl font-bold mb-4 text-gray-900">Mi Enfoque</h3>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <h3 className="text-2xl font-bold mb-4 text-theme-primary">Mi Enfoque</h3>
+              <p className="text-theme-secondary mb-6 leading-relaxed">
                 Busco consolidarme como un desarrollador full stack sólido y versátil, aportando soluciones eficientes, 
                 escalables y de calidad. Me mantengo en constante aprendizaje, perfeccionando mis habilidades técnicas 
                 y adaptándome a nuevas tecnologías para entregar siempre lo mejor.
               </p>
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                  <span className="text-gray-700">Desarrollo Frontend con React, Angular y tecnologías web modernas</span>
+                  <div className="w-2 h-2 bg-theme-accent rounded-full"></div>
+                  <span className="text-theme-tertiary">Desarrollo Frontend con React, Angular y tecnologías web modernas</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                  <span className="text-gray-700">Backend con Java, PHP, C#, Python y frameworks como Spring Boot, .NET Framework, .NET Core y Laravel</span>
+                  <div className="w-2 h-2 bg-theme-accent rounded-full"></div>
+                  <span className="text-theme-tertiary">Backend con Java, PHP, C#, Python y frameworks como Spring Boot, .NET Framework, .NET Core y Laravel</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                  <span className="text-gray-700">Bases de datos SQL Server, MySQL, Oracle y MariaDB</span>
+                  <div className="w-2 h-2 bg-theme-accent rounded-full"></div>
+                  <span className="text-theme-tertiary">Bases de datos SQL Server, MySQL, Oracle y MariaDB</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                  <span className="text-gray-700">Control de versiones con Git, GitHub y Git Server</span>
+                  <div className="w-2 h-2 bg-theme-accent rounded-full"></div>
+                  <span className="text-theme-tertiary">Control de versiones con Git, GitHub y Git Server</span>
                 </div>
               </div>
             </div>
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl">
-              <h4 className="text-xl font-semibold mb-4 text-gray-900">Información Personal</h4>
+            <div className="p-8 rounded-2xl bg-theme-tertiary">
+              <h4 className="text-xl font-semibold mb-4 text-theme-primary">Información Personal</h4>
               <div className="space-y-3">
                 <div>
-                  <span className="font-medium text-gray-900">Título:</span>
-                  <p className="text-gray-600">Analista Programador (2022)</p>
+                  <span className="font-medium text-theme-primary">Título:</span>
+                  <p className="text-theme-secondary">Analista Programador (2022)</p>
                 </div>
                 <div>
-                  <span className="font-medium text-gray-900">Ubicación:</span>
-                  <p className="text-gray-600">Santiago, La Reina, Chile</p>
+                  <span className="font-medium text-theme-primary">Ubicación:</span>
+                  <p className="text-theme-secondary">Santiago, La Reina, Chile</p>
                 </div>
                 <div>
-                  <span className="font-medium text-gray-900">Email:</span>
-                  <p className="text-gray-600">sen.programador@gmail.com</p>
+                  <span className="font-medium text-theme-primary">Email:</span>
+                  <p className="text-theme-secondary">sen.programador@gmail.com</p>
                 </div>
                 <div>
-                  <span className="font-medium text-gray-900">Teléfono:</span>
-                  <p className="text-gray-600">(+56) 949728928</p>
+                  <span className="font-medium text-theme-primary">Teléfono:</span>
+                  <p className="text-theme-secondary">(+56) 949728928</p>
                 </div>
               </div>
             </div>
@@ -699,30 +743,30 @@ Enviado desde tu portafolio web`;
       </section>
 
       {/* Experience Section */}
-      <section id="experiencia" className="py-20 bg-white">
+      <section id="experiencia" className="py-20 bg-theme-primary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Experiencia Laboral</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-4xl font-bold mb-4 text-theme-primary">Experiencia Laboral</h2>
+            <p className="text-xl max-w-3xl mx-auto text-theme-secondary">
               Mi trayectoria profesional en desarrollo de software
             </p>
           </div>
           
           <div className="space-y-8">
             {/* San Jorge Packaging */}
-            <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div className="card-linkedin p-6">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900">Programador Full Stack</h3>
-                  <p className="text-lg text-blue-600 font-semibold">San Jorge Packaging</p>
+                  <h3 className="text-xl font-bold text-theme-primary">Programador Full Stack</h3>
+                  <p className="text-lg font-semibold text-theme-accent">San Jorge Packaging</p>
                 </div>
-                <div className="text-sm text-gray-500 mt-2 md:mt-0">
+                <div className="text-sm mt-2 md:mt-0 text-theme-muted">
                   Agosto 2024 – Junio 2025
                 </div>
               </div>
-              <ul className="text-gray-600 space-y-2">
+              <ul className="space-y-2 text-theme-secondary">
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-600 mt-1">•</span>
+                  <span className="mt-1 text-theme-accent">•</span>
                   <span>Desarrollo de aplicaciones de escritorio en .NET Framework 4.8 con VB.NET, siguiendo requerimientos específicos del negocio.</span>
                 </li>
                 <li className="flex items-start gap-2">
@@ -741,17 +785,17 @@ Enviado desde tu portafolio web`;
             </div>
 
             {/* Freelancer */}
-            <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div className="card-linkedin p-6">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900">Desarrollador Web - Freelancer</h3>
-                  <p className="text-lg text-blue-600 font-semibold">Independiente</p>
+                  <h3 className="text-xl font-bold text-theme-primary">Desarrollador Web - Freelancer</h3>
+                  <p className="text-lg font-semibold text-theme-accent">Independiente</p>
                 </div>
-                <div className="text-sm text-gray-500 mt-2 md:mt-0">
+                <div className="text-sm mt-2 md:mt-0 text-theme-muted">
                   Noviembre 2023 – Junio 2024
                 </div>
               </div>
-              <ul className="text-gray-600 space-y-2">
+              <ul className="space-y-2 text-theme-secondary">
                 <li className="flex items-start gap-2">
                   <span className="text-blue-600 mt-1">•</span>
                   <span>Desarrollo de sitios web personalizados para clientes: Alcanza tu Estrella (ONG), Urbanos Delux (eventos artísticos), Gourmet Restaurant (restaurantes), pymes y emprendedores. Creación de landing pages con HTML, CSS, Bootstrap y Tailwind CSS. Backend en PHP puro y Laravel. Gestión de bases de datos MySQL/MariaDB y uso de entornos locales con XAMPP.</span>
@@ -762,17 +806,17 @@ Enviado desde tu portafolio web`;
             </div>
 
             {/* ITPS Gestión */}
-            <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div className="card-linkedin p-6">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900">Programador de Aplicaciones</h3>
-                  <p className="text-lg text-blue-600 font-semibold">ITPS Gestión</p>
+                  <h3 className="text-xl font-bold text-theme-primary">Programador de Aplicaciones</h3>
+                  <p className="text-lg font-semibold text-theme-accent">ITPS Gestión</p>
                 </div>
-                <div className="text-sm text-gray-500 mt-2 md:mt-0">
+                <div className="text-sm mt-2 md:mt-0 text-theme-muted">
                   Enero 2023 – Junio 2023
                 </div>
               </div>
-              <ul className="text-gray-600 space-y-2">
+              <ul className="space-y-2 text-theme-secondary">
                 <li className="flex items-start gap-2">
                   <span className="text-blue-600 mt-1">•</span>
                   <span>Desarrollo de componentes en Angular, SQL Server y C# para el cliente Certhia, enfocado en la actualización y mejora del sistema según nuevos requerimientos.</span>
@@ -789,27 +833,27 @@ Enviado desde tu portafolio web`;
             </div>
 
             {/* WOM Chile */}
-            <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div className="card-linkedin p-6">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900">Analista Programador Trainer</h3>
-                  <p className="text-lg text-blue-600 font-semibold">WOM Chile</p>
+                  <h3 className="text-xl font-bold text-theme-primary">Analista Programador Trainer</h3>
+                  <p className="text-lg font-semibold text-theme-accent">WOM Chile</p>
                 </div>
-                <div className="text-sm text-gray-500 mt-2 md:mt-0">
+                <div className="text-sm mt-2 md:mt-0 text-theme-muted">
                   Enero 2022 – Marzo 2022
                 </div>
               </div>
-              <ul className="text-gray-600 space-y-2">
+              <ul className="space-y-2 text-theme-secondary">
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-600 mt-1">•</span>
+                  <span className="text-theme-accent mt-1">•</span>
                   <span>Participación en la elaboración de informes con Power BI y gestión de datos en Oracle para el área de Customer.</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-600 mt-1">•</span>
+                  <span className="text-theme-accent mt-1">•</span>
                   <span>Mejora de interfaces de usuario en el programa CCWON empleando PHP, Bootstrap, MySQL y entornos locales con XAMPP.</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-600 mt-1">•</span>
+                  <span className="text-theme-accent mt-1">•</span>
                   <span>Colaboración en la optimización de la experiencia de usuario y en la integración de datos para facilitar la toma de decisiones.</span>
                 </li>
               </ul>
@@ -819,52 +863,52 @@ Enviado desde tu portafolio web`;
       </section>
 
       {/* Technologies Section */}
-      <section id="tecnologias" className="py-20 bg-gray-50">
+      <section id="tecnologias" className="py-20 bg-theme-secondary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Tecnologías</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-4xl font-bold mb-4 text-theme-primary">Tecnologías</h2>
+            <p className="text-xl max-w-3xl mx-auto text-theme-secondary">
               Utilizo las tecnologías más modernas y eficientes para crear aplicaciones de alta calidad
             </p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 transform cursor-pointer group relative z-10">
-              <h3 className="text-xl font-semibold mb-4 text-gray-900 group-hover:text-blue-600 transition-colors">Frontend</h3>
+            <div className="card-linkedin p-6 hover:-translate-y-2 transform cursor-pointer group relative z-10">
+              <h3 className="text-xl font-semibold mb-4 text-theme-primary group-hover:text-theme-accent">Frontend</h3>
               <div className="space-y-2">
-                <span className="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm mr-2 mb-2 group-hover:bg-blue-200 transition-colors">React</span>
-                <span className="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm mr-2 mb-2 group-hover:bg-blue-200 transition-colors">Angular</span>
-                <span className="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm mr-2 mb-2 group-hover:bg-blue-200 transition-colors">HTML</span>
-                <span className="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm mr-2 mb-2 group-hover:bg-blue-200 transition-colors">CSS</span>
-                <span className="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm mr-2 mb-2 group-hover:bg-blue-200 transition-colors">TypeScript</span>
-                <span className="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm mr-2 mb-2 group-hover:bg-blue-200 transition-colors">Tailwind CSS</span>
-                <span className="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm mr-2 mb-2 group-hover:bg-blue-200 transition-colors">Bootstrap</span>
+                <span className="inline-block bg-theme-secondary text-theme-secondary px-3 py-1 rounded-full text-sm mr-2 mb-2 hover:bg-theme-tertiary cursor-pointer">React</span>
+                <span className="inline-block bg-theme-secondary text-theme-secondary px-3 py-1 rounded-full text-sm mr-2 mb-2 hover:bg-theme-tertiary cursor-pointer">Angular</span>
+                <span className="inline-block bg-theme-secondary text-theme-secondary px-3 py-1 rounded-full text-sm mr-2 mb-2 hover:bg-theme-tertiary cursor-pointer">HTML</span>
+                <span className="inline-block bg-theme-secondary text-theme-secondary px-3 py-1 rounded-full text-sm mr-2 mb-2 hover:bg-theme-tertiary cursor-pointer">CSS</span>
+                <span className="inline-block bg-theme-secondary text-theme-secondary px-3 py-1 rounded-full text-sm mr-2 mb-2 hover:bg-theme-tertiary cursor-pointer">TypeScript</span>
+                <span className="inline-block bg-theme-secondary text-theme-secondary px-3 py-1 rounded-full text-sm mr-2 mb-2 hover:bg-theme-tertiary cursor-pointer">Tailwind CSS</span>
+                <span className="inline-block bg-theme-secondary text-theme-secondary px-3 py-1 rounded-full text-sm mr-2 mb-2 hover:bg-theme-tertiary cursor-pointer">Bootstrap</span>
               </div>
             </div>
             
-            <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 transform cursor-pointer group relative z-10">
-              <h3 className="text-xl font-semibold mb-4 text-gray-900 group-hover:text-green-600 transition-colors">Backend</h3>
+            <div className="card-linkedin p-6 hover:-translate-y-2 transform cursor-pointer group relative z-10">
+              <h3 className="text-xl font-semibold mb-4 text-theme-primary group-hover:text-theme-accent">Backend</h3>
               <div className="space-y-2">
-                <span className="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm mr-2 mb-2 group-hover:bg-green-200 transition-colors">Java</span>
-                <span className="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm mr-2 mb-2 group-hover:bg-green-200 transition-colors">Spring Boot</span>
-                <span className="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm mr-2 mb-2 group-hover:bg-green-200 transition-colors">PHP</span>
-                <span className="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm mr-2 mb-2 group-hover:bg-green-200 transition-colors">Laravel</span>
-                <span className="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm mr-2 mb-2 group-hover:bg-green-200 transition-colors">C#</span>
-                <span className="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm mr-2 mb-2 group-hover:bg-green-200 transition-colors">.NET Framework</span>
-              <span className="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm mr-2 mb-2 group-hover:bg-green-200 transition-colors">.NET Core</span>
-                <span className="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm mr-2 mb-2 group-hover:bg-green-200 transition-colors">VB.NET</span>
-                <span className="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm mr-2 mb-2 group-hover:bg-green-200 transition-colors">Python</span>
-                <span className="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm mr-2 mb-2 group-hover:bg-green-200 transition-colors">Node.js</span>
+                <span className={`inline-block px-3 py-1 rounded-full text-sm mr-2 mb-2 transition-colors ${darkMode ? 'bg-gray-700 text-gray-200 group-hover:bg-gray-600' : 'bg-gray-200 text-gray-800 group-hover:bg-gray-300'}`}>Java</span>
+                <span className={`inline-block px-3 py-1 rounded-full text-sm mr-2 mb-2 transition-colors ${darkMode ? 'bg-gray-700 text-gray-200 group-hover:bg-gray-600' : 'bg-gray-200 text-gray-800 group-hover:bg-gray-300'}`}>Spring Boot</span>
+                <span className={`inline-block px-3 py-1 rounded-full text-sm mr-2 mb-2 transition-colors ${darkMode ? 'bg-gray-700 text-gray-200 group-hover:bg-gray-600' : 'bg-gray-200 text-gray-800 group-hover:bg-gray-300'}`}>PHP</span>
+                <span className={`inline-block px-3 py-1 rounded-full text-sm mr-2 mb-2 transition-colors ${darkMode ? 'bg-gray-700 text-gray-200 group-hover:bg-gray-600' : 'bg-gray-200 text-gray-800 group-hover:bg-gray-300'}`}>Laravel</span>
+                <span className={`inline-block px-3 py-1 rounded-full text-sm mr-2 mb-2 transition-colors ${darkMode ? 'bg-gray-700 text-gray-200 group-hover:bg-gray-600' : 'bg-gray-200 text-gray-800 group-hover:bg-gray-300'}`}>C#</span>
+                <span className={`inline-block px-3 py-1 rounded-full text-sm mr-2 mb-2 transition-colors ${darkMode ? 'bg-gray-700 text-gray-200 group-hover:bg-gray-600' : 'bg-gray-200 text-gray-800 group-hover:bg-gray-300'}`}>.NET Framework</span>
+                <span className={`inline-block px-3 py-1 rounded-full text-sm mr-2 mb-2 transition-colors ${darkMode ? 'bg-gray-700 text-gray-200 group-hover:bg-gray-600' : 'bg-gray-200 text-gray-800 group-hover:bg-gray-300'}`}>.NET Core</span>
+                <span className={`inline-block px-3 py-1 rounded-full text-sm mr-2 mb-2 transition-colors ${darkMode ? 'bg-gray-700 text-gray-200 group-hover:bg-gray-600' : 'bg-gray-200 text-gray-800 group-hover:bg-gray-300'}`}>VB.NET</span>
+                <span className={`inline-block px-3 py-1 rounded-full text-sm mr-2 mb-2 transition-colors ${darkMode ? 'bg-gray-700 text-gray-200 group-hover:bg-gray-600' : 'bg-gray-200 text-gray-800 group-hover:bg-gray-300'}`}>Python</span>
+                <span className={`inline-block px-3 py-1 rounded-full text-sm mr-2 mb-2 transition-colors ${darkMode ? 'bg-gray-700 text-gray-200 group-hover:bg-gray-600' : 'bg-gray-200 text-gray-800 group-hover:bg-gray-300'}`}>Node.js</span>
               </div>
             </div>
             
-            <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 transform cursor-pointer group relative z-10">
-              <h3 className="text-xl font-semibold mb-4 text-gray-900 group-hover:text-purple-600 transition-colors">Base de Datos</h3>
+            <div className="bg-theme-primary border border-theme-primary p-6 rounded-xl shadow-theme hover:shadow-theme-hover hover:-translate-y-2 transition-all duration-300 transform cursor-pointer group relative z-10">
+              <h3 className="text-xl font-semibold mb-4 text-theme-primary group-hover:text-theme-secondary">Base de Datos</h3>
               <div className="space-y-2">
-                <span className="inline-block bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm mr-2 mb-2 group-hover:bg-purple-200 transition-colors">MySQL</span>
-                <span className="inline-block bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm mr-2 mb-2 group-hover:bg-purple-200 transition-colors">PostgreSQL</span>
-                <span className="inline-block bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm mr-2 mb-2 group-hover:bg-purple-200 transition-colors">SQL Server</span>
-                <span className="inline-block bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm mr-2 mb-2 group-hover:bg-purple-200 transition-colors">Oracle</span>
+                <span className={`inline-block px-3 py-1 rounded-full text-sm mr-2 mb-2 transition-colors ${darkMode ? 'bg-gray-700 text-gray-200 group-hover:bg-gray-600' : 'bg-gray-200 text-gray-800 group-hover:bg-gray-300'}`}>MySQL</span>
+                <span className={`inline-block px-3 py-1 rounded-full text-sm mr-2 mb-2 transition-colors ${darkMode ? 'bg-gray-700 text-gray-200 group-hover:bg-gray-600' : 'bg-gray-200 text-gray-800 group-hover:bg-gray-300'}`}>PostgreSQL</span>
+                <span className={`inline-block px-3 py-1 rounded-full text-sm mr-2 mb-2 transition-colors ${darkMode ? 'bg-gray-700 text-gray-200 group-hover:bg-gray-600' : 'bg-gray-200 text-gray-800 group-hover:bg-gray-300'}`}>SQL Server</span>
+                <span className={`inline-block px-3 py-1 rounded-full text-sm mr-2 mb-2 transition-colors ${darkMode ? 'bg-gray-700 text-gray-200 group-hover:bg-gray-600' : 'bg-gray-200 text-gray-800 group-hover:bg-gray-300'}`}>Oracle</span>
               </div>
             </div>
           </div>
@@ -872,31 +916,31 @@ Enviado desde tu portafolio web`;
       </section>
 
       {/* Projects Section */}
-      <section id="proyectos" className="py-20 bg-white">
+      <section id="proyectos" className={`py-20 transition-colors duration-300 ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Mis Proyectos</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className={`text-4xl font-bold mb-4 transition-colors duration-300 ${darkMode ? 'text-white' : 'text-gray-900'}`}>Mis Proyectos</h2>
+            <p className={`text-xl max-w-3xl mx-auto transition-colors duration-300 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
               Aquí puedes ver algunos de los proyectos más destacados en los que he trabajado
             </p>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 transform cursor-pointer group">
+              <div key={index} className={`rounded-xl shadow-lg overflow-hidden border hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 transform cursor-pointer group ${darkMode ? 'bg-gray-700 border-gray-600' : 'bg-white border-gray-200'}`}>
                 <img 
                   src={project.image} 
                   alt={project.title}
                   className="w-full h-48 object-cover"
                 />
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-3 text-gray-900 group-hover:text-blue-600 transition-colors">{project.title}</h3>
-                  <p className="text-gray-600 mb-4 line-clamp-3 group-hover:text-gray-700 transition-colors">{project.description}</p>
+                  <h3 className={`text-xl font-semibold mb-3 transition-colors ${darkMode ? 'text-white group-hover:text-gray-300' : 'text-gray-900 group-hover:text-gray-700'}`}>{project.title}</h3>
+                  <p className={`mb-4 line-clamp-3 transition-colors ${darkMode ? 'text-gray-300 group-hover:text-gray-200' : 'text-gray-600 group-hover:text-gray-700'}`}>{project.description}</p>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.technologies.map((tech, techIndex) => (
                       <span 
                         key={techIndex}
-                        className="inline-block bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs group-hover:bg-blue-200 transition-colors"
+                        className={`inline-block px-2 py-1 rounded text-xs transition-colors ${darkMode ? 'bg-gray-600 text-gray-200 group-hover:bg-gray-500' : 'bg-gray-200 text-gray-800 group-hover:bg-gray-300'}`}
                       >
                         {tech}
                       </span>
@@ -932,11 +976,11 @@ Enviado desde tu portafolio web`;
       {/* ======================================== */}
       {/* SECCIÓN DE CERTIFICACIONES */}
       {/* ======================================== */}
-      <section id="certificaciones" className="py-20 bg-gray-100">
+      <section id="certificaciones" className={`py-20 transition-colors duration-300 ${darkMode ? 'bg-gray-900' : 'bg-gray-50'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">🏆 Mis Certificaciones</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className={`text-4xl font-bold mb-4 transition-colors duration-300 ${darkMode ? 'text-white' : 'text-gray-900'}`}>🏆 Mis Certificaciones</h2>
+            <p className={`text-xl max-w-3xl mx-auto transition-colors duration-300 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
               Más de 1,500 horas de formación profesional en desarrollo web, bases de datos y tecnologías modernas
             </p>
           </div>
@@ -972,9 +1016,9 @@ Enviado desde tu portafolio web`;
                   <div key={pageIndex} className="w-full flex-shrink-0 px-4">
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
                       {certifications.slice(pageIndex * 4, (pageIndex + 1) * 4).map((cert) => (
-                        <div key={cert.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer group" onClick={() => openCertModal(cert)}>
+                        <div key={cert.id} className={`rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer group ${darkMode ? 'bg-gray-800' : 'bg-white'}`} onClick={() => openCertModal(cert)}>
                           {/* Imagen de la certificación */}
-                          <div className="relative h-40 bg-gradient-to-br from-blue-50 to-indigo-100">
+                          <div className={`relative h-40 transition-all duration-300 ${darkMode ? 'bg-gradient-to-br from-gray-700 to-gray-600' : 'bg-gradient-to-br from-gray-100 to-gray-200'}`}>
                             <img 
                               src={cert.image} 
                               alt={cert.title}
@@ -984,7 +1028,7 @@ Enviado desde tu portafolio web`;
                             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                               <div className="absolute bottom-2 left-2 right-2 text-white">
                                 <div className="flex items-center justify-between mb-1">
-                                  <span className="bg-blue-600 text-white px-1 py-0.5 rounded-full text-xs font-medium">
+                                  <span className="bg-gray-800 text-white px-1 py-0.5 rounded-full text-xs font-medium">
                                     {cert.hours}h
                                   </span>
                                   <span className="bg-white/20 backdrop-blur-sm text-white px-1 py-0.5 rounded-full text-xs">
@@ -992,7 +1036,7 @@ Enviado desde tu portafolio web`;
                                   </span>
                                 </div>
                                 <h3 className="text-xs font-bold mb-1 line-clamp-2">{cert.title}</h3>
-                                <p className="text-xs text-blue-200">{cert.issuer}</p>
+                                <p className="text-xs text-gray-200">{cert.issuer}</p>
                               </div>
                             </div>
                           </div>
@@ -1001,16 +1045,7 @@ Enviado desde tu portafolio web`;
                           <div className="p-4">
                             {/* Categoría */}
                             <div className="mb-2">
-                              <span className={`inline-flex items-center px-1 py-0.5 rounded-full text-xs font-medium ${
-                                cert.category === 'bootcamp' ? 'bg-purple-100 text-purple-800' :
-                                cert.category === 'diplomado' ? 'bg-green-100 text-green-800' :
-                                cert.category === 'web' ? 'bg-blue-100 text-blue-800' :
-                                cert.category === 'database' ? 'bg-orange-100 text-orange-800' :
-                                cert.category === 'tools' ? 'bg-indigo-100 text-indigo-800' :
-                                cert.category === 'desktop' ? 'bg-red-100 text-red-800' :
-                                cert.category === 'soft-skills' ? 'bg-pink-100 text-pink-800' :
-                                'bg-gray-100 text-gray-800'
-                              }`}>
+                              <span className={`inline-flex items-center px-1 py-0.5 rounded-full text-xs font-medium transition-colors duration-300 ${darkMode ? 'bg-gray-700 text-gray-200' : 'bg-gray-200 text-gray-800'}`}>
                                 {cert.category === 'bootcamp' ? '🚀' :
                                  cert.category === 'diplomado' ? '🎓' :
                                  cert.category === 'web' ? '💻' :
@@ -1023,15 +1058,15 @@ Enviado desde tu portafolio web`;
                             </div>
 
                             {/* Título */}
-                            <h3 className="text-sm font-semibold mb-2 text-gray-900 line-clamp-2 group-hover:text-blue-600 transition-colors">
+                            <h3 className={`text-sm font-semibold mb-2 line-clamp-2 transition-colors duration-300 ${darkMode ? 'text-white group-hover:text-gray-300' : 'text-gray-900 group-hover:text-gray-700'}`}>
                               {cert.title}
                             </h3>
 
                             {/* Descripción */}
-                            <p className="text-xs text-gray-600 line-clamp-3 mb-3">{cert.description}</p>
+                            <p className={`text-xs line-clamp-3 mb-3 transition-colors duration-300 ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>{cert.description}</p>
 
                             {/* Información adicional */}
-                            <div className="flex items-center justify-between text-xs text-gray-500">
+                            <div className={`flex items-center justify-between text-xs transition-colors duration-300 ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
                               <span className="truncate">{cert.issuer}</span>
                               <span className="text-blue-600 font-medium">+</span>
                             </div>
@@ -1089,11 +1124,11 @@ Enviado desde tu portafolio web`;
       </section>
 
       {/* Contact Section */}
-      <section id="contacto" className="py-20 bg-gray-50">
+      <section id="contacto" className={`py-20 transition-colors duration-300 ${darkMode ? 'bg-gray-800' : 'bg-gray-50'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Contacto</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className={`text-4xl font-bold mb-4 transition-colors duration-300 ${darkMode ? 'text-white' : 'text-gray-900'}`}>Contacto</h2>
+            <p className={`text-xl max-w-3xl mx-auto transition-colors duration-300 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
               ¿Te gustaría trabajar juntos? ¡No dudes en contactarme!
             </p>
           </div>
