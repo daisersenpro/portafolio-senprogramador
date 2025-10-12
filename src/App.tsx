@@ -75,7 +75,7 @@ function App() {
       technologies: ["PHP", "MySQL", "Node.js", "Gulp", "Sass", "JavaScript", "CRUD", "Authentication"],
       image: "https://i.postimg.cc/wMYdr84C/Bienes-Raices-Adomistrador-Crude.png",
       github: "",
-      demo: "",
+      demo: "https://bienesraicessenprogramador.netlify.app/",
       category: 'fullstack'
     },
     {
@@ -508,7 +508,7 @@ Enviado desde tu portafolio web`;
               <button
                 onClick={() => scrollToSection('inicio')}
                 className={`font-medium transition-colors ${
-                  scrollY > 50 ? 'text-theme-secondary hover:text-theme-primary' : 'text-white hover:text-gray-200'
+                  scrollY > 50 ? 'text-theme-secondary hover:text-theme-primary' : 'text-white hover:text-white/80'
                 }`}
               >
                 Inicio
@@ -516,7 +516,7 @@ Enviado desde tu portafolio web`;
               <button
                 onClick={() => scrollToSection('sobre-mi')}
                 className={`font-medium transition-colors ${
-                  scrollY > 50 ? 'text-theme-secondary hover:text-theme-primary' : 'text-white hover:text-gray-200'
+                  scrollY > 50 ? 'text-theme-secondary hover:text-theme-primary' : 'text-white hover:text-white/80'
                 }`}
               >
                 Sobre Mí
@@ -524,7 +524,7 @@ Enviado desde tu portafolio web`;
               <button
                 onClick={() => scrollToSection('experiencia')}
                 className={`font-medium transition-colors ${
-                  scrollY > 50 ? 'text-theme-secondary hover:text-theme-primary' : 'text-white hover:text-gray-200'
+                  scrollY > 50 ? 'text-theme-secondary hover:text-theme-primary' : 'text-white hover:text-white/80'
                 }`}
               >
                 Experiencia
@@ -532,7 +532,7 @@ Enviado desde tu portafolio web`;
               <button
                 onClick={() => scrollToSection('tecnologias')}
                 className={`font-medium transition-colors ${
-                  scrollY > 50 ? 'text-theme-secondary hover:text-theme-primary' : 'text-white hover:text-gray-200'
+                  scrollY > 50 ? 'text-theme-secondary hover:text-theme-primary' : 'text-white hover:text-white/80'
                 }`}
               >
                 Tecnologías
@@ -540,7 +540,7 @@ Enviado desde tu portafolio web`;
               <button
                 onClick={() => scrollToSection('proyectos')}
                 className={`font-medium transition-colors ${
-                  scrollY > 50 ? 'text-theme-secondary hover:text-theme-primary' : 'text-white hover:text-gray-200'
+                  scrollY > 50 ? 'text-theme-secondary hover:text-theme-primary' : 'text-white hover:text-white/80'
                 }`}
               >
                 Proyectos
@@ -548,7 +548,7 @@ Enviado desde tu portafolio web`;
               <button
                 onClick={() => scrollToSection('certificaciones')}
                 className={`font-medium transition-colors ${
-                  scrollY > 50 ? 'text-theme-secondary hover:text-theme-primary' : 'text-white hover:text-gray-200'
+                  scrollY > 50 ? 'text-theme-secondary hover:text-theme-primary' : 'text-white hover:text-white/80'
                 }`}
               >
                 Certificaciones
@@ -556,7 +556,7 @@ Enviado desde tu portafolio web`;
               <button
                 onClick={() => scrollToSection('contacto')}
                 className={`font-medium transition-colors ${
-                  scrollY > 50 ? 'text-theme-secondary hover:text-theme-primary' : 'text-white hover:text-gray-200'
+                  scrollY > 50 ? 'text-theme-secondary hover:text-theme-primary' : 'text-white hover:text-white/80'
                 }`}
               >
                 Contacto
@@ -569,7 +569,7 @@ Enviado desde tu portafolio web`;
               className={`p-2 rounded-full transition-all duration-300 ${
                 scrollY > 50 
                   ? 'text-theme-secondary hover:text-theme-primary hover:bg-theme-tertiary' 
-                  : 'text-white hover:text-gray-200 hover:bg-white/10'
+                  : 'text-white hover:text-white/80 hover:bg-white/10'
               }`}
               aria-label="Alternar modo oscuro"
             >
@@ -640,41 +640,70 @@ Enviado desde tu portafolio web`;
       </nav>
 
       {/* Hero Section */}
-      <section id="inicio" className="min-h-screen flex items-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-600"></div>
-        <div className="absolute inset-0 bg-black/20"></div>
-        {/* Animated background elements */}
+      <section id="inicio" className="min-h-screen flex items-center relative overflow-hidden bg-theme-primary">
+        {/* Elementos decorativos sutiles */}
         <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-400/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-blue-300/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute top-20 left-10 w-2 h-2 bg-theme-accent rounded-full opacity-40"></div>
+          <div className="absolute top-40 right-20 w-1 h-1 bg-theme-accent rounded-full opacity-60"></div>
+          <div className="absolute bottom-32 left-32 w-3 h-3 bg-theme-accent rounded-full opacity-30"></div>
+          <div className="absolute bottom-20 right-10 w-1.5 h-1.5 bg-theme-accent rounded-full opacity-50"></div>
+          {/* Formas geométricas sutiles */}
+          <div className="absolute top-1/3 right-16 w-20 h-20 border border-theme-accent/20 rounded-lg transform rotate-12"></div>
+          <div className="absolute bottom-1/3 left-16 w-12 h-12 border border-theme-accent/30 rounded-full"></div>
         </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-8">
-            <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-r from-blue-400 to-blue-200 p-1">
-              <div className="w-full h-full rounded-full bg-gray-800 flex items-center justify-center">
-                <Code size={48} className="text-white" />
+            <div className="w-32 h-32 mx-auto mb-6 relative">
+              <div className="w-full h-full rounded-full bg-gradient-to-br from-violet-500 via-purple-600 to-indigo-600 p-1 shadow-2xl">
+                <div className="w-full h-full rounded-full bg-theme-primary flex items-center justify-center">
+                  <Code size={48} className="text-violet-500" />
+                </div>
               </div>
+              {/* Anillo decorativo */}
+              <div className="absolute -inset-2 rounded-full border-2 border-violet-500/20 animate-spin-slow"></div>
             </div>
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            <span className="block">Anyelo Bustos</span>
-            <span className="text-3xl md:text-4xl font-normal text-blue-200">Galdames</span>
+          
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-theme-primary">
+            <span className="block gradient-text">Anyelo Bustos</span>
+            <span className="text-3xl md:text-4xl font-normal text-theme-secondary block mt-2">Galdames</span>
           </h1>
-          <p className="text-xl md:text-2xl mb-4 text-blue-100">
+          
+          <p className="text-xl md:text-2xl mb-4 text-theme-secondary font-medium">
             Analista Programador | Full-Stack Developer
           </p>
-          <p className="text-lg mb-8 text-blue-200 max-w-2xl mx-auto">
+          
+          <p className="text-lg mb-12 text-theme-tertiary max-w-2xl mx-auto leading-relaxed">
             Desarrollador full stack con experiencia en aplicaciones web y de escritorio, 
-            especializado en crear soluciones eficientes y escalables.
+            especializado en crear soluciones eficientes y escalables con las últimas tecnologías.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          
+          <div className="flex flex-col sm:flex-row gap-8 justify-center">
             <button
               onClick={() => scrollToSection('proyectos')}
-              className="btn-linkedin-primary flex items-center justify-center gap-2"
+              className="btn-hero-primary group"
             >
               Ver Proyectos
-              <ChevronRight size={20} />
+              <ChevronRight size={20} className="ml-3 transition-transform group-hover:translate-x-1" />
             </button>
+            
+            <button
+              onClick={() => scrollToSection('contacto')}
+              className="btn-hero-secondary"
+            >
+              Hablemos
+            </button>
+          </div>
+        </div>
+        
+        {/* Indicador de scroll - FUERA del contenedor principal */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+          <div className="flex flex-col items-center text-theme-tertiary">
+            <span className="text-sm mb-2">Descubre más</span>
+            <div className="w-6 h-10 border-2 border-theme-accent/50 rounded-full flex justify-center">
+              <div className="w-1 h-3 bg-theme-accent rounded-full mt-2 animate-bounce"></div>
+            </div>
           </div>
         </div>
       </section>
@@ -770,15 +799,15 @@ Enviado desde tu portafolio web`;
                   <span>Desarrollo de aplicaciones de escritorio en .NET Framework 4.8 con VB.NET, siguiendo requerimientos específicos del negocio.</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-600 mt-1">•</span>
+                  <span className="text-theme-accent mt-1">•</span>
                   <span>Creación de FFReport, un sistema para la medición de gases que incluyó módulos de reportes, gestión de rutas, rendición de gastos, calendario de planificación y consumo de API Key de Google Maps.</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-600 mt-1">•</span>
+                  <span className="text-theme-accent mt-1">•</span>
                   <span>Diseño y desarrollo de procedimientos almacenados y creación de tablas en SQL Server.</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-600 mt-1">•</span>
+                  <span className="text-theme-accent mt-1">•</span>
                   <span>Implementación de control de versiones mediante Bonobo con Git Server, ya que la empresa no contaba con un sistema de gestión de código.</span>
                 </li>
               </ul>
@@ -797,7 +826,7 @@ Enviado desde tu portafolio web`;
               </div>
               <ul className="space-y-2 text-theme-secondary">
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-600 mt-1">•</span>
+                  <span className="text-theme-accent mt-1">•</span>
                   <span>Desarrollo de sitios web personalizados para clientes: Alcanza tu Estrella (ONG), Urbanos Delux (eventos artísticos), Gourmet Restaurant (restaurantes), pymes y emprendedores. Creación de landing pages con HTML, CSS, Bootstrap y Tailwind CSS. Backend en PHP puro y Laravel. Gestión de bases de datos MySQL/MariaDB y uso de entornos locales con XAMPP.</span>
                 </li>
                 <li className="flex items-start gap-2">
@@ -818,15 +847,15 @@ Enviado desde tu portafolio web`;
               </div>
               <ul className="space-y-2 text-theme-secondary">
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-600 mt-1">•</span>
+                  <span className="text-theme-accent mt-1">•</span>
                   <span>Desarrollo de componentes en Angular, SQL Server y C# para el cliente Certhia, enfocado en la actualización y mejora del sistema según nuevos requerimientos.</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-600 mt-1">•</span>
+                  <span className="text-theme-accent mt-1">•</span>
                   <span>Implementación de mejoras funcionales y optimización de rendimiento.</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-600 mt-1">•</span>
+                  <span className="text-theme-accent mt-1">•</span>
                   <span>Documentación de procedimientos almacenados, estilos y flujos de trabajo para asegurar la trazabilidad y mantenimiento del sistema.</span>
                 </li>
               </ul>
@@ -875,40 +904,40 @@ Enviado desde tu portafolio web`;
           <div className="grid md:grid-cols-3 gap-8">
             <div className="card-linkedin p-6 hover:-translate-y-2 transform cursor-pointer group relative z-10">
               <h3 className="text-xl font-semibold mb-4 text-theme-primary group-hover:text-theme-accent">Frontend</h3>
-              <div className="space-y-2">
-                <span className="inline-block bg-theme-secondary text-theme-secondary px-3 py-1 rounded-full text-sm mr-2 mb-2 hover:bg-theme-tertiary cursor-pointer">React</span>
-                <span className="inline-block bg-theme-secondary text-theme-secondary px-3 py-1 rounded-full text-sm mr-2 mb-2 hover:bg-theme-tertiary cursor-pointer">Angular</span>
-                <span className="inline-block bg-theme-secondary text-theme-secondary px-3 py-1 rounded-full text-sm mr-2 mb-2 hover:bg-theme-tertiary cursor-pointer">HTML</span>
-                <span className="inline-block bg-theme-secondary text-theme-secondary px-3 py-1 rounded-full text-sm mr-2 mb-2 hover:bg-theme-tertiary cursor-pointer">CSS</span>
-                <span className="inline-block bg-theme-secondary text-theme-secondary px-3 py-1 rounded-full text-sm mr-2 mb-2 hover:bg-theme-tertiary cursor-pointer">TypeScript</span>
-                <span className="inline-block bg-theme-secondary text-theme-secondary px-3 py-1 rounded-full text-sm mr-2 mb-2 hover:bg-theme-tertiary cursor-pointer">Tailwind CSS</span>
-                <span className="inline-block bg-theme-secondary text-theme-secondary px-3 py-1 rounded-full text-sm mr-2 mb-2 hover:bg-theme-tertiary cursor-pointer">Bootstrap</span>
+              <div className="flex flex-wrap gap-2">
+                <span className="badge-violet">React</span>
+                <span className="badge-violet">Angular</span>
+                <span className="badge-violet">HTML</span>
+                <span className="badge-violet">CSS</span>
+                <span className="badge-violet">TypeScript</span>
+                <span className="badge-violet">Tailwind CSS</span>
+                <span className="badge-violet">Bootstrap</span>
               </div>
             </div>
             
             <div className="card-linkedin p-6 hover:-translate-y-2 transform cursor-pointer group relative z-10">
               <h3 className="text-xl font-semibold mb-4 text-theme-primary group-hover:text-theme-accent">Backend</h3>
-              <div className="space-y-2">
-                <span className={`inline-block px-3 py-1 rounded-full text-sm mr-2 mb-2 transition-colors ${darkMode ? 'bg-gray-700 text-gray-200 group-hover:bg-gray-600' : 'bg-gray-200 text-gray-800 group-hover:bg-gray-300'}`}>Java</span>
-                <span className={`inline-block px-3 py-1 rounded-full text-sm mr-2 mb-2 transition-colors ${darkMode ? 'bg-gray-700 text-gray-200 group-hover:bg-gray-600' : 'bg-gray-200 text-gray-800 group-hover:bg-gray-300'}`}>Spring Boot</span>
-                <span className={`inline-block px-3 py-1 rounded-full text-sm mr-2 mb-2 transition-colors ${darkMode ? 'bg-gray-700 text-gray-200 group-hover:bg-gray-600' : 'bg-gray-200 text-gray-800 group-hover:bg-gray-300'}`}>PHP</span>
-                <span className={`inline-block px-3 py-1 rounded-full text-sm mr-2 mb-2 transition-colors ${darkMode ? 'bg-gray-700 text-gray-200 group-hover:bg-gray-600' : 'bg-gray-200 text-gray-800 group-hover:bg-gray-300'}`}>Laravel</span>
-                <span className={`inline-block px-3 py-1 rounded-full text-sm mr-2 mb-2 transition-colors ${darkMode ? 'bg-gray-700 text-gray-200 group-hover:bg-gray-600' : 'bg-gray-200 text-gray-800 group-hover:bg-gray-300'}`}>C#</span>
-                <span className={`inline-block px-3 py-1 rounded-full text-sm mr-2 mb-2 transition-colors ${darkMode ? 'bg-gray-700 text-gray-200 group-hover:bg-gray-600' : 'bg-gray-200 text-gray-800 group-hover:bg-gray-300'}`}>.NET Framework</span>
-                <span className={`inline-block px-3 py-1 rounded-full text-sm mr-2 mb-2 transition-colors ${darkMode ? 'bg-gray-700 text-gray-200 group-hover:bg-gray-600' : 'bg-gray-200 text-gray-800 group-hover:bg-gray-300'}`}>.NET Core</span>
-                <span className={`inline-block px-3 py-1 rounded-full text-sm mr-2 mb-2 transition-colors ${darkMode ? 'bg-gray-700 text-gray-200 group-hover:bg-gray-600' : 'bg-gray-200 text-gray-800 group-hover:bg-gray-300'}`}>VB.NET</span>
-                <span className={`inline-block px-3 py-1 rounded-full text-sm mr-2 mb-2 transition-colors ${darkMode ? 'bg-gray-700 text-gray-200 group-hover:bg-gray-600' : 'bg-gray-200 text-gray-800 group-hover:bg-gray-300'}`}>Python</span>
-                <span className={`inline-block px-3 py-1 rounded-full text-sm mr-2 mb-2 transition-colors ${darkMode ? 'bg-gray-700 text-gray-200 group-hover:bg-gray-600' : 'bg-gray-200 text-gray-800 group-hover:bg-gray-300'}`}>Node.js</span>
+              <div className="flex flex-wrap gap-2">
+                <span className="badge-coral">Java</span>
+                <span className="badge-coral">Spring Boot</span>
+                <span className="badge-coral">PHP</span>
+                <span className="badge-coral">Laravel</span>
+                <span className="badge-coral">C#</span>
+                <span className="badge-coral">.NET Framework</span>
+                <span className="badge-coral">.NET Core</span>
+                <span className="badge-coral">VB.NET</span>
+                <span className="badge-coral">Python</span>
+                <span className="badge-coral">Node.js</span>
               </div>
             </div>
             
-            <div className="bg-theme-primary border border-theme-primary p-6 rounded-xl shadow-theme hover:shadow-theme-hover hover:-translate-y-2 transition-all duration-300 transform cursor-pointer group relative z-10">
-              <h3 className="text-xl font-semibold mb-4 text-theme-primary group-hover:text-theme-secondary">Base de Datos</h3>
-              <div className="space-y-2">
-                <span className={`inline-block px-3 py-1 rounded-full text-sm mr-2 mb-2 transition-colors ${darkMode ? 'bg-gray-700 text-gray-200 group-hover:bg-gray-600' : 'bg-gray-200 text-gray-800 group-hover:bg-gray-300'}`}>MySQL</span>
-                <span className={`inline-block px-3 py-1 rounded-full text-sm mr-2 mb-2 transition-colors ${darkMode ? 'bg-gray-700 text-gray-200 group-hover:bg-gray-600' : 'bg-gray-200 text-gray-800 group-hover:bg-gray-300'}`}>PostgreSQL</span>
-                <span className={`inline-block px-3 py-1 rounded-full text-sm mr-2 mb-2 transition-colors ${darkMode ? 'bg-gray-700 text-gray-200 group-hover:bg-gray-600' : 'bg-gray-200 text-gray-800 group-hover:bg-gray-300'}`}>SQL Server</span>
-                <span className={`inline-block px-3 py-1 rounded-full text-sm mr-2 mb-2 transition-colors ${darkMode ? 'bg-gray-700 text-gray-200 group-hover:bg-gray-600' : 'bg-gray-200 text-gray-800 group-hover:bg-gray-300'}`}>Oracle</span>
+            <div className="card-linkedin p-6 hover:-translate-y-2 transform cursor-pointer group relative z-10">
+              <h3 className="text-xl font-semibold mb-4 text-theme-primary group-hover:text-theme-accent">Base de Datos</h3>
+              <div className="flex flex-wrap gap-2">
+                <span className="badge-emerald">MySQL</span>
+                <span className="badge-emerald">PostgreSQL</span>
+                <span className="badge-emerald">SQL Server</span>
+                <span className="badge-emerald">Oracle</span>
               </div>
             </div>
           </div>
@@ -916,31 +945,31 @@ Enviado desde tu portafolio web`;
       </section>
 
       {/* Projects Section */}
-      <section id="proyectos" className={`py-20 transition-colors duration-300 ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
+      <section id="proyectos" className="py-20 bg-theme-secondary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className={`text-4xl font-bold mb-4 transition-colors duration-300 ${darkMode ? 'text-white' : 'text-gray-900'}`}>Mis Proyectos</h2>
-            <p className={`text-xl max-w-3xl mx-auto transition-colors duration-300 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+            <h2 className="text-4xl font-bold mb-4 text-theme-primary">Mis Proyectos</h2>
+            <p className="text-xl max-w-3xl mx-auto text-theme-secondary">
               Aquí puedes ver algunos de los proyectos más destacados en los que he trabajado
             </p>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
-              <div key={index} className={`rounded-xl shadow-lg overflow-hidden border hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 transform cursor-pointer group ${darkMode ? 'bg-gray-700 border-gray-600' : 'bg-white border-gray-200'}`}>
+              <div key={index} className="bg-theme-card rounded-xl shadow-lg overflow-hidden border border-theme-primary hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 transform cursor-pointer group">
                 <img 
                   src={project.image} 
                   alt={project.title}
                   className="w-full h-48 object-cover"
                 />
                 <div className="p-6">
-                  <h3 className={`text-xl font-semibold mb-3 transition-colors ${darkMode ? 'text-white group-hover:text-gray-300' : 'text-gray-900 group-hover:text-gray-700'}`}>{project.title}</h3>
-                  <p className={`mb-4 line-clamp-3 transition-colors ${darkMode ? 'text-gray-300 group-hover:text-gray-200' : 'text-gray-600 group-hover:text-gray-700'}`}>{project.description}</p>
+                  <h3 className="text-xl font-semibold mb-3 text-theme-primary group-hover:text-theme-accent transition-colors">{project.title}</h3>
+                  <p className="mb-4 line-clamp-3 text-theme-secondary font-medium leading-relaxed group-hover:text-theme-primary transition-colors">{project.description}</p>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.technologies.map((tech, techIndex) => (
                       <span 
                         key={techIndex}
-                        className={`inline-block px-2 py-1 rounded text-xs transition-colors ${darkMode ? 'bg-gray-600 text-gray-200 group-hover:bg-gray-500' : 'bg-gray-200 text-gray-800 group-hover:bg-gray-300'}`}
+                        className="inline-block px-2 py-1 rounded text-xs bg-theme-accent/10 text-theme-accent group-hover:bg-theme-accent/20 transition-colors"
                       >
                         {tech}
                       </span>
@@ -960,7 +989,7 @@ Enviado desde tu portafolio web`;
                         href={project.demo} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="flex-1 bg-blue-600 text-white text-center py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors group-hover:scale-105 transform"
+                        className="flex-1 bg-gradient-to-r from-violet-600 to-purple-600 text-white text-center py-2 px-4 rounded-lg hover:from-violet-700 hover:to-purple-700 transition-all group-hover:scale-105 transform shadow-lg"
                       >
                         Demo
                     </a>
@@ -976,11 +1005,11 @@ Enviado desde tu portafolio web`;
       {/* ======================================== */}
       {/* SECCIÓN DE CERTIFICACIONES */}
       {/* ======================================== */}
-      <section id="certificaciones" className={`py-20 transition-colors duration-300 ${darkMode ? 'bg-gray-900' : 'bg-gray-50'}`}>
+      <section id="certificaciones" className="py-20 bg-theme-secondary transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className={`text-4xl font-bold mb-4 transition-colors duration-300 ${darkMode ? 'text-white' : 'text-gray-900'}`}>🏆 Mis Certificaciones</h2>
-            <p className={`text-xl max-w-3xl mx-auto transition-colors duration-300 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+            <h2 className="text-4xl font-bold mb-4 text-theme-primary transition-colors duration-300">🏆 Mis Certificaciones</h2>
+            <p className="text-xl max-w-3xl mx-auto text-theme-secondary transition-colors duration-300">
               Más de 1,500 horas de formación profesional en desarrollo web, bases de datos y tecnologías modernas
             </p>
           </div>
@@ -992,7 +1021,7 @@ Enviado desde tu portafolio web`;
             {/* Botones de navegación */}
             <button
               onClick={prevCert}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-gray-800 hover:text-blue-600 p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm"
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-theme-primary hover:text-theme-accent p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -1001,7 +1030,7 @@ Enviado desde tu portafolio web`;
 
             <button
               onClick={nextCert}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-gray-800 hover:text-blue-600 p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm"
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-theme-primary hover:text-theme-accent p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -1016,9 +1045,9 @@ Enviado desde tu portafolio web`;
                   <div key={pageIndex} className="w-full flex-shrink-0 px-4">
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
                       {certifications.slice(pageIndex * 4, (pageIndex + 1) * 4).map((cert) => (
-                        <div key={cert.id} className={`rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer group ${darkMode ? 'bg-gray-800' : 'bg-white'}`} onClick={() => openCertModal(cert)}>
+                        <div key={cert.id} className="bg-theme-card rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer group" onClick={() => openCertModal(cert)}>
                           {/* Imagen de la certificación */}
-                          <div className={`relative h-40 transition-all duration-300 ${darkMode ? 'bg-gradient-to-br from-gray-700 to-gray-600' : 'bg-gradient-to-br from-gray-100 to-gray-200'}`}>
+                          <div className="relative h-40 transition-all duration-300 bg-gradient-to-br from-gray-100 to-gray-200">
                             <img 
                               src={cert.image} 
                               alt={cert.title}
@@ -1045,7 +1074,7 @@ Enviado desde tu portafolio web`;
                           <div className="p-4">
                             {/* Categoría */}
                             <div className="mb-2">
-                              <span className={`inline-flex items-center px-1 py-0.5 rounded-full text-xs font-medium transition-colors duration-300 ${darkMode ? 'bg-gray-700 text-gray-200' : 'bg-gray-200 text-gray-800'}`}>
+                              <span className="inline-flex items-center px-1 py-0.5 rounded-full text-xs font-medium bg-theme-accent/10 text-theme-accent transition-colors duration-300">
                                 {cert.category === 'bootcamp' ? '🚀' :
                                  cert.category === 'diplomado' ? '🎓' :
                                  cert.category === 'web' ? '💻' :
@@ -1058,17 +1087,17 @@ Enviado desde tu portafolio web`;
                             </div>
 
                             {/* Título */}
-                            <h3 className={`text-sm font-semibold mb-2 line-clamp-2 transition-colors duration-300 ${darkMode ? 'text-white group-hover:text-gray-300' : 'text-gray-900 group-hover:text-gray-700'}`}>
+                            <h3 className="text-sm font-semibold mb-2 line-clamp-2 text-theme-primary group-hover:text-theme-accent transition-colors duration-300">
                               {cert.title}
                             </h3>
 
                             {/* Descripción */}
-                            <p className={`text-xs line-clamp-3 mb-3 transition-colors duration-300 ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>{cert.description}</p>
+                            <p className="text-xs line-clamp-3 mb-3 text-theme-secondary transition-colors duration-300">{cert.description}</p>
 
                             {/* Información adicional */}
-                            <div className={`flex items-center justify-between text-xs transition-colors duration-300 ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
+                            <div className="flex items-center justify-between text-xs text-theme-secondary transition-colors duration-300">
                               <span className="truncate">{cert.issuer}</span>
-                              <span className="text-blue-600 font-medium">+</span>
+                              <span className="text-theme-accent font-medium">+</span>
                             </div>
                           </div>
                         </div>
@@ -1086,7 +1115,7 @@ Enviado desde tu portafolio web`;
                   key={index}
                   onClick={() => goToCert(index)}
                   className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    index === currentCertIndex ? 'bg-blue-600 w-8' : 'bg-gray-300 hover:bg-gray-400'
+                    index === currentCertIndex ? 'bg-theme-accent w-8' : 'bg-theme-accent/30 hover:bg-theme-accent/50'
                   }`}
                 />
               ))}
@@ -1098,71 +1127,71 @@ Enviado desde tu portafolio web`;
           {/* ======================================== */}
           <div className="mt-16 grid md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="text-4xl font-bold text-blue-600 mb-2">{certifications.length}</div>
-              <div className="text-gray-600">Certificaciones</div>
+              <div className="text-4xl font-bold text-theme-accent mb-2">{certifications.length}</div>
+              <div className="text-theme-secondary">Certificaciones</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-green-600 mb-2">
+              <div className="text-4xl font-bold text-emerald-600 mb-2">
                 {certifications.reduce((total, cert) => total + cert.hours, 0).toLocaleString()}
               </div>
-              <div className="text-gray-600">Horas Totales</div>
+              <div className="text-theme-secondary">Horas Totales</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-purple-600 mb-2">
+              <div className="text-4xl font-bold text-theme-accent mb-2">
                 {certifications.filter(cert => cert.category === 'bootcamp' || cert.category === 'diplomado').length}
               </div>
-              <div className="text-gray-600">Diplomados</div>
+              <div className="text-theme-secondary">Diplomados</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-orange-600 mb-2">
+              <div className="text-4xl font-bold text-coral-600 mb-2">
                 {certifications.filter(cert => cert.category === 'web' || cert.category === 'database').length}
               </div>
-              <div className="text-gray-600">Tecnologías</div>
+              <div className="text-theme-secondary">Tecnologías</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section id="contacto" className={`py-20 transition-colors duration-300 ${darkMode ? 'bg-gray-800' : 'bg-gray-50'}`}>
+      <section id="contacto" className="py-20 section-secondary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className={`text-4xl font-bold mb-4 transition-colors duration-300 ${darkMode ? 'text-white' : 'text-gray-900'}`}>Contacto</h2>
-            <p className={`text-xl max-w-3xl mx-auto transition-colors duration-300 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+            <h2 className="text-4xl font-bold mb-4 text-theme-primary">Contacto</h2>
+            <p className="text-xl max-w-3xl mx-auto text-theme-secondary">
               ¿Te gustaría trabajar juntos? ¡No dudes en contactarme!
             </p>
           </div>
           
           <div className="grid md:grid-cols-2 gap-12">
             <div>
-              <h3 className="text-2xl font-bold mb-6 text-gray-900">Información de Contacto</h3>
+              <h3 className="text-2xl font-bold mb-6 text-theme-primary">Información de Contacto</h3>
               <div className="space-y-4">
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-2">Ubicación</h4>
-                  <p className="text-gray-600">Santiago, La Reina, Chile</p>
+                  <h4 className="font-semibold text-theme-primary mb-2">Ubicación</h4>
+                  <p className="text-theme-secondary">Santiago, La Reina, Chile</p>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-2">Email</h4>
-                  <a href="mailto:sen.programador@gmail.com" className="text-blue-600 hover:text-blue-800">
+                  <h4 className="font-semibold text-theme-primary mb-2">Email</h4>
+                  <a href="mailto:sen.programador@gmail.com" className="text-theme-accent hover:text-theme-link">
                     sen.programador@gmail.com
                   </a>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-2">Teléfono</h4>
-                  <a href="tel:+56949728928" className="text-blue-600 hover:text-blue-800">
+                  <h4 className="font-semibold text-theme-primary mb-2">Teléfono</h4>
+                  <a href="tel:+56949728928" className="text-theme-accent hover:text-theme-accent-hover">
                     (+56) 949728928
                   </a>
                 </div>
               </div>
               
               <div className="mt-8">
-                <h4 className="font-semibold text-gray-900 mb-4">Sígueme en:</h4>
+                <h4 className="font-semibold text-theme-primary mb-4">Sígueme en:</h4>
                 <div className="flex gap-4">
                   <a 
                     href="https://github.com/daisersenpro" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="p-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors"
+                    className="p-3 bg-theme-primary text-white rounded-lg hover:bg-theme-accent transition-colors"
                   >
                     <Github size={20} />
                   </a>
@@ -1170,7 +1199,7 @@ Enviado desde tu portafolio web`;
                     href="https://linkedin.com/in/anyelo-b-84ab65147" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="p-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                    className="p-3 bg-theme-accent text-white rounded-lg hover:bg-theme-accent-hover transition-all shadow-lg"
                   >
                     <Linkedin size={20} />
                   </a>
@@ -1178,7 +1207,7 @@ Enviado desde tu portafolio web`;
                     href="https://wa.me/56949728928" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="p-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+                    className="p-3 bg-gradient-to-r from-emerald-500 to-green-500 text-white rounded-lg hover:from-emerald-600 hover:to-green-600 transition-all shadow-lg"
                   >
                     <MessageSquare size={20} />
                   </a>
@@ -1189,7 +1218,7 @@ Enviado desde tu portafolio web`;
             <div>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium text-theme-primary mb-2">
                     Nombre completo
                   </label>
                   <input 
@@ -1199,12 +1228,12 @@ Enviado desde tu portafolio web`;
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-theme-accent focus:border-transparent"
                     placeholder="Tu nombre"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-theme-primary mb-2">
                     Email
                   </label>
                   <input 
@@ -1214,12 +1243,12 @@ Enviado desde tu portafolio web`;
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-theme-accent focus:border-transparent"
                     placeholder="tu@email.com"
                   />
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium text-theme-primary mb-2">
                     Mensaje
                   </label>
                   <textarea 
@@ -1229,20 +1258,20 @@ Enviado desde tu portafolio web`;
                     onChange={handleInputChange}
                     required
                     rows={4}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-theme-accent focus:border-transparent"
                     placeholder="Tu mensaje..."
                   ></textarea>
                 </div>
                 
                 {/* Estado del envío */}
                 {submitStatus === 'success' && (
-                  <div className="p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg">
+                  <div className="p-4 bg-emerald-50 border border-emerald-200 text-emerald-700 rounded-lg shadow-sm">
                     ¡Mensaje procesado! Se abrirá WhatsApp con tu mensaje. Solo presiona enviar.
                   </div>
                 )}
                 
                 {submitStatus === 'error' && (
-                  <div className="p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg">
+                  <div className="p-4 bg-red-50 border border-red-200 text-red-700 rounded-lg shadow-sm">
                     Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.
                   </div>
                 )}
@@ -1253,7 +1282,7 @@ Enviado desde tu portafolio web`;
                   className={`w-full py-3 px-6 rounded-lg font-semibold transition-colors ${
                     isSubmitting 
                       ? 'bg-gray-400 cursor-not-allowed' 
-                      : 'bg-blue-600 text-white hover:bg-blue-700'
+                      : 'btn-hero-primary'
                   }`}
                 >
                   {isSubmitting ? 'Procesando...' : 'Enviar por WhatsApp'}
@@ -1265,21 +1294,21 @@ Enviado desde tu portafolio web`;
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
+      <footer className="footer-professional py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
-              <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-blue-200 bg-clip-text text-transparent">
+              <h3 className="text-footer-title text-2xl font-bold mb-4 gradient-text">
                 Anyelo Bustos
               </h3>
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-footer-content leading-relaxed">
                 Analista Programador Full Stack Developer especializado en crear soluciones 
                 web innovadoras y eficientes.
               </p>
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4">Enlaces Rápidos</h4>
+              <h4 className="text-footer-title font-semibold mb-4">Enlaces Rápidos</h4>
               <div className="space-y-2">
                 {[
                   { name: 'Sobre Mí', id: 'sobre-mi' },
@@ -1292,7 +1321,7 @@ Enviado desde tu portafolio web`;
                   <button
                     key={item.id}
                     onClick={() => scrollToSection(item.id)}
-                    className="block text-gray-400 hover:text-white transition-colors text-left"
+                    className="block text-footer-link hover:text-footer-link transition-colors text-left"
                   >
                     {item.name}
                   </button>
@@ -1301,13 +1330,13 @@ Enviado desde tu portafolio web`;
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4">Contacto</h4>
-              <div className="space-y-2 text-gray-400">
-                <p>Santiago, La Reina, Chile</p>
-                <a href="mailto:sen.programador@gmail.com" className="block hover:text-white transition-colors">
+              <h4 className="text-footer-title font-semibold mb-4">Contacto</h4>
+              <div className="space-y-2">
+                <p className="text-footer-content">Santiago, La Reina, Chile</p>
+                <a href="mailto:sen.programador@gmail.com" className="block text-footer-link hover:text-footer-link transition-colors">
                   sen.programador@gmail.com
                 </a>
-                <a href="tel:+56949728928" className="block hover:text-white transition-colors">
+                <a href="tel:+56949728928" className="block text-footer-link hover:text-footer-link transition-colors">
                   (+56) 949728928
                 </a>
               </div>
@@ -1317,7 +1346,7 @@ Enviado desde tu portafolio web`;
                   href="https://github.com/daisersenpro" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="p-2 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors"
+                  className="p-2 bg-theme-primary rounded-lg hover:bg-theme-accent transition-colors text-white"
                 >
                   <Github size={20} />
                 </a>
@@ -1325,7 +1354,7 @@ Enviado desde tu portafolio web`;
                   href="https://linkedin.com/in/anyelo-b-84ab65147" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="p-2 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors"
+                  className="p-2 bg-theme-accent rounded-lg hover:bg-theme-accent-hover transition-colors text-white"
                 >
                   <Linkedin size={20} />
                 </a>
@@ -1333,7 +1362,7 @@ Enviado desde tu portafolio web`;
                   href="https://wa.me/56949728928" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="p-2 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors"
+                  className="p-2 bg-emerald-600 rounded-lg hover:bg-emerald-700 transition-colors text-white"
                 >
                   <MessageSquare size={20} />
                 </a>
@@ -1341,8 +1370,8 @@ Enviado desde tu portafolio web`;
             </div>
           </div>
 
-          <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-            <p>&copy; 2025 Anyelo Bustos. Todos los derechos reservados.</p>
+          <div className="border-t border-white/10 mt-12 pt-8 text-center">
+            <p className="text-footer-content">&copy; 2025 Anyelo Bustos. Todos los derechos reservados.</p>
           </div>
         </div>
       </footer>
@@ -1373,7 +1402,7 @@ Enviado desde tu portafolio web`;
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-t-2xl">
                 <div className="absolute bottom-4 left-4 right-4 text-white">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                    <span className="bg-black text-yellow-400 px-3 py-1 rounded-full text-sm font-medium border border-yellow-400">
                       {selectedCert.hours}h
                     </span>
                     <span className="bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm">
@@ -1381,7 +1410,7 @@ Enviado desde tu portafolio web`;
                     </span>
                   </div>
                   <h3 className="text-2xl font-bold mb-2">{selectedCert.title}</h3>
-                  <p className="text-lg text-blue-200">{selectedCert.issuer}</p>
+                  <p className="text-lg text-yellow-200">{selectedCert.issuer}</p>
                 </div>
               </div>
             </div>
@@ -1391,14 +1420,14 @@ Enviado desde tu portafolio web`;
               {/* Categoría */}
               <div className="mb-4">
                 <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${
-                  selectedCert.category === 'bootcamp' ? 'bg-purple-100 text-purple-800' :
-                  selectedCert.category === 'diplomado' ? 'bg-green-100 text-green-800' :
-                  selectedCert.category === 'web' ? 'bg-blue-100 text-blue-800' :
+                  selectedCert.category === 'bootcamp' ? 'bg-violet-100 text-violet-800' :
+                  selectedCert.category === 'diplomado' ? 'bg-emerald-100 text-emerald-800' :
+                  selectedCert.category === 'web' ? 'bg-purple-100 text-purple-800' :
                   selectedCert.category === 'database' ? 'bg-orange-100 text-orange-800' :
                   selectedCert.category === 'tools' ? 'bg-indigo-100 text-indigo-800' :
-                  selectedCert.category === 'desktop' ? 'bg-red-100 text-red-800' :
-                  selectedCert.category === 'soft-skills' ? 'bg-pink-100 text-pink-800' :
-                  'bg-gray-100 text-gray-800'
+                  selectedCert.category === 'desktop' ? 'bg-coral-100 text-coral-800' :
+                  selectedCert.category === 'soft-skills' ? 'bg-rose-100 text-rose-800' :
+                  'bg-slate-100 text-slate-800'
                 }`}>
                   {selectedCert.category === 'bootcamp' ? '🚀 Bootcamp' :
                    selectedCert.category === 'diplomado' ? '🎓 Diplomado' :
@@ -1455,7 +1484,7 @@ Enviado desde tu portafolio web`;
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 p-3 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 hover:scale-110 z-40"
+          className="fixed bottom-8 right-8 p-3 bg-gradient-to-r from-violet-600 to-purple-600 text-white rounded-full shadow-xl hover:from-violet-700 hover:to-purple-700 transition-all duration-300 hover:scale-110 z-40"
         >
           <ArrowUp size={20} />
         </button>

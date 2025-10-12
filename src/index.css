@@ -1,184 +1,677 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* ============================================= */
-/* VARIABLES CSS PARA MODO CLARO Y OSCURO */
+/* PALETA DE COLORES UNIFICADA Y PROFESIONAL */
 /* ============================================= */
 
 :root {
-  /* Modo Claro - Colores oficiales LinkedIn */
+  /* Fuentes */
+  --fuente-principal: 'Lato', sans-serif;
+  --peso-delgado: 300;
+  --peso-regular: 400;
+  --peso-bold: 700;
+  --peso-black: 900;
+  
+  /* ============================================= */
+  /* PALETA PRINCIPAL - VIOLETA PROFESIONAL */
+  /* ============================================= */
+  
+  /* Colores primarios */
+  --violeta-50: #f5f3ff;
+  --violeta-100: #ede9fe;
+  --violeta-200: #ddd6fe;
+  --violeta-300: #c4b5fd;
+  --violeta-400: #a78bfa;
+  --violeta-500: #8b5cf6;
+  --violeta-600: #7c3aed;
+  --violeta-700: #6d28d9;
+  --violeta-800: #5b21b6;
+  --violeta-900: #4c1d95;
+  
+  /* Colores de acento */
+  --coral-500: #f97316;
+  --coral-600: #ea580c;
+  --coral-700: #dc2626;
+  --esmeralda-500: #10b981;
+  --esmeralda-600: #059669;
+  --esmeralda-700: #047857;
+  --dorado-500: #f59e0b;
+  --dorado-600: #d97706;
+  --dorado-700: #b45309;
+  
+  /* Grises profesionales */
+  --gris-50: #f8fafc;
+  --gris-100: #f1f5f9;
+  --gris-200: #e2e8f0;
+  --gris-300: #cbd5e1;
+  --gris-400: #94a3b8;
+  --gris-500: #64748b;
+  --gris-600: #475569;
+  --gris-700: #334155;
+  --gris-800: #1e293b;
+  --gris-900: #0f172a;
+  
+  /* Colores de estado */
+  --success: var(--esmeralda-500);
+  --warning: var(--dorado-500);
+  --error: #ef4444;
+  --info: #3b82f6;
+  
+  /* ============================================= */
+  /* MODO CLARO - FONDO BLANCO PROFESIONAL */
+  /* ============================================= */
+  
+  /* Fondos */
   --bg-primary: #ffffff;
-  --bg-secondary: #f3f2ef;
-  --bg-tertiary: #f8f9fa;
+  --bg-secondary: var(--gris-50);
+  --bg-tertiary: var(--gris-100);
   --bg-card: #ffffff;
-  --bg-hover: #f5f5f5;
-  --bg-active: #e6f3ff;
-  --text-primary: #000000;
-  --text-secondary: rgba(0, 0, 0, 0.9);
-  --text-tertiary: rgba(0, 0, 0, 0.6);
-  --text-muted: rgba(0, 0, 0, 0.55);
-  --text-link: #0a66c2;
-  --text-link-hover: #004182;
-  --accent-primary: #0a66c2;
-  --accent-secondary: #004182;
-  --accent-hover: #004182;
-  --accent-light: #e6f3ff;
-  --success: #057642;
-  --warning: #b24000;
-  --error: #d32f2f;
-  --border-primary: rgba(0, 0, 0, 0.15);
-  --border-secondary: rgba(0, 0, 0, 0.08);
-  --border-light: rgba(0, 0, 0, 0.05);
-  --shadow: rgba(0, 0, 0, 0.08);
-  --shadow-hover: rgba(0, 0, 0, 0.12);
-  --shadow-card: 0 0 0 1px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.08);
-  --shadow-elevated: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --bg-hover: var(--gris-50);
+  --bg-active: var(--violeta-100);
+  
+  /* Textos */
+  --text-primary: var(--gris-900);
+  --text-secondary: var(--gris-600);
+  --text-tertiary: var(--gris-500);
+  --text-muted: var(--gris-400);
+  --text-inverse: #ffffff;
+  
+  /* Enlaces */
+  --text-link: var(--violeta-600);
+  --text-link-hover: var(--violeta-700);
+  
+  /* Acentos */
+  --accent-primary: var(--violeta-600);
+  --accent-secondary: var(--coral-500);
+  --accent-hover: var(--violeta-700);
+  --accent-light: var(--violeta-100);
+  
+  /* Bordes */
+  --border-primary: var(--gris-200);
+  --border-secondary: var(--gris-100);
+  --border-light: var(--gris-50);
+  --border-accent: var(--violeta-300);
+  
+  /* Sombras */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.04);
+  --shadow-violet: 0 4px 14px rgba(139, 92, 246, 0.15);
+  --shadow-coral: 0 4px 14px rgba(249, 115, 22, 0.15);
+  --shadow-emerald: 0 4px 14px rgba(16, 185, 129, 0.15);
 }
 
 [data-theme="dark"] {
-  /* Modo Oscuro - Colores mejorados y más agradables */
-  --bg-primary: #0f1419;
-  --bg-secondary: #1a1f24;
-  --bg-tertiary: #23272d;
-  --bg-card: #1a1f24;
-  --bg-hover: #23272d;
-  --bg-active: #2a3441;
+  /* ============================================= */
+  /* MODO OSCURO - ELEGANTE Y PROFESIONAL */
+  /* ============================================= */
+  
+  /* Fondos */
+  --bg-primary: var(--gris-900);
+  --bg-secondary: var(--gris-800);
+  --bg-tertiary: var(--gris-700);
+  --bg-card: var(--gris-800);
+  --bg-hover: var(--gris-700);
+  --bg-active: var(--violeta-900);
+  
+  /* Textos */
   --text-primary: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.95);
-  --text-tertiary: rgba(255, 255, 255, 0.8);
-  --text-muted: rgba(255, 255, 255, 0.65);
-  --text-link: #4fc3f7;
-  --text-link-hover: #29b6f6;
-  --accent-primary: #4fc3f7;
-  --accent-secondary: #29b6f6;
-  --accent-hover: #29b6f6;
-  --accent-light: #2a3441;
-  --success: #66bb6a;
-  --warning: #ffb74d;
-  --error: #ef5350;
-  --border-primary: rgba(255, 255, 255, 0.12);
-  --border-secondary: rgba(255, 255, 255, 0.06);
-  --border-light: rgba(255, 255, 255, 0.03);
-  --shadow: rgba(0, 0, 0, 0.3);
-  --shadow-hover: rgba(0, 0, 0, 0.4);
-  --shadow-card: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 2px 8px rgba(0, 0, 0, 0.3);
-  --shadow-elevated: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --text-secondary: var(--gris-300);
+  --text-tertiary: var(--gris-400);
+  --text-muted: var(--gris-500);
+  --text-inverse: var(--gris-900);
+  
+  /* Enlaces */
+  --text-link: var(--violeta-400);
+  --text-link-hover: var(--violeta-300);
+  
+  /* Acentos */
+  --accent-primary: var(--violeta-500);
+  --accent-secondary: var(--coral-500);
+  --accent-hover: var(--violeta-400);
+  --accent-light: var(--violeta-900);
+  
+  /* Bordes */
+  --border-primary: var(--gris-700);
+  --border-secondary: var(--gris-600);
+  --border-light: var(--gris-500);
+  --border-accent: var(--violeta-600);
+  
+  /* Sombras */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3), 0 2px 4px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.3), 0 4px 6px rgba(0, 0, 0, 0.2);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.3), 0 10px 10px rgba(0, 0, 0, 0.2);
+  --shadow-violet: 0 4px 14px rgba(139, 92, 246, 0.25);
+  --shadow-coral: 0 4px 14px rgba(249, 115, 22, 0.25);
+  --shadow-emerald: 0 4px 14px rgba(16, 185, 129, 0.25);
 }
 
 /* ============================================= */
-/* TRANSICIONES ESTILO LINKEDIN */
+/* ESTILOS GLOBALES PROFESIONALES */
+/* ============================================= */
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: var(--fuente-principal);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+p {
+  color: var(--text-primary);
+}
+
+.contenedor {
+  width: 95%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-link);
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--text-link-hover);
+}
+
+img, picture {
+  width: 100%;
+  display: block;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--fuente-principal);
+  color: var(--text-primary);
+}
+
+/* ============================================= */
+/* TRANSICIONES PROFESIONALES */
 /* ============================================= */
 
 * {
-  transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), 
-              color 0.2s cubic-bezier(0.4, 0, 0.2, 1), 
-              border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), 
-              box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-              transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 0.3s ease, 
+              color 0.3s ease, 
+              border-color 0.3s ease, 
+              box-shadow 0.3s ease,
+              transform 0.2s ease;
 }
 
 /* Transiciones específicas para elementos interactivos */
 button, .btn, .card, .nav-item, .project-card, .cert-card {
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s ease;
 }
 
-/* Efectos hover más suaves */
+/* Efectos hover profesionales */
 button:hover, .btn:hover {
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  cursor: pointer;
 }
 
 .card:hover, .project-card:hover, .cert-card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
   box-shadow: var(--shadow-elevated);
 }
 
 /* ============================================= */
-/* CLASES UTILITARIAS ESTILO LINKEDIN */
+/* CLASES UTILITARIAS UNIFICADAS */
 /* ============================================= */
 
+/* Fondos */
 .bg-theme-primary { background-color: var(--bg-primary); }
 .bg-theme-secondary { background-color: var(--bg-secondary); }
 .bg-theme-tertiary { background-color: var(--bg-tertiary); }
 .bg-theme-card { background-color: var(--bg-card); }
 .bg-theme-hover { background-color: var(--bg-hover); }
 .bg-theme-active { background-color: var(--bg-active); }
+
+/* Textos */
 .text-theme-primary { color: var(--text-primary); }
 .text-theme-secondary { color: var(--text-secondary); }
 .text-theme-tertiary { color: var(--text-tertiary); }
 .text-theme-muted { color: var(--text-muted); }
+.text-theme-inverse { color: var(--text-inverse); }
+
+/* Acentos */
 .text-theme-accent { color: var(--accent-primary); }
 .text-theme-link { color: var(--text-link); }
 .text-theme-link:hover { color: var(--text-link-hover); }
+
+/* Bordes */
 .border-theme-primary { border-color: var(--border-primary); }
 .border-theme-secondary { border-color: var(--border-secondary); }
 .border-theme-light { border-color: var(--border-light); }
-.shadow-theme { box-shadow: var(--shadow-card); }
-.shadow-theme-hover { box-shadow: var(--shadow-elevated); }
-.shadow-theme-elevated { box-shadow: var(--shadow-elevated); }
+.border-theme-accent { border-color: var(--border-accent); }
 
-/* Botones estilo LinkedIn */
-.btn-linkedin-primary {
-  background-color: var(--accent-primary);
+/* Sombras */
+.shadow-theme { box-shadow: var(--shadow); }
+.shadow-theme-sm { box-shadow: var(--shadow-sm); }
+.shadow-theme-md { box-shadow: var(--shadow-md); }
+.shadow-theme-lg { box-shadow: var(--shadow-lg); }
+.shadow-theme-xl { box-shadow: var(--shadow-xl); }
+.shadow-theme-violet { box-shadow: var(--shadow-violet); }
+.shadow-theme-coral { box-shadow: var(--shadow-coral); }
+.shadow-theme-emerald { box-shadow: var(--shadow-emerald); }
+
+/* Clases específicas para asegurar visibilidad del texto */
+.text-footer-title {
+  color: #f8fafc !important;
+  font-weight: 600;
+}
+
+.text-footer-content {
+  color: #cbd5e1 !important;
+}
+
+.text-footer-link {
+  color: #cbd5e1 !important;
+  transition: color 0.3s ease;
+}
+
+.text-footer-link:hover {
+  color: var(--violeta-principal) !important;
+}
+
+[data-theme="dark"] .text-footer-title {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .text-footer-content {
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .text-footer-link {
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .text-footer-link:hover {
+  color: var(--text-link-hover) !important;
+}
+
+/* ============================================= */
+/* BOTONES HERO LIMPIOS Y ELEGANTES */
+/* ============================================= */
+
+.btn-hero-primary {
+  background: linear-gradient(135deg, var(--violeta-600) 0%, var(--violeta-700) 100%);
+  color: var(--text-inverse);
+  border: none;
+  border-radius: 50px;
+  padding: 18px 40px;
+  font-weight: 700;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-violet);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 200px;
+  position: relative;
+  overflow: visible;
+}
+
+.btn-hero-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+  background: linear-gradient(135deg, var(--violeta-500) 0%, var(--violeta-600) 100%);
+}
+
+.btn-hero-secondary {
+  background: var(--accent-light);
+  backdrop-filter: blur(12px);
+  color: var(--accent-primary);
+  border: 2px solid var(--accent-primary);
+  border-radius: 50px;
+  padding: 16px 40px;
+  font-weight: 600;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 200px;
+  position: relative;
+  overflow: visible;
+}
+
+.btn-hero-secondary:hover {
+  background: var(--accent-primary);
+  color: var(--text-inverse);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-violet);
+}
+
+/* ============================================= */
+/* SISTEMA DE BOTONES ULTRA PROFESIONAL */
+/* ============================================= */
+
+/* Botón Principal - VIOLETA MÁGICO */
+.btn-primary-professional {
+  background: linear-gradient(135deg, var(--violeta-principal) 0%, var(--violeta-oscuro) 50%, #312e81 100%);
   color: white;
   border: none;
-  border-radius: 24px;
-  padding: 8px 24px;
+  border-radius: 16px;
+  padding: 16px 36px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 32px rgba(99, 102, 241, 0.4), 0 4px 16px rgba(139, 92, 246, 0.2);
+  position: relative;
+  overflow: hidden;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.btn-primary-professional:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(99, 102, 241, 0.5), 0 8px 24px rgba(139, 92, 246, 0.3);
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 50%, #6d28d9 100%);
+}
+
+.btn-primary-professional:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.3);
+}
+
+/* Botón Secundario - CRISTAL VIOLETA */
+.btn-secondary-professional {
+  background: rgba(99, 102, 241, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--violeta-principal);
+  border: 2px solid var(--violeta-principal);
+  border-radius: 16px;
+  padding: 14px 34px;
   font-weight: 600;
   font-size: 16px;
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
 }
+
+.btn-secondary-professional:hover {
+  background: var(--violeta-principal);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px rgba(99, 102, 241, 0.4);
+  border-color: transparent;
+}
+
+/* Botón de Éxito - ESMERALDA BRILLANTE */
+.btn-success-professional {
+  background: linear-gradient(135deg, var(--esmeralda) 0%, #059669 50%, #047857 100%);
+  color: white;
+  border: none;
+  border-radius: 16px;
+  padding: 16px 36px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.4), 0 4px 12px rgba(52, 211, 153, 0.2);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.btn-success-professional:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(16, 185, 129, 0.5), 0 8px 24px rgba(52, 211, 153, 0.3);
+  background: linear-gradient(135deg, #34d399 0%, #10b981 50%, #059669 100%);
+}
+
+/* Botón de Acción - CORAL FUEGO */
+.btn-action-professional {
+  background: linear-gradient(135deg, var(--coral) 0%, #ea580c 50%, #dc2626 100%);
+  color: white;
+  border: none;
+  border-radius: 16px;
+  padding: 16px 36px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 24px rgba(249, 115, 22, 0.4), 0 4px 12px rgba(251, 146, 60, 0.2);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.btn-action-professional:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(249, 115, 22, 0.6), 0 8px 24px rgba(251, 146, 60, 0.4);
+  background: linear-gradient(135deg, #fb923c 0%, #f97316 50%, #ea580c 100%);
+}
+
+/* Botones Minimalistas para Navegación */
+.btn-nav-professional {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  color: var(--text-primary);
+  border: 1px solid var(--border-primary);
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-nav-professional:hover {
+  background: var(--bg-hover);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  transform: translateY(-1px);
+}
+
+/* Mantener compatibilidad - ACTUALIZACIÓN ÉPICA */
+.btn-linkedin-primary {
+  background: linear-gradient(135deg, var(--violeta-principal) 0%, var(--violeta-oscuro) 50%, #4c1d95 100%);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 16px 32px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+
 
 .btn-linkedin-primary:hover {
-  background-color: var(--accent-hover);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-.btn-linkedin-primary:active {
-  transform: translateY(0);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 50%, #6d28d9 100%);
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 20px 40px rgba(99, 102, 241, 0.6);
 }
 
 .btn-linkedin-secondary {
-  background-color: transparent;
-  color: var(--accent-primary);
-  border: 1px solid var(--accent-primary);
-  border-radius: 24px;
-  padding: 8px 24px;
+  background: rgba(99, 102, 241, 0.1);
+  backdrop-filter: blur(12px);
+  color: var(--violeta-principal);
+  border: 2px solid var(--violeta-principal);
+  border-radius: 20px;
+  padding: 14px 30px;
   font-weight: 600;
   font-size: 16px;
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn-linkedin-secondary:hover {
-  background-color: var(--accent-primary);
+  background: var(--violeta-principal);
   color: white;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 16px 32px rgba(99, 102, 241, 0.5);
+  border-color: transparent;
 }
 
-.btn-linkedin-secondary:active {
-  transform: translateY(0);
-}
+/* ============================================= */
+/* SISTEMA DE CARDS ULTRA ELEGANTE */
+/* ============================================= */
 
-/* Cards estilo LinkedIn */
-.card-linkedin {
-  background-color: var(--bg-card);
+/* Card Principal - Diseño Premium */
+.card-professional {
+  background: var(--bg-card);
   border: 1px solid var(--border-primary);
-  border-radius: 8px;
+  border-radius: 16px;
   box-shadow: var(--shadow-card);
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-professional::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--azul-corporativo) 0%, var(--naranja-acento) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.card-professional:hover::before {
+  opacity: 1;
+}
+
+.card-professional:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-elevated);
+  border-color: transparent;
+}
+
+/* Card para Proyectos */
+.card-project {
+  background: var(--bg-card);
+  border: 1px solid var(--border-primary);
+  border-radius: 16px;
+  box-shadow: var(--shadow-card);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  position: relative;
+}
+
+.card-project:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: var(--shadow-elevated);
+  border-color: var(--azul-corporativo);
+}
+
+
+
+/* Card para Certificaciones */
+.card-certification {
+  background: var(--bg-card);
+  border: 1px solid var(--border-primary);
+  border-radius: 12px;
+  box-shadow: var(--shadow-card);
+  transition: all 0.3s ease;
+  padding: 24px;
+  position: relative;
+}
+
+.card-certification:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-elevated);
+  border-color: var(--verde-exito);
+}
+
+.card-certification .badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: linear-gradient(135deg, var(--verde-exito) 0%, #00b371 100%);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Mantener compatibilidad */
+.card-linkedin {
+  background: var(--bg-card);
+  border: 1px solid var(--border-primary);
+  border-radius: 16px;
+  box-shadow: var(--shadow-card);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  padding: 32px;
+  position: relative;
+}
+
+.card-linkedin::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--azul-corporativo);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.card-linkedin:hover::before {
+  transform: scaleX(1);
 }
 
 .card-linkedin:hover {
-  transform: translateY(-2px);
+  transform: translateY(-5px);
   box-shadow: var(--shadow-elevated);
-  border-color: var(--border-secondary);
+  border-color: var(--azul-corporativo);
+}
+
+/* Cards para propiedades/anuncios */
+.anuncio, .resumen-propiedad {
+  background: var(--bg-card);
+  border: 1px solid var(--border-primary);
+  border-radius: 16px;
+  padding: 28px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.anuncio:hover, .resumen-propiedad:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-elevated);
+  border-color: var(--verde-exito);
+}
+
+.anuncio .precio, .resumen-propiedad .precio {
+  color: var(--verde-exito);
+  font-weight: 700;
+  font-size: 24px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.anuncio .icono, .resumen-propiedad .icono {
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
 /* Estados de éxito, advertencia y error */
@@ -190,21 +683,139 @@ button:hover, .btn:hover {
 .bg-error { background-color: var(--error); }
 
 /* ============================================= */
-/* CLASES ESPECÍFICAS PARA MODO OSCURO */
+/* MODO OSCURO PROFESIONAL */
 /* ============================================= */
 
-/* Asegurar que todas las tarjetas tengan el mismo fondo en modo oscuro */
+[data-theme="dark"] {
+  background-color: var(--bg-primary);
+}
+
+[data-theme="dark"] body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] p {
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] a, 
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6 {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] a:hover {
+  color: var(--text-link-hover) !important;
+}
+
+/* Footer específico - MODO CLARO */
+.footer-professional h3,
+.footer-professional h4 {
+  color: #f8fafc !important;
+  font-weight: 600;
+}
+
+.footer-professional p {
+  color: #cbd5e1 !important;
+}
+
+.footer-professional a {
+  color: #cbd5e1 !important;
+  transition: color 0.3s ease;
+}
+
+.footer-professional a:hover {
+  color: var(--violeta-principal) !important;
+}
+
+.footer-professional button {
+  color: #cbd5e1 !important;
+}
+
+.footer-professional button:hover {
+  color: #f8fafc !important;
+}
+
+/* Footer específico - MODO OSCURO */
+[data-theme="dark"] .footer-professional h3,
+[data-theme="dark"] .footer-professional h4 {
+  color: var(--text-primary) !important;
+  font-weight: 600;
+}
+
+[data-theme="dark"] .footer-professional p {
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .footer-professional a {
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .footer-professional a:hover {
+  color: var(--text-link-hover) !important;
+}
+
+[data-theme="dark"] .footer-professional button {
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .footer-professional button:hover {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .anuncio, 
+[data-theme="dark"] .resumen-propiedad {
+  background-color: var(--gris-oscuro);
+  border: 1px solid var(--gris-oscuro);
+}
+
+[data-theme="dark"] .anuncio .precio,
+[data-theme="dark"] .resumen-propiedad .precio {
+  color: var(--verde);
+}
+
+[data-theme="dark"] .anuncio .icono,
+[data-theme="dark"] .resumen-propiedad .icono {
+  filter: invert(100%);
+}
+
+[data-theme="dark"] .texto-nosotros blockquote {
+  color: var(--blanco);
+}
+
+/* Formularios en modo oscuro */
+[data-theme="dark"] .formulario label,
+[data-theme="dark"] .formulario legend,
+[data-theme="dark"] .formulario p {
+  color: var(--gris);
+}
+
+[data-theme="dark"] .formulario input:not([type="submit"]), 
+[data-theme="dark"] .formulario textarea,
+[data-theme="dark"] .formulario select {
+  background-color: var(--gris-oscuro);
+  border: 1px solid var(--gris-oscuro);
+  color: var(--blanco);
+}
+
+/* Asegurar que todas las tarjetas tengan el fondo correcto */
 [data-theme="dark"] .card,
 [data-theme="dark"] .project-card,
 [data-theme="dark"] .cert-card,
 [data-theme="dark"] .experience-card,
-[data-theme="dark"] .info-card {
+[data-theme="dark"] .info-card,
+[data-theme="dark"] .card-linkedin {
   background-color: var(--bg-card) !important;
   border-color: var(--border-primary) !important;
   color: var(--text-primary) !important;
 }
 
-/* Mejorar contraste en modo oscuro */
+/* Texto con colores específicos */
 [data-theme="dark"] .text-muted {
   color: var(--text-muted) !important;
 }
@@ -213,21 +824,430 @@ button:hover, .btn:hover {
   color: var(--text-secondary) !important;
 }
 
-/* Asegurar que los enlaces tengan el color correcto en modo oscuro */
-[data-theme="dark"] a {
-  color: var(--text-link) !important;
+/* ============================================= */
+/* EFECTOS PROFESIONALES ADICIONALES */
+/* ============================================= */
+
+/* Gradientes ÉPICOS Y MÁGICOS */
+.gradient-professional {
+  background: linear-gradient(135deg, var(--violeta-600) 0%, var(--violeta-700) 25%, var(--gris-800) 50%, var(--gris-900) 100%);
 }
 
-[data-theme="dark"] a:hover {
-  color: var(--text-link-hover) !important;
+.gradient-accent {
+  background: linear-gradient(135deg, var(--coral-500) 0%, var(--violeta-600) 50%, var(--dorado-500) 100%);
 }
 
-/* Mejorar la legibilidad de los títulos en modo oscuro */
-[data-theme="dark"] h1,
-[data-theme="dark"] h2,
-[data-theme="dark"] h3,
-[data-theme="dark"] h4,
-[data-theme="dark"] h5,
-[data-theme="dark"] h6 {
-  color: var(--text-primary) !important;
+.gradient-text {
+  background: linear-gradient(135deg, var(--violeta-600) 0%, var(--coral-500) 50%, var(--dorado-500) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-aurora {
+  background: linear-gradient(135deg, var(--violeta-400) 0%, var(--violeta-500) 25%, var(--esmeralda-500) 50%, var(--dorado-500) 75%, var(--coral-500) 100%);
+}
+
+.gradient-sunset {
+  background: linear-gradient(135deg, var(--dorado-500) 0%, var(--coral-500) 50%, var(--error) 100%);
+}
+
+.gradient-ocean {
+  background: linear-gradient(135deg, var(--info) 0%, #3b82f6 50%, var(--violeta-500) 100%);
+}
+
+.gradient-forest {
+  background: linear-gradient(135deg, #84cc16 0%, var(--esmeralda-500) 50%, var(--esmeralda-600) 100%);
+}
+
+/* Efectos de Cristal (Glassmorphism) */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] .glass-effect {
+  background: rgba(22, 27, 34, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Animaciones Profesionales */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.6s ease-out;
+}
+
+/* Efectos de Hover Profesionales */
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-elevated);
+}
+
+.hover-glow {
+  transition: all 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(0, 102, 204, 0.3);
+}
+
+/* Tipografía Profesional */
+.text-professional-heading {
+  font-family: var(--fuente-principal);
+  font-weight: var(--peso-bold);
+  color: var(--gris-profesional);
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+.text-professional-body {
+  font-family: var(--fuente-principal);
+  font-weight: var(--peso-regular);
+  color: var(--gris-medio);
+  line-height: 1.6;
+}
+
+/* ============================================= */
+/* MEDIA QUERIES RESPONSIVO */
+/* ============================================= */
+
+/* Teléfonos */
+@media (min-width: 480px) {
+  .grid-telefono-1 { 
+    display: grid; 
+    grid-template-columns: 1fr; 
+    gap: 2rem; 
+  }
+  .grid-telefono-2 { 
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 2rem; 
+  }
+}
+
+/* Tablets */
+@media (min-width: 768px) {
+  .grid-tablet-2 { 
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 3rem; 
+  }
+  .grid-tablet-3 { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 3rem; 
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .grid-desktop-3 { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 4rem; 
+  }
+  .grid-desktop-4 { 
+    display: grid; 
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 4rem; 
+  }
+}
+
+/* ============================================= */
+/* CLASES COHERENTES PARA TODA LA APLICACIÓN */
+/* ============================================= */
+
+/* Botones de acción principales */
+.btn-primary-violet {
+  background: linear-gradient(135deg, var(--violeta-600) 0%, var(--violeta-700) 100%);
+  color: var(--text-inverse);
+  border: none;
+  border-radius: 12px;
+  padding: 12px 24px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-violet);
+}
+
+.btn-primary-violet:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  background: linear-gradient(135deg, var(--violeta-500) 0%, var(--violeta-600) 100%);
+}
+
+/* Cards coherentes */
+.card-coherent {
+  background: var(--bg-card);
+  border: 1px solid var(--border-primary);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.card-coherent:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--violeta-500);
+}
+
+/* Badges coherentes */
+.badge-violet {
+  background: var(--violeta-100);
+  color: var(--violeta-700);
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid var(--violeta-200);
+  display: inline-block;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.badge-violet:hover {
+  background: var(--violeta-200);
+  transform: translateY(-1px);
+}
+
+.badge-coral {
+  background: rgba(249, 115, 22, 0.1);
+  color: var(--coral-600);
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid rgba(249, 115, 22, 0.2);
+  display: inline-block;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.badge-coral:hover {
+  background: rgba(249, 115, 22, 0.2);
+  transform: translateY(-1px);
+}
+
+.badge-emerald {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--esmeralda-600);
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  display: inline-block;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.badge-emerald:hover {
+  background: rgba(16, 185, 129, 0.2);
+  transform: translateY(-1px);
+}
+
+/* Secciones con fondo coherente */
+.section-primary {
+  background: var(--bg-primary);
+}
+
+.section-secondary {
+  background: var(--bg-secondary);
+}
+
+/* ============================================= */
+/* FOOTER PROFESIONAL - DOS ESTILOS */
+/* ============================================= */
+
+/* ESTILO 1: Minimalista y elegante */
+.footer-minimal {
+  background: var(--gris-900);
+  color: var(--text-secondary);
+  border-top: 1px solid var(--border-primary);
+}
+
+.footer-minimal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--violeta-500) 50%, 
+    transparent 100%
+  );
+}
+
+/* ESTILO 2: Con efectos sutiles (actual) */
+
+.footer-professional {
+  background: linear-gradient(135deg, var(--gris-900) 0%, var(--gris-800) 100%);
+  color: var(--text-secondary);
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid var(--border-primary);
+}
+
+.footer-professional::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--violeta-400) 20%, 
+    var(--violeta-500) 40%, 
+    var(--coral-500) 60%, 
+    var(--violeta-500) 80%, 
+    transparent 100%
+  );
+  animation: shimmer 4s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { 
+    opacity: 0.6; 
+    transform: scaleX(0.8);
+  }
+  50% { 
+    opacity: 1; 
+    transform: scaleX(1);
+  }
+}
+
+.footer-professional::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 25% 25%, rgba(139, 92, 246, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 75% 75%, rgba(249, 115, 22, 0.06) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.04) 0%, transparent 30%);
+  pointer-events: none;
+}
+
+.footer-professional h3 {
+  background: linear-gradient(135deg, 
+    var(--violeta-400) 0%, 
+    var(--violeta-500) 30%, 
+    var(--coral-500) 70%, 
+    var(--violeta-500) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 1px 2px rgba(139, 92, 246, 0.2));
+}
+
+.footer-professional .social-link {
+  background: rgba(99, 102, 241, 0.1);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+
+
+.footer-professional .social-link:hover {
+  background: linear-gradient(135deg, var(--violeta-500) 0%, var(--coral-500) 100%);
+  border-color: transparent;
+  transform: translateY(-4px) scale(1.1);
+  box-shadow: var(--shadow-violet);
+}
+
+[data-theme="dark"] .footer-professional {
+  background: var(--gris-900);
+}
+
+[data-theme="dark"] .footer-professional::before {
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--violeta-500) 25%, 
+    var(--violeta-600) 50%, 
+    var(--violeta-500) 75%, 
+    transparent 100%
+  );
+}
+
+/* ============================================= */
+/* ASEGURAR COHERENCIA EN MODO OSCURO */
+/* ============================================= */
+
+/* En modo oscuro, asegurar que los acentos sean violeta */
+[data-theme="dark"] .text-theme-accent,
+[data-theme="dark"] .text-theme-link {
+  color: var(--violeta-400) !important;
+}
+
+[data-theme="dark"] .text-theme-accent:hover,
+[data-theme="dark"] .text-theme-link:hover {
+  color: var(--violeta-300) !important;
+}
+
+/* Botones coherentes en modo oscuro */
+[data-theme="dark"] .btn-primary-violet {
+  background: linear-gradient(135deg, var(--violeta-500) 0%, var(--violeta-600) 100%);
+  box-shadow: var(--shadow-violet);
+}
+
+[data-theme="dark"] .btn-primary-violet:hover {
+  background: linear-gradient(135deg, var(--violeta-400) 0%, var(--violeta-500) 100%);
+  box-shadow: var(--shadow-lg);
 }
