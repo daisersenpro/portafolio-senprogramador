@@ -508,7 +508,7 @@ Enviado desde tu portafolio web`;
               <button
                 onClick={() => scrollToSection('inicio')}
                 className={`font-medium transition-colors ${
-                  scrollY > 50 ? 'text-theme-secondary hover:text-theme-primary' : 'text-theme-inverse hover:text-theme-inverse'
+                  scrollY > 50 ? 'text-theme-secondary hover:text-theme-primary' : 'text-theme-primary hover:text-theme-primary'
                 }`}
               >
                 Inicio
@@ -516,7 +516,7 @@ Enviado desde tu portafolio web`;
               <button
                 onClick={() => scrollToSection('sobre-mi')}
                 className={`font-medium transition-colors ${
-                  scrollY > 50 ? 'text-theme-secondary hover:text-theme-primary' : 'text-theme-inverse hover:text-theme-inverse'
+                  scrollY > 50 ? 'text-theme-secondary hover:text-theme-primary' : 'text-theme-primary hover:text-theme-primary'
                 }`}
               >
                 Sobre Mí
@@ -524,7 +524,7 @@ Enviado desde tu portafolio web`;
               <button
                 onClick={() => scrollToSection('experiencia')}
                 className={`font-medium transition-colors ${
-                  scrollY > 50 ? 'text-theme-secondary hover:text-theme-primary' : 'text-theme-inverse hover:text-theme-inverse'
+                  scrollY > 50 ? 'text-theme-secondary hover:text-theme-primary' : 'text-theme-primary hover:text-theme-primary'
                 }`}
               >
                 Experiencia
@@ -532,7 +532,7 @@ Enviado desde tu portafolio web`;
               <button
                 onClick={() => scrollToSection('tecnologias')}
                 className={`font-medium transition-colors ${
-                  scrollY > 50 ? 'text-theme-secondary hover:text-theme-primary' : 'text-theme-inverse hover:text-theme-inverse'
+                  scrollY > 50 ? 'text-theme-secondary hover:text-theme-primary' : 'text-theme-primary hover:text-theme-primary'
                 }`}
               >
                 Tecnologías
@@ -540,7 +540,7 @@ Enviado desde tu portafolio web`;
               <button
                 onClick={() => scrollToSection('proyectos')}
                 className={`font-medium transition-colors ${
-                  scrollY > 50 ? 'text-theme-secondary hover:text-theme-primary' : 'text-theme-inverse hover:text-theme-inverse'
+                  scrollY > 50 ? 'text-theme-secondary hover:text-theme-primary' : 'text-theme-primary hover:text-theme-primary'
                 }`}
               >
                 Proyectos
@@ -548,7 +548,7 @@ Enviado desde tu portafolio web`;
               <button
                 onClick={() => scrollToSection('certificaciones')}
                 className={`font-medium transition-colors ${
-                  scrollY > 50 ? 'text-theme-secondary hover:text-theme-primary' : 'text-theme-inverse hover:text-theme-inverse'
+                  scrollY > 50 ? 'text-theme-secondary hover:text-theme-primary' : 'text-theme-primary hover:text-theme-primary'
                 }`}
               >
                 Certificaciones
@@ -556,7 +556,7 @@ Enviado desde tu portafolio web`;
               <button
                 onClick={() => scrollToSection('contacto')}
                 className={`font-medium transition-colors ${
-                  scrollY > 50 ? 'text-theme-secondary hover:text-theme-primary' : 'text-theme-inverse hover:text-theme-inverse'
+                  scrollY > 50 ? 'text-theme-secondary hover:text-theme-primary' : 'text-theme-primary hover:text-theme-primary'
                 }`}
               >
                 Contacto
@@ -569,7 +569,7 @@ Enviado desde tu portafolio web`;
               className={`p-2 rounded-full transition-all duration-300 ${
                 scrollY > 50 
                   ? 'text-theme-secondary hover:text-theme-primary hover:bg-theme-tertiary' 
-                  : 'text-theme-inverse hover:text-theme-inverse hover:bg-theme-hover'
+                  : 'text-theme-primary hover:text-theme-primary hover:bg-theme-hover'
               }`}
               aria-label="Alternar modo oscuro"
             >
@@ -579,7 +579,7 @@ Enviado desde tu portafolio web`;
             {/* Mobile Menu Button */}
             <button
               onClick={() => setShowMobileMenu(!showMobileMenu)}
-              className="md:hidden text-theme-inverse p-2"
+              className="md:hidden text-theme-primary p-2"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
