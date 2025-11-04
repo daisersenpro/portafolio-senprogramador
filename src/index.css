@@ -80,14 +80,16 @@
   --text-inverse: #ffffff;
   
   /* Enlaces */
-  --text-link: var(--violeta-600);
-  --text-link-hover: var(--violeta-700);
-  
+  /* Enlaces */
+  /* Use dorado suave como acento principal para un look elegante */
+  --text-link: var(--dorado-600);
+  --text-link-hover: var(--dorado-700);
+
   /* Acentos */
-  --accent-primary: var(--violeta-600);
-  --accent-secondary: var(--coral-500);
-  --accent-hover: var(--violeta-700);
-  --accent-light: var(--violeta-100);
+  --accent-primary: var(--dorado-600);   /* dorado principal */
+  --accent-secondary: var(--violeta-600); /* violeta secundario para contraste */
+  --accent-hover: var(--dorado-700);
+  --accent-light: #fff7e6; /* very light gold tint for highlights */
   
   /* Bordes */
   --border-primary: var(--gris-200);
@@ -111,33 +113,33 @@
   /* MODO OSCURO - ELEGANTE Y PROFESIONAL */
   /* ============================================= */
   
-  /* Fondos */
-  --bg-primary: var(--gris-900);
-  --bg-secondary: var(--gris-800);
-  --bg-tertiary: var(--gris-700);
-  --bg-card: var(--gris-800);
-  --bg-hover: var(--gris-700);
-  --bg-active: var(--violeta-900);
-  
+  /* Fondos - modo oscuro con base negro profundo */
+  --bg-primary: #050507;   /* casi negro puro */
+  --bg-secondary: #0b0b0d; /* muy oscuro para secciones */
+  --bg-tertiary: #0f1113;  /* contraste suave para elementos */
+  --bg-card: #0b0b0d;      /* tarjetas ligeramente más claras que la página */
+  --bg-hover: #121215;
+  --bg-active: #19191b;
+
   /* Textos */
-  --text-primary: #ffffff;
-  --text-secondary: var(--gris-300);
-  --text-tertiary: var(--gris-400);
-  --text-muted: var(--gris-500);
-  --text-inverse: var(--gris-900);
-  
+  --text-primary: #ffffff; /* títulos y texto principal */
+  --text-secondary: #e9dbb3; /* tono dorado pálido para subtítulos y acentos textuales */
+  --text-tertiary: #cfc6b0;
+  --text-muted: #9a8f77;
+  --text-inverse: #000000;
+
   /* Enlaces */
-  --text-link: var(--violeta-400);
-  --text-link-hover: var(--violeta-300);
-  
-  /* Acentos */
-  --accent-primary: var(--violeta-500);
-  --accent-secondary: var(--coral-500);
-  --accent-hover: var(--violeta-400);
-  --accent-light: var(--violeta-900);
-  
+  --text-link: var(--dorado-500);
+  --text-link-hover: var(--dorado-600);
+
+  /* Acentos - dorado para el modo oscuro */
+  --accent-primary: var(--dorado-500);
+  --accent-secondary: var(--violeta-600);
+  --accent-hover: var(--dorado-600);
+  --accent-light: #2a1f12;
+
   /* Bordes */
-  --border-primary: var(--gris-700);
+  --border-primary: #111216;
   --border-secondary: var(--gris-600);
   --border-light: var(--gris-500);
   --border-accent: var(--violeta-600);
