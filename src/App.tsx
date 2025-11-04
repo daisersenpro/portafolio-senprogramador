@@ -508,7 +508,7 @@ Enviado desde tu portafolio web`;
               <button
                 onClick={() => scrollToSection('inicio')}
                 className={`font-medium transition-colors ${
-                  scrollY > 50 ? 'text-theme-secondary hover:text-theme-primary' : 'text-white hover:text-white/80'
+                  scrollY > 50 ? 'text-theme-secondary hover:text-theme-primary' : 'text-theme-inverse hover:text-theme-inverse'
                 }`}
               >
                 Inicio
@@ -516,7 +516,7 @@ Enviado desde tu portafolio web`;
               <button
                 onClick={() => scrollToSection('sobre-mi')}
                 className={`font-medium transition-colors ${
-                  scrollY > 50 ? 'text-theme-secondary hover:text-theme-primary' : 'text-white hover:text-white/80'
+                  scrollY > 50 ? 'text-theme-secondary hover:text-theme-primary' : 'text-theme-inverse hover:text-theme-inverse'
                 }`}
               >
                 Sobre Mí
@@ -524,7 +524,7 @@ Enviado desde tu portafolio web`;
               <button
                 onClick={() => scrollToSection('experiencia')}
                 className={`font-medium transition-colors ${
-                  scrollY > 50 ? 'text-theme-secondary hover:text-theme-primary' : 'text-white hover:text-white/80'
+                  scrollY > 50 ? 'text-theme-secondary hover:text-theme-primary' : 'text-theme-inverse hover:text-theme-inverse'
                 }`}
               >
                 Experiencia
@@ -532,7 +532,7 @@ Enviado desde tu portafolio web`;
               <button
                 onClick={() => scrollToSection('tecnologias')}
                 className={`font-medium transition-colors ${
-                  scrollY > 50 ? 'text-theme-secondary hover:text-theme-primary' : 'text-white hover:text-white/80'
+                  scrollY > 50 ? 'text-theme-secondary hover:text-theme-primary' : 'text-theme-inverse hover:text-theme-inverse'
                 }`}
               >
                 Tecnologías
@@ -540,7 +540,7 @@ Enviado desde tu portafolio web`;
               <button
                 onClick={() => scrollToSection('proyectos')}
                 className={`font-medium transition-colors ${
-                  scrollY > 50 ? 'text-theme-secondary hover:text-theme-primary' : 'text-white hover:text-white/80'
+                  scrollY > 50 ? 'text-theme-secondary hover:text-theme-primary' : 'text-theme-inverse hover:text-theme-inverse'
                 }`}
               >
                 Proyectos
@@ -548,7 +548,7 @@ Enviado desde tu portafolio web`;
               <button
                 onClick={() => scrollToSection('certificaciones')}
                 className={`font-medium transition-colors ${
-                  scrollY > 50 ? 'text-theme-secondary hover:text-theme-primary' : 'text-white hover:text-white/80'
+                  scrollY > 50 ? 'text-theme-secondary hover:text-theme-primary' : 'text-theme-inverse hover:text-theme-inverse'
                 }`}
               >
                 Certificaciones
@@ -556,7 +556,7 @@ Enviado desde tu portafolio web`;
               <button
                 onClick={() => scrollToSection('contacto')}
                 className={`font-medium transition-colors ${
-                  scrollY > 50 ? 'text-theme-secondary hover:text-theme-primary' : 'text-white hover:text-white/80'
+                  scrollY > 50 ? 'text-theme-secondary hover:text-theme-primary' : 'text-theme-inverse hover:text-theme-inverse'
                 }`}
               >
                 Contacto
@@ -569,7 +569,7 @@ Enviado desde tu portafolio web`;
               className={`p-2 rounded-full transition-all duration-300 ${
                 scrollY > 50 
                   ? 'text-theme-secondary hover:text-theme-primary hover:bg-theme-tertiary' 
-                  : 'text-white hover:text-white/80 hover:bg-white/10'
+                  : 'text-theme-inverse hover:text-theme-inverse hover:bg-theme-hover'
               }`}
               aria-label="Alternar modo oscuro"
             >
@@ -579,7 +579,7 @@ Enviado desde tu portafolio web`;
             {/* Mobile Menu Button */}
             <button
               onClick={() => setShowMobileMenu(!showMobileMenu)}
-              className="md:hidden text-white p-2"
+              className="md:hidden text-theme-inverse p-2"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
@@ -1019,9 +1019,9 @@ Enviado desde tu portafolio web`;
           {/* ======================================== */}
           <div className="relative">
             {/* Botones de navegación */}
-            <button
+              <button
               onClick={prevCert}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-theme-primary hover:text-theme-accent p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm"
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-theme-primary hover:bg-theme-hover text-theme-primary hover:text-theme-accent p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -1030,7 +1030,7 @@ Enviado desde tu portafolio web`;
 
             <button
               onClick={nextCert}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-theme-primary hover:text-theme-accent p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm"
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-theme-primary hover:bg-theme-hover text-theme-primary hover:text-theme-accent p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -1055,12 +1055,12 @@ Enviado desde tu portafolio web`;
                             />
                             {/* Overlay con información */}
                             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                              <div className="absolute bottom-2 left-2 right-2 text-white">
+                              <div className="absolute bottom-2 left-2 right-2 text-theme-inverse">
                                 <div className="flex items-center justify-between mb-1">
-                                  <span className="bg-gray-800 text-white px-1 py-0.5 rounded-full text-xs font-medium">
+                                  <span className="bg-gray-800 text-theme-inverse px-1 py-0.5 rounded-full text-xs font-medium">
                                     {cert.hours}h
                                   </span>
-                                  <span className="bg-white/20 backdrop-blur-sm text-white px-1 py-0.5 rounded-full text-xs">
+                                  <span className="bg-white/20 backdrop-blur-sm text-theme-inverse px-1 py-0.5 rounded-full text-xs">
                                     {cert.date}
                                   </span>
                                 </div>
@@ -1349,7 +1349,7 @@ Enviado desde tu portafolio web`;
                   href="https://github.com/daisersenpro" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="p-2 bg-theme-primary rounded-lg hover:bg-theme-accent transition-colors text-white"
+                  className="p-2 bg-theme-primary rounded-lg hover:bg-theme-accent transition-colors text-theme-inverse"
                 >
                   <Github size={20} />
                 </a>
@@ -1357,7 +1357,7 @@ Enviado desde tu portafolio web`;
                   href="https://linkedin.com/in/anyelo-b-84ab65147" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="p-2 bg-theme-accent rounded-lg hover:bg-theme-accent-hover transition-colors text-white"
+                  className="p-2 bg-theme-accent rounded-lg hover:bg-theme-accent-hover transition-colors text-theme-inverse"
                 >
                   <Linkedin size={20} />
                 </a>
@@ -1365,7 +1365,7 @@ Enviado desde tu portafolio web`;
                   href="https://wa.me/56949728928" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="p-2 bg-emerald-600 rounded-lg hover:bg-emerald-700 transition-colors text-white"
+                  className="p-2 bg-emerald-600 rounded-lg hover:bg-emerald-700 transition-colors text-theme-inverse"
                 >
                   <MessageSquare size={20} />
                 </a>
@@ -1373,7 +1373,7 @@ Enviado desde tu portafolio web`;
             </div>
           </div>
 
-          <div className="border-t border-white/10 mt-12 pt-8 text-center">
+          <div className="border-t border-theme-light mt-12 pt-8 text-center">
             <p className="text-footer-content">&copy; 2025 Anyelo Bustos. Todos los derechos reservados.</p>
           </div>
         </div>
@@ -1384,7 +1384,7 @@ Enviado desde tu portafolio web`;
       {/* ======================================== */}
       {showCertModal && selectedCert && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4" onClick={closeCertModal}>
-          <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+          <div className="bg-theme-primary rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
             {/* Header del modal */}
             <div className="relative">
               <img 
@@ -1394,7 +1394,7 @@ Enviado desde tu portafolio web`;
               />
               <button
                 onClick={closeCertModal}
-                className="absolute top-4 right-4 bg-white/90 hover:bg-white text-gray-800 hover:text-red-600 p-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-10"
+                className="absolute top-4 right-4 bg-theme-primary hover:bg-theme-hover text-theme-inverse hover:text-red-600 p-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-10"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -1403,12 +1403,12 @@ Enviado desde tu portafolio web`;
               
               {/* Overlay con información */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-t-2xl">
-                <div className="absolute bottom-4 left-4 right-4 text-white">
+                <div className="absolute bottom-4 left-4 right-4 text-theme-inverse">
                   <div className="flex items-center justify-between mb-2">
                     <span className="bg-black text-yellow-400 px-3 py-1 rounded-full text-sm font-medium border border-yellow-400">
                       {selectedCert.hours}h
                     </span>
-                    <span className="bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm">
+                    <span className="bg-white/20 backdrop-blur-sm text-theme-inverse px-3 py-1 rounded-full text-sm">
                       {selectedCert.date}
                     </span>
                   </div>

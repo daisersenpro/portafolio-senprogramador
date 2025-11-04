@@ -482,9 +482,12 @@ button:hover, .btn:hover {
   fill: var(--btn-text) !important;
 }
 
-/* Also ensure hero-secondary text visibility when backgrounds invert */
+/* Also ensure hero-secondary text visibility when backgrounds invert: use the
+   button background color as text (outline style) so the label is visible in
+   light mode. On hover the rule below switches to --btn-text. */
 .btn-hero-secondary, .btn-hero-secondary * {
-  color: var(--btn-text) !important;
+  color: var(--btn-bg) !important;
+  fill: var(--btn-bg) !important;
 }
 
 /* ============================================= */
