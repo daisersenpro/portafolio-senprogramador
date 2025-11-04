@@ -655,13 +655,13 @@ Enviado desde tu portafolio web`;
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-8">
             <div className="w-32 h-32 mx-auto mb-6 relative">
-              <div className="w-full h-full rounded-full bg-gradient-to-br from-violet-500 via-purple-600 to-indigo-600 p-1 shadow-2xl">
+              <div className="w-full h-full rounded-full bg-theme-accent p-1 shadow-2xl">
                 <div className="w-full h-full rounded-full bg-theme-primary flex items-center justify-center">
-                  <Code size={48} className="text-violet-500" />
+                  <Code size={48} className="text-theme-primary" />
                 </div>
               </div>
               {/* Anillo decorativo */}
-              <div className="absolute -inset-2 rounded-full border-2 border-violet-500/20 animate-spin-slow"></div>
+              <div className="absolute -inset-2 rounded-full border-2 border-theme-accent animate-spin-slow"></div>
             </div>
           </div>
           
@@ -980,7 +980,7 @@ Enviado desde tu portafolio web`;
                       href={project.github} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="flex-1 bg-gray-900 text-white text-center py-2 px-4 rounded-lg hover:bg-gray-800 transition-colors group-hover:scale-105 transform"
+                      className="flex-1 btn-hero-secondary btn-github text-center py-2 px-4 rounded-lg transition-colors group-hover:scale-105 transform"
                     >
                       GitHub
                     </a>
@@ -989,7 +989,7 @@ Enviado desde tu portafolio web`;
                         href={project.demo} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="flex-1 bg-gradient-to-r from-violet-600 to-purple-600 text-white text-center py-2 px-4 rounded-lg hover:from-violet-700 hover:to-purple-700 transition-all group-hover:scale-105 transform shadow-lg"
+                          className="flex-1 btn-hero-primary btn-demo text-center py-2 px-4 rounded-lg transition-all group-hover:scale-105 transform shadow-lg"
                       >
                         Demo
                     </a>
@@ -1187,27 +1187,30 @@ Enviado desde tu portafolio web`;
               <div className="mt-8">
                 <h4 className="font-semibold text-theme-primary mb-4">Sígueme en:</h4>
                 <div className="flex gap-4">
-                  <a 
-                    href="https://github.com/daisersenpro" 
-                    target="_blank" 
+                  <a
+                    href="https://github.com/daisersenpro"
+                    target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3 bg-theme-primary text-white rounded-lg hover:bg-theme-accent transition-colors"
+                    aria-label="GitHub"
+                    className="social-link"
                   >
                     <Github size={20} />
                   </a>
-                  <a 
-                    href="https://linkedin.com/in/anyelo-b-84ab65147" 
-                    target="_blank" 
+                  <a
+                    href="https://linkedin.com/in/anyelo-b-84ab65147"
+                    target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3 bg-theme-accent text-white rounded-lg hover:bg-theme-accent-hover transition-all shadow-lg"
+                    aria-label="LinkedIn"
+                    className="social-link"
                   >
                     <Linkedin size={20} />
                   </a>
-                  <a 
-                    href="https://wa.me/56949728928" 
-                    target="_blank" 
+                  <a
+                    href="https://wa.me/56949728928"
+                    target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3 bg-gradient-to-r from-emerald-500 to-green-500 text-white rounded-lg hover:from-emerald-600 hover:to-green-600 transition-all shadow-lg"
+                    aria-label="WhatsApp"
+                    className="social-link"
                   >
                     <MessageSquare size={20} />
                   </a>
@@ -1484,7 +1487,7 @@ Enviado desde tu portafolio web`;
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 p-3 bg-gradient-to-r from-violet-600 to-purple-600 text-white rounded-full shadow-xl hover:from-violet-700 hover:to-purple-700 transition-all duration-300 hover:scale-110 z-40"
+          className="fixed bottom-8 right-8 p-3 btn-primary-violet rounded-full shadow-xl transition-all duration-300 hover:scale-110 z-40"
         >
           <ArrowUp size={20} />
         </button>

@@ -25,11 +25,15 @@
   --violeta-200: #ddd6fe;
   --violeta-300: #c4b5fd;
   --violeta-400: #a78bfa;
-  --violeta-500: #8b5cf6;
-  --violeta-600: #7c3aed;
-  --violeta-700: #6d28d9;
-  --violeta-800: #5b21b6;
-  --violeta-900: #4c1d95;
+  /* Normalizamos "violeta" a tonos neutros (usar solo blanco/negro) */
+  --violeta-500: var(--gris-900);
+  --violeta-600: var(--gris-900);
+  --violeta-700: var(--gris-900);
+  --violeta-800: var(--gris-900);
+  --violeta-900: var(--gris-900);
+  /* Compatibilidad: variable histórica usada en estilos anteriores */
+  --violeta-principal: var(--gris-900);
+  --violeta-oscuro: var(--gris-800);
   
   /* Colores de acento */
   --coral-500: #f97316;
@@ -86,10 +90,23 @@
   --text-link-hover: var(--dorado-700);
 
   /* Acentos */
-  --accent-primary: var(--dorado-600);   /* dorado principal */
-  --accent-secondary: var(--violeta-600); /* violeta secundario para contraste */
-  --accent-hover: var(--dorado-700);
-  --accent-light: #fff7e6; /* very light gold tint for highlights */
+  --accent-primary: var(--gris-900);
+  --accent-secondary: var(--gris-700);
+  --accent-hover: var(--gris-800);
+  --accent-light: #ffffff;
+
+  /* Botones por defecto (se adaptan a cada tema) */
+  --btn-bg: var(--gris-900);
+  --btn-text: #ffffff;
+  --btn-border: transparent;
+  /* Footer variables (light by default) */
+  --footer-bg-light: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  --footer-text-light: var(--gris-700);
+  /* Use a more neutral/corporate accent (indigo) instead of dorado */
+  --brand-accent-500: #0f4a8a; /* deep indigo */
+  --brand-accent-600: #0b3b6b; /* darker indigo */
+  --footer-link-light: var(--brand-accent-600);
+  --footer-border-light: var(--border-primary);
   
   /* Bordes */
   --border-primary: var(--gris-200);
@@ -108,6 +125,103 @@
   --shadow-emerald: 0 4px 14px rgba(16, 185, 129, 0.15);
 }
 
+/* ============================================= */
+/* OVERRIDES: estilos neutrales blanco/negro para botones */
+/* Se colocan al final para sobreescribir reglas previas que usan violeta */
+.btn-hero-primary, .btn-primary-professional {
+  background: var(--btn-bg) !important;
+  color: var(--btn-text) !important;
+  border: var(--btn-border) !important;
+  border-radius: 12px !important;
+  padding: 12px 28px !important;
+  font-weight: 700 !important;
+  font-size: 15px !important;
+  cursor: pointer !important;
+  transition: transform 0.18s ease, box-shadow 0.18s ease !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+.btn-hero-primary:hover, .btn-primary-professional:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: var(--shadow-lg) !important;
+}
+
+.btn-hero-secondary, .btn-secondary-professional {
+  background: transparent !important;
+  color: var(--btn-bg) !important;
+  border: 2px solid var(--btn-bg) !important;
+  border-radius: 12px !important;
+  padding: 10px 26px !important;
+  font-weight: 600 !important;
+  font-size: 15px !important;
+}
+
+.btn-hero-secondary:hover, .btn-secondary-professional:hover {
+  background: var(--btn-bg) !important;
+  color: var(--btn-text) !important;
+  transform: translateY(-3px) !important;
+}
+
+/* Role-specific buttons: ensure explicit light/dark behavior */
+.btn-github {
+  background: #ffffff !important;
+  color: #050507 !important;
+  border: 1px solid var(--border-primary) !important;
+}
+
+.btn-demo {
+  background: var(--btn-bg) !important;
+  color: var(--btn-text) !important;
+  border: none !important;
+}
+
+/* Dark mode overrides: invert as requested */
+[data-theme="dark"] .btn-github {
+  background: var(--btn-bg) !important; /* dark background */
+  color: var(--btn-text) !important; /* light text */
+  border: none !important;
+}
+
+[data-theme="dark"] .btn-demo {
+  background: #ffffff !important; /* light background */
+  color: #050507 !important; /* dark text */
+  border: 1px solid var(--border-primary) !important;
+}
+
+/* Ensure children (svg/text) inside these buttons follow colors */
+.btn-github, .btn-github * {
+  color: inherit !important;
+}
+.btn-github svg, .btn-github i { fill: currentColor !important; }
+.btn-demo, .btn-demo * { color: inherit !important; }
+.btn-demo svg, .btn-demo i { fill: currentColor !important; }
+
+/* Extra high-specificity overrides to prevent accidental 'text-white' or other
+   utility classes from making the GitHub button unreadable on light mode */
+.card-project .btn-github,
+.project-card .btn-github,
+.btn-github.btn-hero-secondary,
+.btn-github.text-white {
+  color: #050507 !important;
+  background: #ffffff !important;
+  border: 1px solid var(--border-primary) !important;
+  box-shadow: 0 2px 8px rgba(2,6,23,0.04) !important;
+}
+
+/* Ensure Demo button text is always visible (explicit) */
+.card-project .btn-demo,
+.project-card .btn-demo,
+.btn-demo.btn-hero-primary {
+  color: var(--btn-text) !important;
+  background: var(--btn-bg) !important;
+}
+
+/* For any remaining gradient backgrounds that used violeta, force neutral background on key components */
+.hero-gradient, .accent-gradient {
+  background: none !important;
+}
+
+
 [data-theme="dark"] {
   /* ============================================= */
   /* MODO OSCURO - ELEGANTE Y PROFESIONAL */
@@ -123,26 +237,35 @@
 
   /* Textos */
   --text-primary: #ffffff; /* títulos y texto principal */
-  --text-secondary: #e9dbb3; /* tono dorado pálido para subtítulos y acentos textuales */
-  --text-tertiary: #cfc6b0;
-  --text-muted: #9a8f77;
+  --text-secondary: #cfcfcf; /* subtítulos neutros en modo oscuro */
+  --text-tertiary: #bfc3c7;
+  --text-muted: #9aa0a6;
   --text-inverse: #000000;
 
   /* Enlaces */
-  --text-link: var(--dorado-500);
-  --text-link-hover: var(--dorado-600);
+  --text-link: #ffffff;
+  --text-link-hover: #e6e6e6;
 
-  /* Acentos - dorado para el modo oscuro */
-  --accent-primary: var(--dorado-500);
-  --accent-secondary: var(--violeta-600);
-  --accent-hover: var(--dorado-600);
-  --accent-light: #2a1f12;
+  /* Acentos - neutros para estilo blanco/negro */
+  --accent-primary: #ffffff;
+  --accent-secondary: var(--gris-700);
+  --accent-hover: #e6e6e6;
+  --accent-light: #0b0b0d;
 
   /* Bordes */
   --border-primary: #111216;
   --border-secondary: var(--gris-600);
   --border-light: var(--gris-500);
-  --border-accent: var(--violeta-600);
+  --border-accent: var(--gris-600);
+
+  /* Botones: invertir colores en modo oscuro */
+  --btn-bg: #ffffff;
+  --btn-text: #050507;
+  /* Footer variables for dark theme */
+  --footer-bg-dark: linear-gradient(135deg, #050507 0%, #0b0b0d 100%);
+  --footer-text-dark: var(--text-secondary);
+  --footer-link-dark: var(--dorado-500);
+  --footer-border-dark: rgba(245, 158, 11, 0.12);
   
   /* Sombras */
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
@@ -274,37 +397,94 @@ button:hover, .btn:hover {
 
 /* Clases específicas para asegurar visibilidad del texto */
 .text-footer-title {
-  color: #f8fafc !important;
+  color: var(--footer-text-light) !important;
   font-weight: 600;
 }
 
 .text-footer-content {
-  color: #cbd5e1 !important;
+  color: var(--footer-text-light) !important;
 }
 
 .text-footer-link {
-  color: #cbd5e1 !important;
+  color: var(--footer-link-light) !important;
   transition: color 0.3s ease;
 }
 
 .text-footer-link:hover {
-  color: var(--violeta-principal) !important;
+  color: var(--footer-link-light) !important;
 }
 
 [data-theme="dark"] .text-footer-title {
-  color: var(--text-primary) !important;
+  color: var(--footer-text-dark) !important;
 }
 
 [data-theme="dark"] .text-footer-content {
-  color: var(--text-secondary) !important;
+  color: var(--footer-text-dark) !important;
 }
 
 [data-theme="dark"] .text-footer-link {
-  color: var(--text-secondary) !important;
+  color: var(--footer-link-dark) !important;
 }
 
 [data-theme="dark"] .text-footer-link:hover {
-  color: var(--text-link-hover) !important;
+  color: var(--footer-link-dark) !important;
+}
+
+/* ---------------------------------------------
+   Global social-link (used in contact section
+   and footer). Ensures icons are visible in
+   both light and dark themes.
+   ------------------------------------------- */
+.social-link {
+  background: var(--bg-card);
+  border: 1px solid var(--border-primary);
+  color: var(--footer-link-light);
+  transition: all 0.28s cubic-bezier(0.2, 0, 0.08, 1);
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  box-shadow: var(--shadow-sm);
+}
+
+.social-link:hover {
+  background: linear-gradient(135deg, var(--brand-accent-500) 0%, var(--brand-accent-600) 100%);
+  border-color: transparent;
+  transform: translateY(-4px) scale(1.06);
+  box-shadow: 0 8px 32px rgba(15, 74, 138, 0.12);
+  color: #ffffff;
+}
+
+/* Dark-mode: ensure contrast for social icons outside footer */
+[data-theme="dark"] .social-link {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--footer-border-dark);
+  color: var(--footer-link-dark);
+  box-shadow: none;
+}
+
+[data-theme="dark"] .social-link:hover {
+  background: linear-gradient(135deg, var(--brand-accent-500) 0%, var(--brand-accent-600) 100%);
+  color: #ffffff;
+  box-shadow: 0 10px 30px rgba(15,74,138,0.14);
+}
+
+/* Ensure button text/icons inside btn-hero-primary use the correct variable color */
+.btn-hero-primary, .btn-hero-primary * {
+  color: var(--btn-text) !important;
+}
+.btn-hero-primary svg, .btn-hero-primary i {
+  color: var(--btn-text) !important;
+  fill: var(--btn-text) !important;
+}
+
+/* Also ensure hero-secondary text visibility when backgrounds invert */
+.btn-hero-secondary, .btn-hero-secondary * {
+  color: var(--btn-text) !important;
 }
 
 /* ============================================= */
@@ -312,51 +492,45 @@ button:hover, .btn:hover {
 /* ============================================= */
 
 .btn-hero-primary {
-  background: linear-gradient(135deg, var(--violeta-600) 0%, var(--violeta-700) 100%);
-  color: var(--text-inverse);
-  border: none;
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  border: var(--btn-border);
   border-radius: 50px;
-  padding: 18px 40px;
+  padding: 14px 36px;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 16px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: var(--shadow-violet);
-  display: flex;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: var(--shadow-md);
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 200px;
-  position: relative;
-  overflow: visible;
+  min-width: 180px;
 }
 
 .btn-hero-primary:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow-lg);
-  background: linear-gradient(135deg, var(--violeta-500) 0%, var(--violeta-600) 100%);
+  opacity: 0.95;
 }
 
 .btn-hero-secondary {
-  background: var(--accent-light);
-  backdrop-filter: blur(12px);
-  color: var(--accent-primary);
-  border: 2px solid var(--accent-primary);
+  background: transparent;
+  color: var(--btn-bg);
+  border: 2px solid var(--btn-bg);
   border-radius: 50px;
-  padding: 16px 40px;
+  padding: 12px 34px;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 16px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  min-width: 200px;
-  position: relative;
-  overflow: visible;
+  transition: transform 0.2s ease, background 0.2s ease;
+  min-width: 160px;
 }
 
 .btn-hero-secondary:hover {
-  background: var(--accent-primary);
-  color: var(--text-inverse);
+  background: var(--btn-bg);
+  color: var(--btn-text);
   transform: translateY(-3px);
-  box-shadow: var(--shadow-violet);
 }
 
 /* ============================================= */
@@ -718,29 +892,29 @@ button:hover, .btn:hover {
 /* Footer específico - MODO CLARO */
 .footer-professional h3,
 .footer-professional h4 {
-  color: #f8fafc !important;
+  color: var(--footer-text-light) !important;
   font-weight: 600;
 }
 
 .footer-professional p {
-  color: #cbd5e1 !important;
+  color: var(--footer-text-light) !important;
 }
 
 .footer-professional a {
-  color: #cbd5e1 !important;
+  color: var(--footer-link-light) !important;
   transition: color 0.3s ease;
 }
 
 .footer-professional a:hover {
-  color: var(--violeta-principal) !important;
+  color: var(--footer-link-light) !important;
 }
 
 .footer-professional button {
-  color: #cbd5e1 !important;
+  color: var(--footer-text-light) !important;
 }
 
 .footer-professional button:hover {
-  color: #f8fafc !important;
+  color: var(--footer-link-light) !important;
 }
 
 /* Footer específico - MODO OSCURO */
@@ -831,19 +1005,15 @@ button:hover, .btn:hover {
 /* ============================================= */
 
 /* Gradientes ÉPICOS Y MÁGICOS */
-.gradient-professional {
-  background: linear-gradient(135deg, var(--violeta-600) 0%, var(--violeta-700) 25%, var(--gris-800) 50%, var(--gris-900) 100%);
-}
-
-.gradient-accent {
-  background: linear-gradient(135deg, var(--coral-500) 0%, var(--violeta-600) 50%, var(--dorado-500) 100%);
-}
-
+.gradient-professional,
+.gradient-accent,
 .gradient-text {
-  background: linear-gradient(135deg, var(--violeta-600) 0%, var(--coral-500) 50%, var(--dorado-500) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  /* Neutral styles: use plain text color to avoid purple/coral gradients */
+  background: none !important;
+  color: var(--text-primary) !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  background-clip: unset !important;
 }
 
 .gradient-aurora {
@@ -1005,24 +1175,24 @@ button:hover, .btn:hover {
 /* CLASES COHERENTES PARA TODA LA APLICACIÓN */
 /* ============================================= */
 
-/* Botones de acción principales */
+/* Botones de acción principales (neutralizados - blanco/negro) */
 .btn-primary-violet {
-  background: linear-gradient(135deg, var(--violeta-600) 0%, var(--violeta-700) 100%);
-  color: var(--text-inverse);
-  border: none;
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  border: var(--btn-border);
   border-radius: 12px;
-  padding: 12px 24px;
+  padding: 10px 20px;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 15px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: var(--shadow-violet);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  box-shadow: var(--shadow-md);
 }
 
 .btn-primary-violet:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
-  background: linear-gradient(135deg, var(--violeta-500) 0%, var(--violeta-600) 100%);
+  opacity: 0.95;
 }
 
 /* Cards coherentes */
@@ -1038,25 +1208,25 @@ button:hover, .btn:hover {
 .card-coherent:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
-  border-color: var(--violeta-500);
+  border-color: var(--border-accent);
 }
 
 /* Badges coherentes */
 .badge-violet {
-  background: var(--violeta-100);
-  color: var(--violeta-700);
+  background: var(--bg-hover);
+  color: var(--text-primary);
   padding: 6px 12px;
-  border-radius: 16px;
+  border-radius: 12px;
   font-size: 13px;
   font-weight: 600;
-  border: 1px solid var(--violeta-200);
+  border: 1px solid var(--border-light);
   display: inline-block;
   white-space: nowrap;
-  transition: all 0.2s ease;
+  transition: all 0.18s ease;
 }
 
 .badge-violet:hover {
-  background: var(--violeta-200);
+  background: var(--bg-active);
   transform: translateY(-1px);
 }
 
@@ -1133,8 +1303,8 @@ button:hover, .btn:hover {
 /* ESTILO 2: Con efectos sutiles (actual) */
 
 .footer-professional {
-  background: linear-gradient(135deg, var(--gris-900) 0%, var(--gris-800) 100%);
-  color: var(--text-secondary);
+  background: var(--footer-bg-light);
+  color: var(--footer-text-light);
   position: relative;
   overflow: hidden;
   border-top: 1px solid var(--border-primary);
@@ -1147,12 +1317,11 @@ button:hover, .btn:hover {
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(90deg, 
-    transparent 0%, 
-    var(--violeta-400) 20%, 
-    var(--violeta-500) 40%, 
-    var(--coral-500) 60%, 
-    var(--violeta-500) 80%, 
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--footer-border-light) 25%,
+    var(--footer-border-light) 50%,
+    var(--footer-border-light) 75%,
     transparent 100%
   );
   animation: shimmer 4s ease-in-out infinite;
@@ -1176,54 +1345,73 @@ button:hover, .btn:hover {
   left: 0;
   right: 0;
   bottom: 0;
-  background: 
-    radial-gradient(circle at 25% 25%, rgba(139, 92, 246, 0.08) 0%, transparent 40%),
-    radial-gradient(circle at 75% 75%, rgba(249, 115, 22, 0.06) 0%, transparent 40%),
-    radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.04) 0%, transparent 30%);
+  /* Subtle dorado accents for elegance (replace violet/coral) */
+  background:
+    radial-gradient(circle at 25% 25%, rgba(245, 158, 11, 0.04) 0%, transparent 40%),
+    radial-gradient(circle at 75% 75%, rgba(245, 158, 11, 0.03) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.02) 0%, transparent 30%);
   pointer-events: none;
 }
 
 .footer-professional h3 {
-  background: linear-gradient(135deg, 
-    var(--violeta-400) 0%, 
-    var(--violeta-500) 30%, 
-    var(--coral-500) 70%, 
-    var(--violeta-500) 100%
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  filter: drop-shadow(0 1px 2px rgba(139, 92, 246, 0.2));
+  color: var(--text-primary);
+  filter: none;
 }
 
 .footer-professional .social-link {
-  background: rgba(99, 102, 241, 0.1);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(99, 102, 241, 0.2);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Mejor contraste en modo claro: fondo de tarjeta + borde sutil y tamaño fijo */
+  background: var(--bg-card);
+  backdrop-filter: none;
+  border: 1px solid var(--border-primary);
+  color: var(--footer-link-light);
+  transition: all 0.28s cubic-bezier(0.2, 0, 0.08, 1);
   position: relative;
   overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  box-shadow: var(--shadow-sm);
 }
 
 
 
 .footer-professional .social-link:hover {
-  background: linear-gradient(135deg, var(--violeta-500) 0%, var(--coral-500) 100%);
+  background: linear-gradient(135deg, var(--brand-accent-500) 0%, var(--brand-accent-600) 100%);
   border-color: transparent;
-  transform: translateY(-4px) scale(1.1);
-  box-shadow: var(--shadow-violet);
+  transform: translateY(-4px) scale(1.06);
+  box-shadow: 0 8px 32px rgba(15, 74, 138, 0.12);
+  color: #ffffff;
+}
+
+/* Asegurar contraste en modo oscuro para los iconos */
+[data-theme="dark"] .footer-professional .social-link {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--footer-border-dark);
+  color: var(--footer-link-dark);
+  box-shadow: none;
+}
+
+[data-theme="dark"] .footer-professional .social-link:hover {
+  background: linear-gradient(135deg, var(--brand-accent-500) 0%, var(--brand-accent-600) 100%);
+  color: #ffffff;
+  box-shadow: 0 10px 30px rgba(15,74,138,0.14);
 }
 
 [data-theme="dark"] .footer-professional {
-  background: var(--gris-900);
+  background: var(--footer-bg-dark);
+  color: var(--footer-text-dark);
+  border-top: 1px solid var(--footer-border-dark);
 }
 
 [data-theme="dark"] .footer-professional::before {
-  background: linear-gradient(90deg, 
-    transparent 0%, 
-    var(--violeta-500) 25%, 
-    var(--violeta-600) 50%, 
-    var(--violeta-500) 75%, 
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--footer-link-dark) 25%,
+    rgba(245,158,11,0.22) 50%,
+    var(--footer-link-dark) 75%,
     transparent 100%
   );
 }
@@ -1235,21 +1423,22 @@ button:hover, .btn:hover {
 /* En modo oscuro, asegurar que los acentos sean violeta */
 [data-theme="dark"] .text-theme-accent,
 [data-theme="dark"] .text-theme-link {
-  color: var(--violeta-400) !important;
+  color: var(--accent-primary) !important;
 }
 
 [data-theme="dark"] .text-theme-accent:hover,
 [data-theme="dark"] .text-theme-link:hover {
-  color: var(--violeta-300) !important;
+  color: var(--accent-hover) !important;
 }
 
 /* Botones coherentes en modo oscuro */
 [data-theme="dark"] .btn-primary-violet {
-  background: linear-gradient(135deg, var(--violeta-500) 0%, var(--violeta-600) 100%);
-  box-shadow: var(--shadow-violet);
+  background: var(--btn-bg) !important;
+  color: var(--btn-text) !important;
+  box-shadow: var(--shadow-md) !important;
 }
 
 [data-theme="dark"] .btn-primary-violet:hover {
-  background: linear-gradient(135deg, var(--violeta-400) 0%, var(--violeta-500) 100%);
-  box-shadow: var(--shadow-lg);
+  background: var(--btn-bg) !important;
+  box-shadow: var(--shadow-lg) !important;
 }
