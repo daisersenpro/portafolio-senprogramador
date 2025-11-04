@@ -6,12 +6,16 @@ function App() {
   const [scrollY, setScrollY] = useState(0);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [darkMode, setDarkMode] = useState(() => {
-    // Cargar preferencia desde localStorage o detectar preferencia del sistema
+    // Cargar preferencia desde localStorage si existe.
+    // Si NO hay preferencia guardada, por defecto abrir en modo oscuro.
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
       return savedTheme === 'dark';
     }
-    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    // Antes usábamos la preferencia del sistema; ahora queremos forzar
+    // modo oscuro por defecto en primera visita a menos que el usuario
+    // haya guardado otra preferencia.
+    return true;
   });
   const [formData, setFormData] = useState({
     name: '',
