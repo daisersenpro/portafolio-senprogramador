@@ -473,6 +473,30 @@ button:hover, .btn:hover {
   box-shadow: 0 10px 30px rgba(15,74,138,0.14);
 }
 
+/* ============================================= */
+/* Company logos used in the Experience section */
+/* ============================================= */
+.company-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  display: inline-block;
+  border-radius: 8px;
+  background: transparent;
+}
+
+.experience-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* If a logo needs inversion to be visible in dark mode, add the class
+   `company-logo--invert` to the img and it will be adjusted here. */
+[data-theme="dark"] .company-logo--invert {
+  filter: brightness(0) invert(1) contrast(1.1);
+}
+
 /* Ensure button text/icons inside btn-hero-primary use the correct variable color */
 .btn-hero-primary, .btn-hero-primary * {
   color: var(--btn-text) !important;

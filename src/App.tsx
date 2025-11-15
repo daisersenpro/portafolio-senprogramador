@@ -789,51 +789,87 @@ Enviado desde tu portafolio web`;
             {/* San Jorge Packaging */}
             <div className="card-linkedin p-6">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                <div>
-                  <h3 className="text-xl font-bold text-theme-primary">Programador Full Stack</h3>
-                  <p className="text-lg font-semibold text-theme-accent">San Jorge Packaging</p>
+                <div className="experience-header">
+                  <img src="https://i.postimg.cc/zBYBmL4S/logo-san-jorge-pacjk.jpg" alt="San Jorge Packaging" className="company-logo" loading="lazy" />
+                  <div>
+                    <h3 className="text-xl font-bold text-theme-primary">Programador Full Stack</h3>
+                    <p className="text-lg font-semibold text-theme-accent">San Jorge Packaging</p>
+                  </div>
                 </div>
                 <div className="text-sm mt-2 md:mt-0 text-theme-muted">
-                  Agosto 2024 – Junio 2025
+                  ago. 2024 - may. 2025 · 10 meses
                 </div>
               </div>
               <ul className="space-y-2 text-theme-secondary">
                 <li className="flex items-start gap-2">
                   <span className="mt-1 text-theme-accent">•</span>
-                  <span>Desarrollo de aplicaciones de escritorio en .NET Framework 4.8 con VB.NET, siguiendo requerimientos específicos del negocio.</span>
+                  <span>Desarrollo de aplicaciones de escritorio personalizadas según las necesidades del negocio; desarrollo principal de FFReport utilizando Visual Basic .NET, SQL Server y control de versiones con Bonobo (Git).</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-theme-accent mt-1">•</span>
-                  <span>Creación de FFReport, un sistema para la medición de gases que incluyó módulos de reportes, gestión de rutas, rendición de gastos, calendario de planificación y consumo de API Key de Google Maps.</span>
+                  <span>Implementación de módulos de reportes, gestión de rutas, rendición de gastos y planificación; integración con Google Maps mediante API Key.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-theme-accent mt-1">•</span>
-                  <span>Diseño y desarrollo de procedimientos almacenados y creación de tablas en SQL Server.</span>
+                  <span>Diseño y optimización de procedimientos almacenados y estructuras en SQL Server.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-theme-accent mt-1">•</span>
-                  <span>Implementación de control de versiones mediante Bonobo con Git Server, ya que la empresa no contaba con un sistema de gestión de código.</span>
+                  <span>Implementación de control de versiones con Bonobo (Git Server) para establecer flujo de trabajo y gestión de código.</span>
                 </li>
               </ul>
             </div>
 
-            {/* Freelancer */}
+            {/* SenPro */}
             <div className="card-linkedin p-6">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                <div>
-                  <h3 className="text-xl font-bold text-theme-primary">Desarrollador Web - Freelancer</h3>
-                  <p className="text-lg font-semibold text-theme-accent">Independiente</p>
+                <div className="experience-header">
+                  <img src="https://i.postimg.cc/rFHqX0tn/6-Letras-Doradas-Fondo-Trasparente.png" alt="SenPro" className="company-logo" loading="lazy" />
+                  <div>
+                    <h3 className="text-xl font-bold text-theme-primary">Desarrollador Web</h3>
+                    <p className="text-lg font-semibold text-theme-accent">SenPro · Contrato temporal</p>
+                  </div>
                 </div>
                 <div className="text-sm mt-2 md:mt-0 text-theme-muted">
-                  Noviembre 2023 – Junio 2024
+                  mar. 2024 - jun. 2024 · 4 meses
                 </div>
               </div>
+              <div className="text-sm mb-3 text-theme-muted">Gran Santiago, Región Metropolitana de Santiago, Chile · En remoto</div>
               <ul className="space-y-2 text-theme-secondary">
                 <li className="flex items-start gap-2">
                   <span className="text-theme-accent mt-1">•</span>
-                  <span>Desarrollo de sitios web personalizados para clientes: Alcanza tu Estrella (ONG), Urbanos Delux (eventos artísticos), Gourmet Restaurant (restaurantes), pymes y emprendedores. Creación de landing pages con HTML, CSS, Bootstrap y Tailwind CSS. Backend en PHP puro y Laravel. Gestión de bases de datos MySQL/MariaDB y uso de entornos locales con XAMPP.</span>
+                  <span>Desarrollo de aplicaciones web personalizadas utilizando PHP, MySQL, XAMPP, HTML, CSS, JavaScript, jQuery, JSON, AJAX, Bootstrap, Tailwind CSS, Node.js y Laravel.</span>
                 </li>
                 <li className="flex items-start gap-2">
+                  <span className="text-theme-accent mt-1">•</span>
+                  <span>Creación de interfaces responsivas, optimización de bases de datos y lógica de servidor para soluciones eficientes y escalables.</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Calper */}
+            <div className="card-linkedin p-6">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                <div className="experience-header">
+                  <img src="https://i.postimg.cc/T3HLs3Rr/logo-calper.png" alt="Calper" className="company-logo" loading="lazy" />
+                  <div>
+                    <h3 className="text-xl font-bold text-theme-primary">Programador Informático</h3>
+                    <p className="text-lg font-semibold text-theme-accent">Calper · Contrato temporal</p>
+                  </div>
+                </div>
+                <div className="text-sm mt-2 md:mt-0 text-theme-muted">
+                  nov. 2023 - feb. 2024 · 4 meses
+                </div>
+              </div>
+              <div className="text-sm mb-3 text-theme-muted">Gran Santiago, Región Metropolitana de Santiago, Chile · Híbrido</div>
+              <ul className="space-y-2 text-theme-secondary">
+                <li className="flex items-start gap-2">
+                  <span className="text-theme-accent mt-1">•</span>
+                  <span>Trabajé en el desarrollo de módulos para e‑commerce sobre un framework propio del equipo, empleando PHP, JavaScript (jQuery), HTML, CSS, XAMPP y MySQL.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-theme-accent mt-1">•</span>
+                  <span>Gestión de versiones con Git/GitHub y seguimiento de tareas con Jira.</span>
                 </li>
               </ul>
             </div>
@@ -841,14 +877,18 @@ Enviado desde tu portafolio web`;
             {/* ITPS Gestión */}
             <div className="card-linkedin p-6">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                <div>
-                  <h3 className="text-xl font-bold text-theme-primary">Programador de Aplicaciones</h3>
-                  <p className="text-lg font-semibold text-theme-accent">ITPS Gestión</p>
+                <div className="experience-header">
+                  <img src="https://i.postimg.cc/VLfJLCvY/logo-ITPS-Gestion.png" alt="ITPS Gestión" className="company-logo" loading="lazy" />
+                  <div>
+                    <h3 className="text-xl font-bold text-theme-primary">Programador de Aplicaciones</h3>
+                    <p className="text-lg font-semibold text-theme-accent">ITPS Gestión</p>
+                  </div>
                 </div>
                 <div className="text-sm mt-2 md:mt-0 text-theme-muted">
-                  Enero 2023 – Junio 2023
+                  ene. 2023 - jul. 2023 · 7 meses
                 </div>
               </div>
+              <div className="text-sm mb-3 text-theme-muted">Gran Santiago, Región Metropolitana de Santiago, Chile · En remoto</div>
               <ul className="space-y-2 text-theme-secondary">
                 <li className="flex items-start gap-2">
                   <span className="text-theme-accent mt-1">•</span>
@@ -868,26 +908,30 @@ Enviado desde tu portafolio web`;
             {/* WOM Chile */}
             <div className="card-linkedin p-6">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                <div>
-                  <h3 className="text-xl font-bold text-theme-primary">Analista Programador Trainer</h3>
-                  <p className="text-lg font-semibold text-theme-accent">WOM Chile</p>
+                <div className="experience-header">
+                  <img src="https://i.postimg.cc/CLrxhrWp/logo-wom.png" alt="WOM Chile" className="company-logo" loading="lazy" />
+                  <div>
+                    <h3 className="text-xl font-bold text-theme-primary">Analista Programador</h3>
+                    <p className="text-lg font-semibold text-theme-accent">WOM Chile · Contrato de prácticas</p>
+                  </div>
                 </div>
                 <div className="text-sm mt-2 md:mt-0 text-theme-muted">
-                  Enero 2022 – Marzo 2022
+                  ene. 2022 - mar. 2022 · 3 meses
                 </div>
               </div>
+              <div className="text-sm mb-3 text-theme-muted">General mackena 1369 · Híbrido</div>
               <ul className="space-y-2 text-theme-secondary">
                 <li className="flex items-start gap-2">
                   <span className="text-theme-accent mt-1">•</span>
-                  <span>Participación en la elaboración de informes con Power BI y gestión de datos en Oracle para el área de Customer.</span>
+                  <span>Desarrollo Web con MySQL, PHP, HTML, CSS, JavaScript y jQuery en el sistema CCWOM; participación en elaboración de informes y gestión de datos.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-theme-accent mt-1">•</span>
-                  <span>Mejora de interfaces de usuario en el programa CCWON empleando PHP, Bootstrap, MySQL y entornos locales con XAMPP.</span>
+                  <span>Mejora de interfaces usando PHP, Bootstrap y MySQL, con entornos locales en XAMPP.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-theme-accent mt-1">•</span>
-                  <span>Colaboración en la optimización de la experiencia de usuario y en la integración de datos para facilitar la toma de decisiones.</span>
+                  <span>Colaboración en optimización de la experiencia de usuario e integración de datos para facilitar la toma de decisiones.</span>
                 </li>
               </ul>
             </div>
