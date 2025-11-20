@@ -324,6 +324,17 @@ function App() {
       image: "https://i.postimg.cc/sXNCJNvk/14-DIPLOMADO-EN-PROGRAMACI-N-Y-AN-LISIS-DE-SOFTWARE.jpg",
       category: "programming"
     }
+    ,
+    {
+      id: 17,
+      title: "Scrum Fundamentals Certified",
+      issuer: "SCRUMstudy",
+      date: "2025",
+      hours: 8,
+      description: "Certificación Scrum Fundamentals Certified emitida por SCRUMstudy. Esta certificación acredita conocimientos básicos sobre Scrum, incluyendo conceptos clave de la Guía SBOK, prácticas de equipos ágiles, marco Scrum y ejecución de proyectos Scrum. Habilidades desarrolladas: Scrum, metodologías ágiles, ejecución de proyectos y fundamentos del marco Scrum.",
+      image: "https://i.postimg.cc/pTLn1nj2/Certifcado-Scrum.png",
+      category: "tools"
+    }
   ];
 
   // ========================================
@@ -790,7 +801,7 @@ Enviado desde tu portafolio web`;
             <div className="card-linkedin p-6">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                 <div className="experience-header">
-                  <img src="https://i.postimg.cc/zBYBmL4S/logo-san-jorge-pacjk.jpg" alt="San Jorge Packaging" className="company-logo" loading="lazy" />
+                  <img src="https://i.postimg.cc/5Ng5p1TT/1557782195621-removebg-preview.png" alt="San Jorge Packaging" className="company-logo" loading="lazy" />
                   <div>
                     <h3 className="text-xl font-bold text-theme-primary">Programador Full Stack</h3>
                     <p className="text-lg font-semibold text-theme-accent">San Jorge Packaging</p>
@@ -824,7 +835,7 @@ Enviado desde tu portafolio web`;
             <div className="card-linkedin p-6">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                 <div className="experience-header">
-                  <img src="https://i.postimg.cc/rFHqX0tn/6-Letras-Doradas-Fondo-Trasparente.png" alt="SenPro" className="company-logo" loading="lazy" />
+                  <img src="https://i.postimg.cc/JnNdKvbr/Logo-Sen-Pro-TI-removebg-preview.png" alt="SenPro" className="company-logo" loading="lazy" />
                   <div>
                     <h3 className="text-xl font-bold text-theme-primary">Desarrollador Web</h3>
                     <p className="text-lg font-semibold text-theme-accent">SenPro · Contrato temporal</p>
@@ -851,7 +862,7 @@ Enviado desde tu portafolio web`;
             <div className="card-linkedin p-6">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                 <div className="experience-header">
-                  <img src="https://i.postimg.cc/T3HLs3Rr/logo-calper.png" alt="Calper" className="company-logo" loading="lazy" />
+                  <img src="https://i.postimg.cc/tRP23KXp/unnamed-removebg-preview.png" alt="Calper" className="company-logo" loading="lazy" />
                   <div>
                     <h3 className="text-xl font-bold text-theme-primary">Programador Informático</h3>
                     <p className="text-lg font-semibold text-theme-accent">Calper · Contrato temporal</p>
