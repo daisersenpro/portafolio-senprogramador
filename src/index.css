@@ -1,1471 +1,212 @@
-@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900');
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
-/* ============================================= */
-/* PALETA DE COLORES UNIFICADA Y PROFESIONAL */
-/* ============================================= */
-
-:root {
-  /* Fuentes */
-  --fuente-principal: 'Lato', sans-serif;
-  --peso-delgado: 300;
-  --peso-regular: 400;
-  --peso-bold: 700;
-  --peso-black: 900;
-  
-  /* ============================================= */
-  /* PALETA PRINCIPAL - VIOLETA PROFESIONAL */
-  /* ============================================= */
-  
-  /* Colores primarios */
-  --violeta-50: #f5f3ff;
-  --violeta-100: #ede9fe;
-  --violeta-200: #ddd6fe;
-  --violeta-300: #c4b5fd;
-  --violeta-400: #a78bfa;
-  /* Normalizamos "violeta" a tonos neutros (usar solo blanco/negro) */
-  --violeta-500: var(--gris-900);
-  --violeta-600: var(--gris-900);
-  --violeta-700: var(--gris-900);
-  --violeta-800: var(--gris-900);
-  --violeta-900: var(--gris-900);
-  /* Compatibilidad: variable histórica usada en estilos anteriores */
-  --violeta-principal: var(--gris-900);
-  --violeta-oscuro: var(--gris-800);
-  
-  /* Colores de acento */
-  --coral-500: #f97316;
-  --coral-600: #ea580c;
-  --coral-700: #dc2626;
-  --esmeralda-500: #10b981;
-  --esmeralda-600: #059669;
-  --esmeralda-700: #047857;
-  --dorado-500: #f59e0b;
-  --dorado-600: #d97706;
-  --dorado-700: #b45309;
-  
-  /* Grises profesionales */
-  --gris-50: #f8fafc;
-  --gris-100: #f1f5f9;
-  --gris-200: #e2e8f0;
-  --gris-300: #cbd5e1;
-  --gris-400: #94a3b8;
-  --gris-500: #64748b;
-  --gris-600: #475569;
-  --gris-700: #334155;
-  --gris-800: #1e293b;
-  --gris-900: #0f172a;
-  
-  /* Colores de estado */
-  --success: var(--esmeralda-500);
-  --warning: var(--dorado-500);
-  --error: #ef4444;
-  --info: #3b82f6;
-  
-  /* ============================================= */
-  /* MODO CLARO - FONDO BLANCO PROFESIONAL */
-  /* ============================================= */
-  
-  /* Fondos */
-  --bg-primary: #ffffff;
-  --bg-secondary: var(--gris-50);
-  --bg-tertiary: var(--gris-100);
-  --bg-card: #ffffff;
-  --bg-hover: var(--gris-50);
-  --bg-active: var(--violeta-100);
-  
-  /* Textos */
-  --text-primary: var(--gris-900);
-  --text-secondary: var(--gris-600);
-  --text-tertiary: var(--gris-500);
-  --text-muted: var(--gris-400);
-  --text-inverse: #ffffff;
-  
-  /* Enlaces */
-  /* Enlaces */
-  /* Use dorado suave como acento principal para un look elegante */
-  --text-link: var(--dorado-600);
-  --text-link-hover: var(--dorado-700);
-
-  /* Acentos */
-  --accent-primary: var(--gris-900);
-  --accent-secondary: var(--gris-700);
-  --accent-hover: var(--gris-800);
-  --accent-light: #ffffff;
-
-  /* Botones por defecto (se adaptan a cada tema) */
-  --btn-bg: var(--gris-900);
-  --btn-text: #ffffff;
-  --btn-border: transparent;
-  /* Footer variables (light by default) */
-  --footer-bg-light: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-  --footer-text-light: var(--gris-700);
-  /* Use a more neutral/corporate accent (indigo) instead of dorado */
-  --brand-accent-500: #0f4a8a; /* deep indigo */
-  --brand-accent-600: #0b3b6b; /* darker indigo */
-  --footer-link-light: var(--brand-accent-600);
-  --footer-border-light: var(--border-primary);
-  
-  /* Bordes */
-  --border-primary: var(--gris-200);
-  --border-secondary: var(--gris-100);
-  --border-light: var(--gris-50);
-  --border-accent: var(--violeta-300);
-  
-  /* Sombras */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
-  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.04);
-  --shadow-violet: 0 4px 14px rgba(139, 92, 246, 0.15);
-  --shadow-coral: 0 4px 14px rgba(249, 115, 22, 0.15);
-  --shadow-emerald: 0 4px 14px rgba(16, 185, 129, 0.15);
-}
-
-/* ============================================= */
-/* OVERRIDES: estilos neutrales blanco/negro para botones */
-/* Se colocan al final para sobreescribir reglas previas que usan violeta */
-.btn-hero-primary, .btn-primary-professional {
-  background: var(--btn-bg) !important;
-  color: var(--btn-text) !important;
-  border: var(--btn-border) !important;
-  border-radius: 12px !important;
-  padding: 12px 28px !important;
-  font-weight: 700 !important;
-  font-size: 15px !important;
-  cursor: pointer !important;
-  transition: transform 0.18s ease, box-shadow 0.18s ease !important;
-  box-shadow: var(--shadow-md) !important;
-}
-
-.btn-hero-primary:hover, .btn-primary-professional:hover {
-  transform: translateY(-3px) !important;
-  box-shadow: var(--shadow-lg) !important;
-}
-
-.btn-hero-secondary, .btn-secondary-professional {
-  background: transparent !important;
-  color: var(--btn-bg) !important;
-  border: 2px solid var(--btn-bg) !important;
-  border-radius: 12px !important;
-  padding: 10px 26px !important;
-  font-weight: 600 !important;
-  font-size: 15px !important;
-}
-
-.btn-hero-secondary:hover, .btn-secondary-professional:hover {
-  background: var(--btn-bg) !important;
-  color: var(--btn-text) !important;
-  transform: translateY(-3px) !important;
-}
-
-/* Role-specific buttons: ensure explicit light/dark behavior */
-.btn-github {
-  background: #ffffff !important;
-  color: #050507 !important;
-  border: 1px solid var(--border-primary) !important;
-}
-
-.btn-demo {
-  background: var(--btn-bg) !important;
-  color: var(--btn-text) !important;
-  border: none !important;
-}
-
-/* Dark mode overrides: invert as requested */
-[data-theme="dark"] .btn-github {
-  background: var(--btn-bg) !important; /* dark background */
-  color: var(--btn-text) !important; /* light text */
-  border: none !important;
-}
-
-[data-theme="dark"] .btn-demo {
-  background: #ffffff !important; /* light background */
-  color: #050507 !important; /* dark text */
-  border: 1px solid var(--border-primary) !important;
-}
-
-/* Ensure children (svg/text) inside these buttons follow colors */
-.btn-github, .btn-github * {
-  color: inherit !important;
-}
-.btn-github svg, .btn-github i { fill: currentColor !important; }
-.btn-demo, .btn-demo * { color: inherit !important; }
-.btn-demo svg, .btn-demo i { fill: currentColor !important; }
-
-/* Extra high-specificity overrides to prevent accidental 'text-white' or other
-   utility classes from making the GitHub button unreadable on light mode */
-.card-project .btn-github,
-.project-card .btn-github,
-.btn-github.btn-hero-secondary,
-.btn-github.text-white {
-  color: #050507 !important;
-  background: #ffffff !important;
-  border: 1px solid var(--border-primary) !important;
-  box-shadow: 0 2px 8px rgba(2,6,23,0.04) !important;
-}
-
-/* Ensure Demo button text is always visible (explicit) */
-.card-project .btn-demo,
-.project-card .btn-demo,
-.btn-demo.btn-hero-primary {
-  color: var(--btn-text) !important;
-  background: var(--btn-bg) !important;
-}
-
-/* For any remaining gradient backgrounds that used violeta, force neutral background on key components */
-.hero-gradient, .accent-gradient {
-  background: none !important;
-}
-
-
-[data-theme="dark"] {
-  /* ============================================= */
-  /* MODO OSCURO - ELEGANTE Y PROFESIONAL */
-  /* ============================================= */
-  
-  /* Fondos - modo oscuro con base negro profundo */
-  --bg-primary: #050507;   /* casi negro puro */
-  --bg-secondary: #0b0b0d; /* muy oscuro para secciones */
-  --bg-tertiary: #0f1113;  /* contraste suave para elementos */
-  --bg-card: #0b0b0d;      /* tarjetas ligeramente más claras que la página */
-  --bg-hover: #121215;
-  --bg-active: #19191b;
-
-  /* Textos */
-  --text-primary: #ffffff; /* títulos y texto principal */
-  --text-secondary: #cfcfcf; /* subtítulos neutros en modo oscuro */
-  --text-tertiary: #bfc3c7;
-  --text-muted: #9aa0a6;
-  --text-inverse: #000000;
-
-  /* Enlaces */
-  --text-link: #ffffff;
-  --text-link-hover: #e6e6e6;
-
-  /* Acentos - neutros para estilo blanco/negro */
-  --accent-primary: #ffffff;
-  --accent-secondary: var(--gris-700);
-  --accent-hover: #e6e6e6;
-  --accent-light: #0b0b0d;
-
-  /* Bordes */
-  --border-primary: #111216;
-  --border-secondary: var(--gris-600);
-  --border-light: var(--gris-500);
-  --border-accent: var(--gris-600);
-
-  /* Botones: invertir colores en modo oscuro */
-  --btn-bg: #ffffff;
-  --btn-text: #050507;
-  /* Footer variables for dark theme */
-  --footer-bg-dark: linear-gradient(135deg, #050507 0%, #0b0b0d 100%);
-  --footer-text-dark: var(--text-secondary);
-  --footer-link-dark: var(--dorado-500);
-  --footer-border-dark: rgba(245, 158, 11, 0.12);
-  
-  /* Sombras */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
-  --shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.2);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3), 0 2px 4px rgba(0, 0, 0, 0.2);
-  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.3), 0 4px 6px rgba(0, 0, 0, 0.2);
-  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.3), 0 10px 10px rgba(0, 0, 0, 0.2);
-  --shadow-violet: 0 4px 14px rgba(139, 92, 246, 0.25);
-  --shadow-coral: 0 4px 14px rgba(249, 115, 22, 0.25);
-  --shadow-emerald: 0 4px 14px rgba(16, 185, 129, 0.25);
-}
-
-/* ============================================= */
-/* ESTILOS GLOBALES PROFESIONALES */
-/* ============================================= */
-
-html {
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-*, *:before, *:after {
-  box-sizing: inherit;
+:root {
+  /* Colores tech moderno - Verde oscuro + neón */
+  --primary: #00ff88;
+  --primary-dark: #00cc6f;
+  --primary-light: #33ffaa;
+  
+  /* Colores fondos */
+  --bg-primary: #0f1419;
+  --bg-secondary: #1a1f2e;
+  --bg-tertiary: #252d3d;
+  
+  /* Colores de texto */
+  --text-primary: #ffffff;
+  --text-secondary: #e0e7ff;
+  --text-muted: #a0aec0;
+  
+  /* Accent neón */
+  --accent: #00ff88;
+  --accent-alt: #00d4ff;
+  
+  /* Otros */
+  --border: #2a3649;
+  --shadow: rgba(0, 255, 136, 0.1);
 }
 
 body {
-  font-family: var(--fuente-principal);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Navbar */
+.navbar {
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--accent);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  box-shadow: 0 2px 8px var(--shadow);
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navbar-brand span {
+  color: var(--accent);
+  text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+}
+
+.navbar-nav {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.navbar-nav a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.navbar-nav a:hover {
+  color: var(--accent);
+  text-shadow: 0 0 8px rgba(0, 255, 136, 0.5);
+}
+
+.navbar-nav a.active {
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 0.25rem;
+  text-shadow: 0 0 8px rgba(0, 255, 136, 0.5);
+}
+
+/* Responsive menu toggle (para móvil) */
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .navbar-nav {
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--bg-secondary);
+    padding: 1rem;
+  }
+
+  .navbar-nav.active {
+    display: flex;
+  }
+
+  .mobile-menu-toggle {
+    display: block;
+  }
+}
+
+/* Tipografía general */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
 }
 
 p {
-  color: var(--text-primary);
+  color: var(--text-secondary);
 }
 
-.contenedor {
-  width: 95%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
+/* Links */
 a {
+  color: var(--accent);
   text-decoration: none;
-  color: var(--text-link);
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 a:hover {
-  color: var(--text-link-hover);
+  color: var(--accent-alt);
+  text-shadow: 0 0 8px rgba(0, 255, 136, 0.4);
 }
 
-img, picture {
-  width: 100%;
-  display: block;
+/* Botones básicos */
+button {
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--fuente-principal);
-  color: var(--text-primary);
-}
-
-/* ============================================= */
-/* TRANSICIONES PROFESIONALES */
-/* ============================================= */
-
-* {
-  transition: background-color 0.3s ease, 
-              color 0.3s ease, 
-              border-color 0.3s ease, 
-              box-shadow 0.3s ease,
-              transform 0.2s ease;
-}
-
-/* Transiciones específicas para elementos interactivos */
-button, .btn, .card, .nav-item, .project-card, .cert-card {
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
   transition: all 0.3s ease;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
 }
 
-/* Efectos hover profesionales */
-button:hover, .btn:hover {
+.btn-primary {
+  background-color: var(--primary);
+  color: #000;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-light);
   transform: translateY(-2px);
-  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 255, 136, 0.4);
+  text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
 }
 
-.card:hover, .project-card:hover, .cert-card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-elevated);
+.btn-outline {
+  background-color: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
 }
 
-/* ============================================= */
-/* CLASES UTILITARIAS UNIFICADAS */
-/* ============================================= */
-
-/* Fondos */
-.bg-theme-primary { background-color: var(--bg-primary); }
-.bg-theme-secondary { background-color: var(--bg-secondary); }
-.bg-theme-tertiary { background-color: var(--bg-tertiary); }
-.bg-theme-card { background-color: var(--bg-card); }
-.bg-theme-hover { background-color: var(--bg-hover); }
-.bg-theme-active { background-color: var(--bg-active); }
-
-/* Textos */
-.text-theme-primary { color: var(--text-primary); }
-.text-theme-secondary { color: var(--text-secondary); }
-.text-theme-tertiary { color: var(--text-tertiary); }
-.text-theme-muted { color: var(--text-muted); }
-.text-theme-inverse { color: var(--text-inverse); }
-
-/* Acentos */
-.text-theme-accent { color: var(--accent-primary); }
-.text-theme-link { color: var(--text-link); }
-.text-theme-link:hover { color: var(--text-link-hover); }
-
-/* Bordes */
-.border-theme-primary { border-color: var(--border-primary); }
-.border-theme-secondary { border-color: var(--border-secondary); }
-.border-theme-light { border-color: var(--border-light); }
-.border-theme-accent { border-color: var(--border-accent); }
-
-/* Sombras */
-.shadow-theme { box-shadow: var(--shadow); }
-.shadow-theme-sm { box-shadow: var(--shadow-sm); }
-.shadow-theme-md { box-shadow: var(--shadow-md); }
-.shadow-theme-lg { box-shadow: var(--shadow-lg); }
-.shadow-theme-xl { box-shadow: var(--shadow-xl); }
-.shadow-theme-violet { box-shadow: var(--shadow-violet); }
-.shadow-theme-coral { box-shadow: var(--shadow-coral); }
-.shadow-theme-emerald { box-shadow: var(--shadow-emerald); }
-
-/* Clases específicas para asegurar visibilidad del texto */
-.text-footer-title {
-  color: var(--footer-text-light) !important;
-  font-weight: 600;
-}
-
-.text-footer-content {
-  color: var(--footer-text-light) !important;
-}
-
-.text-footer-link {
-  color: var(--footer-link-light) !important;
-  transition: color 0.3s ease;
-}
-
-.text-footer-link:hover {
-  color: var(--footer-link-light) !important;
-}
-
-[data-theme="dark"] .text-footer-title {
-  color: var(--footer-text-dark) !important;
-}
-
-[data-theme="dark"] .text-footer-content {
-  color: var(--footer-text-dark) !important;
-}
-
-[data-theme="dark"] .text-footer-link {
-  color: var(--footer-link-dark) !important;
-}
-
-[data-theme="dark"] .text-footer-link:hover {
-  color: var(--footer-link-dark) !important;
-}
-
-/* ---------------------------------------------
-   Global social-link (used in contact section
-   and footer). Ensures icons are visible in
-   both light and dark themes.
-   ------------------------------------------- */
-.social-link {
-  background: var(--bg-card);
-  border: 1px solid var(--border-primary);
-  color: var(--footer-link-light);
-  transition: all 0.28s cubic-bezier(0.2, 0, 0.08, 1);
-  position: relative;
-  overflow: hidden;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 10px;
-  box-shadow: var(--shadow-sm);
-}
-
-.social-link:hover {
-  background: linear-gradient(135deg, var(--brand-accent-500) 0%, var(--brand-accent-600) 100%);
-  border-color: transparent;
-  transform: translateY(-4px) scale(1.06);
-  box-shadow: 0 8px 32px rgba(15, 74, 138, 0.12);
-  color: #ffffff;
-}
-
-/* Dark-mode: ensure contrast for social icons outside footer */
-[data-theme="dark"] .social-link {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid var(--footer-border-dark);
-  color: var(--footer-link-dark);
-  box-shadow: none;
-}
-
-[data-theme="dark"] .social-link:hover {
-  background: linear-gradient(135deg, var(--brand-accent-500) 0%, var(--brand-accent-600) 100%);
-  color: #ffffff;
-  box-shadow: 0 10px 30px rgba(15,74,138,0.14);
-}
-
-/* ============================================= */
-/* Company logos used in the Experience section */
-/* ============================================= */
-.company-logo {
-  width: 48px;
-  height: 48px;
-  object-fit: contain;
-  display: inline-block;
-  border-radius: 8px;
-  background: transparent;
-}
-
-.experience-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-/* If a logo needs inversion to be visible in dark mode, add the class
-   `company-logo--invert` to the img and it will be adjusted here. */
-[data-theme="dark"] .company-logo--invert {
-  filter: brightness(0) invert(1) contrast(1.1);
-}
-
-/* Ensure button text/icons inside btn-hero-primary use the correct variable color */
-.btn-hero-primary, .btn-hero-primary * {
-  color: var(--btn-text) !important;
-}
-.btn-hero-primary svg, .btn-hero-primary i {
-  color: var(--btn-text) !important;
-  fill: var(--btn-text) !important;
-}
-
-/* Also ensure hero-secondary text visibility when backgrounds invert: use the
-   button background color as text (outline style) so the label is visible in
-   light mode. On hover the rule below switches to --btn-text. */
-.btn-hero-secondary, .btn-hero-secondary * {
-  color: var(--btn-bg) !important;
-  fill: var(--btn-bg) !important;
-}
-
-/* ============================================= */
-/* BOTONES HERO LIMPIOS Y ELEGANTES */
-/* ============================================= */
-
-.btn-hero-primary {
-  background: var(--btn-bg);
-  color: var(--btn-text);
-  border: var(--btn-border);
-  border-radius: 50px;
-  padding: 14px 36px;
-  font-weight: 700;
-  font-size: 16px;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: var(--shadow-md);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 180px;
-}
-
-.btn-hero-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-lg);
-  opacity: 0.95;
-}
-
-.btn-hero-secondary {
-  background: transparent;
-  color: var(--btn-bg);
-  border: 2px solid var(--btn-bg);
-  border-radius: 50px;
-  padding: 12px 34px;
-  font-weight: 600;
-  font-size: 16px;
-  cursor: pointer;
-  transition: transform 0.2s ease, background 0.2s ease;
-  min-width: 160px;
-}
-
-.btn-hero-secondary:hover {
-  background: var(--btn-bg);
-  color: var(--btn-text);
-  transform: translateY(-3px);
-}
-
-/* ============================================= */
-/* SISTEMA DE BOTONES ULTRA PROFESIONAL */
-/* ============================================= */
-
-/* Botón Principal - VIOLETA MÁGICO */
-.btn-primary-professional {
-  background: linear-gradient(135deg, var(--violeta-principal) 0%, var(--violeta-oscuro) 50%, #312e81 100%);
-  color: white;
-  border: none;
-  border-radius: 16px;
-  padding: 16px 36px;
-  font-weight: 700;
-  font-size: 16px;
-  cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 8px 32px rgba(99, 102, 241, 0.4), 0 4px 16px rgba(139, 92, 246, 0.2);
-  position: relative;
-  overflow: hidden;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-}
-
-
-
-.btn-primary-professional:hover {
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(99, 102, 241, 0.5), 0 8px 24px rgba(139, 92, 246, 0.3);
-  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 50%, #6d28d9 100%);
-}
-
-.btn-primary-professional:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.3);
-}
-
-/* Botón Secundario - CRISTAL VIOLETA */
-.btn-secondary-professional {
-  background: rgba(99, 102, 241, 0.1);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  color: var(--violeta-principal);
-  border: 2px solid var(--violeta-principal);
-  border-radius: 16px;
-  padding: 14px 34px;
-  font-weight: 600;
-  font-size: 16px;
-  cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-secondary-professional:hover {
-  background: var(--violeta-principal);
-  color: white;
-  transform: translateY(-3px);
-  box-shadow: 0 16px 32px rgba(99, 102, 241, 0.4);
-  border-color: transparent;
-}
-
-/* Botón de Éxito - ESMERALDA BRILLANTE */
-.btn-success-professional {
-  background: linear-gradient(135deg, var(--esmeralda) 0%, #059669 50%, #047857 100%);
-  color: white;
-  border: none;
-  border-radius: 16px;
-  padding: 16px 36px;
-  font-weight: 700;
-  font-size: 16px;
-  cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.4), 0 4px 12px rgba(52, 211, 153, 0.2);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-}
-
-.btn-success-professional:hover {
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(16, 185, 129, 0.5), 0 8px 24px rgba(52, 211, 153, 0.3);
-  background: linear-gradient(135deg, #34d399 0%, #10b981 50%, #059669 100%);
-}
-
-/* Botón de Acción - CORAL FUEGO */
-.btn-action-professional {
-  background: linear-gradient(135deg, var(--coral) 0%, #ea580c 50%, #dc2626 100%);
-  color: white;
-  border: none;
-  border-radius: 16px;
-  padding: 16px 36px;
-  font-weight: 700;
-  font-size: 16px;
-  cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 8px 24px rgba(249, 115, 22, 0.4), 0 4px 12px rgba(251, 146, 60, 0.2);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-}
-
-.btn-action-professional:hover {
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(249, 115, 22, 0.6), 0 8px 24px rgba(251, 146, 60, 0.4);
-  background: linear-gradient(135deg, #fb923c 0%, #f97316 50%, #ea580c 100%);
-}
-
-/* Botones Minimalistas para Navegación */
-.btn-nav-professional {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  color: var(--text-primary);
-  border: 1px solid var(--border-primary);
-  border-radius: 8px;
-  padding: 10px 20px;
-  font-weight: 500;
-  font-size: 14px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.btn-nav-professional:hover {
-  background: var(--bg-hover);
-  border-color: var(--accent-primary);
-  color: var(--accent-primary);
-  transform: translateY(-1px);
-}
-
-/* Mantener compatibilidad - ACTUALIZACIÓN ÉPICA */
-.btn-linkedin-primary {
-  background: linear-gradient(135deg, var(--violeta-principal) 0%, var(--violeta-oscuro) 50%, #4c1d95 100%);
-  color: white;
-  border: none;
-  border-radius: 20px;
-  padding: 16px 32px;
-  font-weight: 700;
-  font-size: 16px;
-  cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-  position: relative;
-  overflow: hidden;
-}
-
-
-
-.btn-linkedin-primary:hover {
-  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 50%, #6d28d9 100%);
-  transform: translateY(-4px) scale(1.05);
-  box-shadow: 0 20px 40px rgba(99, 102, 241, 0.6);
-}
-
-.btn-linkedin-secondary {
-  background: rgba(99, 102, 241, 0.1);
-  backdrop-filter: blur(12px);
-  color: var(--violeta-principal);
-  border: 2px solid var(--violeta-principal);
-  border-radius: 20px;
-  padding: 14px 30px;
-  font-weight: 600;
-  font-size: 16px;
-  cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.btn-linkedin-secondary:hover {
-  background: var(--violeta-principal);
-  color: white;
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 16px 32px rgba(99, 102, 241, 0.5);
-  border-color: transparent;
-}
-
-/* ============================================= */
-/* SISTEMA DE CARDS ULTRA ELEGANTE */
-/* ============================================= */
-
-/* Card Principal - Diseño Premium */
-.card-professional {
-  background: var(--bg-card);
-  border: 1px solid var(--border-primary);
-  border-radius: 16px;
-  box-shadow: var(--shadow-card);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
-  padding: 32px;
-  position: relative;
-  overflow: hidden;
-}
-
-.card-professional::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--azul-corporativo) 0%, var(--naranja-acento) 100%);
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-.card-professional:hover::before {
-  opacity: 1;
-}
-
-.card-professional:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-elevated);
-  border-color: transparent;
-}
-
-/* Card para Proyectos */
-.card-project {
-  background: var(--bg-card);
-  border: 1px solid var(--border-primary);
-  border-radius: 16px;
-  box-shadow: var(--shadow-card);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  overflow: hidden;
-  position: relative;
-}
-
-.card-project:hover {
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: var(--shadow-elevated);
-  border-color: var(--azul-corporativo);
-}
-
-
-
-/* Card para Certificaciones */
-.card-certification {
-  background: var(--bg-card);
-  border: 1px solid var(--border-primary);
-  border-radius: 12px;
-  box-shadow: var(--shadow-card);
-  transition: all 0.3s ease;
-  padding: 24px;
-  position: relative;
-}
-
-.card-certification:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-elevated);
-  border-color: var(--verde-exito);
-}
-
-.card-certification .badge {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  background: linear-gradient(135deg, var(--verde-exito) 0%, #00b371 100%);
-  color: white;
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 600;
-}
-
-/* Mantener compatibilidad */
-.card-linkedin {
-  background: var(--bg-card);
-  border: 1px solid var(--border-primary);
-  border-radius: 16px;
-  box-shadow: var(--shadow-card);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
-  padding: 32px;
-  position: relative;
-}
-
-.card-linkedin::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: var(--azul-corporativo);
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
-}
-
-.card-linkedin:hover::before {
-  transform: scaleX(1);
-}
-
-.card-linkedin:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-elevated);
-  border-color: var(--azul-corporativo);
-}
-
-/* Cards para propiedades/anuncios */
-.anuncio, .resumen-propiedad {
-  background: var(--bg-card);
-  border: 1px solid var(--border-primary);
-  border-radius: 16px;
-  padding: 28px;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-}
-
-.anuncio:hover, .resumen-propiedad:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-elevated);
-  border-color: var(--verde-exito);
-}
-
-.anuncio .precio, .resumen-propiedad .precio {
-  color: var(--verde-exito);
-  font-weight: 700;
-  font-size: 24px;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-.anuncio .icono, .resumen-propiedad .icono {
-  transition: all 0.3s ease;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-}
-
-/* Estados de éxito, advertencia y error */
-.text-success { color: var(--success); }
-.text-warning { color: var(--warning); }
-.text-error { color: var(--error); }
-.bg-success { background-color: var(--success); }
-.bg-warning { background-color: var(--warning); }
-.bg-error { background-color: var(--error); }
-
-/* ============================================= */
-/* MODO OSCURO PROFESIONAL */
-/* ============================================= */
-
-[data-theme="dark"] {
-  background-color: var(--bg-primary);
-}
-
-[data-theme="dark"] body {
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-}
-
-[data-theme="dark"] p {
-  color: var(--text-secondary) !important;
-}
-
-[data-theme="dark"] a, 
-[data-theme="dark"] h1,
-[data-theme="dark"] h2,
-[data-theme="dark"] h3,
-[data-theme="dark"] h4,
-[data-theme="dark"] h5,
-[data-theme="dark"] h6 {
-  color: var(--text-primary) !important;
-}
-
-[data-theme="dark"] a:hover {
-  color: var(--text-link-hover) !important;
-}
-
-/* Footer específico - MODO CLARO */
-.footer-professional h3,
-.footer-professional h4 {
-  color: var(--footer-text-light) !important;
-  font-weight: 600;
-}
-
-.footer-professional p {
-  color: var(--footer-text-light) !important;
-}
-
-.footer-professional a {
-  color: var(--footer-link-light) !important;
-  transition: color 0.3s ease;
-}
-
-.footer-professional a:hover {
-  color: var(--footer-link-light) !important;
-}
-
-.footer-professional button {
-  color: var(--footer-text-light) !important;
-}
-
-.footer-professional button:hover {
-  color: var(--footer-link-light) !important;
-}
-
-/* Footer específico - MODO OSCURO */
-[data-theme="dark"] .footer-professional h3,
-[data-theme="dark"] .footer-professional h4 {
-  color: var(--text-primary) !important;
-  font-weight: 600;
-}
-
-[data-theme="dark"] .footer-professional p {
-  color: var(--text-secondary) !important;
-}
-
-[data-theme="dark"] .footer-professional a {
-  color: var(--text-secondary) !important;
-}
-
-[data-theme="dark"] .footer-professional a:hover {
-  color: var(--text-link-hover) !important;
-}
-
-[data-theme="dark"] .footer-professional button {
-  color: var(--text-secondary) !important;
-}
-
-[data-theme="dark"] .footer-professional button:hover {
-  color: var(--text-primary) !important;
-}
-
-[data-theme="dark"] .anuncio, 
-[data-theme="dark"] .resumen-propiedad {
-  background-color: var(--gris-oscuro);
-  border: 1px solid var(--gris-oscuro);
-}
-
-[data-theme="dark"] .anuncio .precio,
-[data-theme="dark"] .resumen-propiedad .precio {
-  color: var(--verde);
-}
-
-[data-theme="dark"] .anuncio .icono,
-[data-theme="dark"] .resumen-propiedad .icono {
-  filter: invert(100%);
-}
-
-[data-theme="dark"] .texto-nosotros blockquote {
-  color: var(--blanco);
-}
-
-/* Formularios en modo oscuro */
-[data-theme="dark"] .formulario label,
-[data-theme="dark"] .formulario legend,
-[data-theme="dark"] .formulario p {
-  color: var(--gris);
-}
-
-[data-theme="dark"] .formulario input:not([type="submit"]), 
-[data-theme="dark"] .formulario textarea,
-[data-theme="dark"] .formulario select {
-  background-color: var(--gris-oscuro);
-  border: 1px solid var(--gris-oscuro);
-  color: var(--blanco);
-}
-
-/* Asegurar que todas las tarjetas tengan el fondo correcto */
-[data-theme="dark"] .card,
-[data-theme="dark"] .project-card,
-[data-theme="dark"] .cert-card,
-[data-theme="dark"] .experience-card,
-[data-theme="dark"] .info-card,
-[data-theme="dark"] .card-linkedin {
-  background-color: var(--bg-card) !important;
-  border-color: var(--border-primary) !important;
-  color: var(--text-primary) !important;
-}
-
-/* Texto con colores específicos */
-[data-theme="dark"] .text-muted {
-  color: var(--text-muted) !important;
-}
-
-[data-theme="dark"] .text-secondary {
-  color: var(--text-secondary) !important;
-}
-
-/* ============================================= */
-/* EFECTOS PROFESIONALES ADICIONALES */
-/* ============================================= */
-
-/* Gradientes ÉPICOS Y MÁGICOS */
-.gradient-professional,
-.gradient-accent,
-.gradient-text {
-  /* Neutral styles: use plain text color to avoid purple/coral gradients */
-  background: none !important;
-  color: var(--text-primary) !important;
-  -webkit-background-clip: unset !important;
-  -webkit-text-fill-color: unset !important;
-  background-clip: unset !important;
-}
-
-.gradient-aurora {
-  background: linear-gradient(135deg, var(--violeta-400) 0%, var(--violeta-500) 25%, var(--esmeralda-500) 50%, var(--dorado-500) 75%, var(--coral-500) 100%);
-}
-
-.gradient-sunset {
-  background: linear-gradient(135deg, var(--dorado-500) 0%, var(--coral-500) 50%, var(--error) 100%);
-}
-
-.gradient-ocean {
-  background: linear-gradient(135deg, var(--info) 0%, #3b82f6 50%, var(--violeta-500) 100%);
-}
-
-.gradient-forest {
-  background: linear-gradient(135deg, #84cc16 0%, var(--esmeralda-500) 50%, var(--esmeralda-600) 100%);
-}
-
-/* Efectos de Cristal (Glassmorphism) */
-.glass-effect {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-[data-theme="dark"] .glass-effect {
-  background: rgba(22, 27, 34, 0.8);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* Animaciones Profesionales */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes spin-slow {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.animate-spin-slow {
-  animation: spin-slow 20s linear infinite;
-}
-
-.animate-fade-in-up {
-  animation: fadeInUp 0.6s ease-out;
-}
-
-.animate-slide-in-right {
-  animation: slideInRight 0.6s ease-out;
-}
-
-/* Efectos de Hover Profesionales */
-.hover-lift {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.hover-lift:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-elevated);
-}
-
-.hover-glow {
-  transition: all 0.3s ease;
-}
-
-.hover-glow:hover {
-  box-shadow: 0 0 20px rgba(0, 102, 204, 0.3);
-}
-
-/* Tipografía Profesional */
-.text-professional-heading {
-  font-family: var(--fuente-principal);
-  font-weight: var(--peso-bold);
-  color: var(--gris-profesional);
-  line-height: 1.2;
-  letter-spacing: -0.025em;
-}
-
-.text-professional-body {
-  font-family: var(--fuente-principal);
-  font-weight: var(--peso-regular);
-  color: var(--gris-medio);
-  line-height: 1.6;
-}
-
-/* ============================================= */
-/* MEDIA QUERIES RESPONSIVO */
-/* ============================================= */
-
-/* Teléfonos */
-@media (min-width: 480px) {
-  .grid-telefono-1 { 
-    display: grid; 
-    grid-template-columns: 1fr; 
-    gap: 2rem; 
-  }
-  .grid-telefono-2 { 
-    display: grid; 
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 2rem; 
-  }
-}
-
-/* Tablets */
-@media (min-width: 768px) {
-  .grid-tablet-2 { 
-    display: grid; 
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 3rem; 
-  }
-  .grid-tablet-3 { 
-    display: grid; 
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 3rem; 
-  }
-}
-
-/* Desktop */
-@media (min-width: 1024px) {
-  .grid-desktop-3 { 
-    display: grid; 
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 4rem; 
-  }
-  .grid-desktop-4 { 
-    display: grid; 
-    grid-template-columns: repeat(4, 1fr); 
-    gap: 4rem; 
-  }
-}
-
-/* ============================================= */
-/* CLASES COHERENTES PARA TODA LA APLICACIÓN */
-/* ============================================= */
-
-/* Botones de acción principales (neutralizados - blanco/negro) */
-.btn-primary-violet {
-  background: var(--btn-bg);
-  color: var(--btn-text);
-  border: var(--btn-border);
-  border-radius: 12px;
-  padding: 10px 20px;
-  font-weight: 600;
-  font-size: 15px;
-  cursor: pointer;
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
-  box-shadow: var(--shadow-md);
-}
-
-.btn-primary-violet:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
-  opacity: 0.95;
-}
-
-/* Cards coherentes */
-.card-coherent {
-  background: var(--bg-card);
-  border: 1px solid var(--border-primary);
-  border-radius: 16px;
-  box-shadow: var(--shadow);
-  transition: all 0.3s ease;
-  overflow: hidden;
-}
-
-.card-coherent:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--border-accent);
-}
-
-/* Badges coherentes */
-.badge-violet {
-  background: var(--bg-hover);
-  color: var(--text-primary);
-  padding: 6px 12px;
-  border-radius: 12px;
-  font-size: 13px;
-  font-weight: 600;
-  border: 1px solid var(--border-light);
-  display: inline-block;
-  white-space: nowrap;
-  transition: all 0.18s ease;
-}
-
-.badge-violet:hover {
-  background: var(--bg-active);
-  transform: translateY(-1px);
-}
-
-.badge-coral {
-  background: rgba(249, 115, 22, 0.1);
-  color: var(--coral-600);
-  padding: 6px 12px;
-  border-radius: 16px;
-  font-size: 13px;
-  font-weight: 600;
-  border: 1px solid rgba(249, 115, 22, 0.2);
-  display: inline-block;
-  white-space: nowrap;
-  transition: all 0.2s ease;
-}
-
-.badge-coral:hover {
-  background: rgba(249, 115, 22, 0.2);
-  transform: translateY(-1px);
-}
-
-.badge-emerald {
-  background: rgba(16, 185, 129, 0.1);
-  color: var(--esmeralda-600);
-  padding: 6px 12px;
-  border-radius: 16px;
-  font-size: 13px;
-  font-weight: 600;
-  border: 1px solid rgba(16, 185, 129, 0.2);
-  display: inline-block;
-  white-space: nowrap;
-  transition: all 0.2s ease;
-}
-
-.badge-emerald:hover {
-  background: rgba(16, 185, 129, 0.2);
-  transform: translateY(-1px);
-}
-
-/* Secciones con fondo coherente */
-.section-primary {
-  background: var(--bg-primary);
-}
-
-.section-secondary {
-  background: var(--bg-secondary);
-}
-
-/* ============================================= */
-/* FOOTER PROFESIONAL - DOS ESTILOS */
-/* ============================================= */
-
-/* ESTILO 1: Minimalista y elegante */
-.footer-minimal {
-  background: var(--gris-900);
-  color: var(--text-secondary);
-  border-top: 1px solid var(--border-primary);
-}
-
-.footer-minimal::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, 
-    transparent 0%, 
-    var(--violeta-500) 50%, 
-    transparent 100%
-  );
-}
-
-/* ESTILO 2: Con efectos sutiles (actual) */
-
-.footer-professional {
-  background: var(--footer-bg-light);
-  color: var(--footer-text-light);
-  position: relative;
-  overflow: hidden;
-  border-top: 1px solid var(--border-primary);
-}
-
-.footer-professional::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg,
-    transparent 0%,
-    var(--footer-border-light) 25%,
-    var(--footer-border-light) 50%,
-    var(--footer-border-light) 75%,
-    transparent 100%
-  );
-  animation: shimmer 4s ease-in-out infinite;
-}
-
-@keyframes shimmer {
-  0%, 100% { 
-    opacity: 0.6; 
-    transform: scaleX(0.8);
-  }
-  50% { 
-    opacity: 1; 
-    transform: scaleX(1);
-  }
-}
-
-.footer-professional::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  /* Subtle dorado accents for elegance (replace violet/coral) */
-  background:
-    radial-gradient(circle at 25% 25%, rgba(245, 158, 11, 0.04) 0%, transparent 40%),
-    radial-gradient(circle at 75% 75%, rgba(245, 158, 11, 0.03) 0%, transparent 40%),
-    radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.02) 0%, transparent 30%);
-  pointer-events: none;
-}
-
-.footer-professional h3 {
-  color: var(--text-primary);
-  filter: none;
-}
-
-.footer-professional .social-link {
-  /* Mejor contraste en modo claro: fondo de tarjeta + borde sutil y tamaño fijo */
-  background: var(--bg-card);
-  backdrop-filter: none;
-  border: 1px solid var(--border-primary);
-  color: var(--footer-link-light);
-  transition: all 0.28s cubic-bezier(0.2, 0, 0.08, 1);
-  position: relative;
-  overflow: hidden;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 10px;
-  box-shadow: var(--shadow-sm);
-}
-
-
-
-.footer-professional .social-link:hover {
-  background: linear-gradient(135deg, var(--brand-accent-500) 0%, var(--brand-accent-600) 100%);
-  border-color: transparent;
-  transform: translateY(-4px) scale(1.06);
-  box-shadow: 0 8px 32px rgba(15, 74, 138, 0.12);
-  color: #ffffff;
-}
-
-/* Asegurar contraste en modo oscuro para los iconos */
-[data-theme="dark"] .footer-professional .social-link {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid var(--footer-border-dark);
-  color: var(--footer-link-dark);
-  box-shadow: none;
-}
-
-[data-theme="dark"] .footer-professional .social-link:hover {
-  background: linear-gradient(135deg, var(--brand-accent-500) 0%, var(--brand-accent-600) 100%);
-  color: #ffffff;
-  box-shadow: 0 10px 30px rgba(15,74,138,0.14);
-}
-
-[data-theme="dark"] .footer-professional {
-  background: var(--footer-bg-dark);
-  color: var(--footer-text-dark);
-  border-top: 1px solid var(--footer-border-dark);
-}
-
-[data-theme="dark"] .footer-professional::before {
-  background: linear-gradient(90deg,
-    transparent 0%,
-    var(--footer-link-dark) 25%,
-    rgba(245,158,11,0.22) 50%,
-    var(--footer-link-dark) 75%,
-    transparent 100%
-  );
-}
-
-/* ============================================= */
-/* ASEGURAR COHERENCIA EN MODO OSCURO */
-/* ============================================= */
-
-/* En modo oscuro, asegurar que los acentos sean violeta */
-[data-theme="dark"] .text-theme-accent,
-[data-theme="dark"] .text-theme-link {
-  color: var(--accent-primary) !important;
-}
-
-[data-theme="dark"] .text-theme-accent:hover,
-[data-theme="dark"] .text-theme-link:hover {
-  color: var(--accent-hover) !important;
-}
-
-/* Botones coherentes en modo oscuro */
-[data-theme="dark"] .btn-primary-violet {
-  background: var(--btn-bg) !important;
-  color: var(--btn-text) !important;
-  box-shadow: var(--shadow-md) !important;
-}
-
-[data-theme="dark"] .btn-primary-violet:hover {
-  background: var(--btn-bg) !important;
-  box-shadow: var(--shadow-lg) !important;
+.btn-outline:hover {
+  background-color: rgba(0, 255, 136, 0.1);
+  box-shadow: 0 0 8px rgba(0, 255, 136, 0.3);
 }
