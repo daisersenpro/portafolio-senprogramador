@@ -7,10 +7,7 @@ export default function Hero() {
       <div className="hero-content">
         <p className="hero-kicker">Desarrollo web a medida</p>
         <h1>Construyo soluciones que funcionan, se entienden y se ven bien.</h1>
-        <p className="hero-description">
-          Puedo trabajar con un estilo moderno o clásico según lo que necesites.
-          Lo importante para mí es resolver problemas con una interfaz clara, útil y bien hecha.
-        </p>
+        <p className="hero-description">Soluciones web claras, funcionales y fáciles de mantener.</p>
       </div>
 
       <div className="hero-visual" aria-label="Imagen principal del hero">

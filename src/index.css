@@ -367,3 +367,126 @@ button {
     animation: none;
   }
 }
+
+/* About section */
+.about {
+  padding: 3.25rem 1rem;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+}
+
+.about-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 1.6rem;
+  margin-bottom: 1.25rem;
+  color: var(--text-primary);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.about-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.04);
+  padding: 1.25rem;
+  border-radius: 0.8rem;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.45);
+}
+
+.about-card--text .lead {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+}
+
+.about-card--tech h3 {
+  margin-bottom: 0.6rem;
+}
+
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tech-chip {
+  background: rgba(0,255,136,0.06);
+  color: var(--accent);
+  padding: 0.4rem 0.6rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  border: 1px solid rgba(0,255,136,0.12);
+}
+
+.chip-icon {
+  margin-right: 0.45rem;
+  vertical-align: middle;
+  opacity: 0.95;
+}
+
+.about-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.7rem;
+}
+
+.about-badges {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.badge {
+  background: rgba(255,255,255,0.03);
+  color: var(--text-secondary);
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+.about-cta {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.75rem;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.btn-primary {
+  background: linear-gradient(90deg,var(--primary),var(--primary-light));
+  color: #000;
+}
+
+/* subtle hover */
+.about-card:hover {
+  transform: translateY(-6px);
+  transition: transform 220ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-card, .chip-icon { transition: none; transform: none; }
+}
+
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-card--tech {
+    order: -1;
+  }
+}
